@@ -1,8 +1,3 @@
-<?php
-    session_start();
-    include('..\server\server.php'); 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,19 +12,6 @@
 </head>
 
 <body>
-
-    <form action="login_staff_insert.php" method="post">
-        <?php if (isset($_SESSION['error'])) : ?>
-            <div class="error">
-                <h3>
-                    <?php 
-                        echo $_SESSION['error'];
-                        unset($_SESSION['error']);
-                    ?>
-                </h3>
-            </div>
-        <?php endif ?>
-
     <!-- ----- Login form ----- --> 
     <form>
 
@@ -38,16 +20,16 @@
             <img src="logo_blue.png" width=242>
         </div>
 
-        <!-- ----- get staff login input ----- --> 
+        <!-- ----- get login input ----- --> 
         <div class="SubmitForLogin">
-            <input type="text" placeholder="Email" name="Email">
-            <input type="text" placeholder="Password" name="Password">
-            
+            <input type="text" placeholder="Email">
+            <input type="text" placeholder="Password">
+
             <br>
             <a href="default.asp" target="_blank" class="txt_link_left"> forget password? </a>
             <a href="default.asp" target="_blank" class="txt_link_right"> as a client? </a>
             <br>
-            <button type="submit" class="btn" name="login_user"> LOG IN AS STAFF </button>
+            <button type="submit" class="btn" > LOG IN AS STAFF </button>
         </div>
 
         <!-- ----- Don’t have an account? ----- --> 
@@ -63,10 +45,6 @@
 
 
 </html>
-
-<?php
-    mysqli_close($conn); 
-?>
 
 
 
