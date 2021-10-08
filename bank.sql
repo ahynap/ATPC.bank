@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2021 at 01:28 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Oct 08, 2021 at 08:48 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -43,7 +42,8 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `accountID`) VALUES
 ('oh@hotmail.com', 'dddsnmam', 'oh', 'wow', '06000001', 1),
-('baanan@hotmail.com', 'ewqg', 'a', 's', 'SA ', 2);
+('baanan@hotmail.com', 'ewqg', 'a', 's', 'SA ', 2),
+('sompongsu@gmail.com', 'sususompong', 'sompong', 'susu', '0849992145', 3);
 
 -- --------------------------------------------------------
 
@@ -75,6 +75,13 @@ CREATE TABLE `staffaccount` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
+-- Dumping data for table `staffaccount`
+--
+
+INSERT INTO `staffaccount` (`StaffID`, `Name`, `SurName`, `StaffPin`, `Email`, `Password`) VALUES
+(111111, 'somsri', '', '123456', 'somsriza@gmail.com', 'zazasomsri');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -98,7 +105,7 @@ ALTER TABLE `staffaccount`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `accountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `accountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
