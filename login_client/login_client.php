@@ -38,10 +38,14 @@
             <img src="logo_blue.png" width=242>
         </div>
 
-        <!-- ----- logo ATPC bank ----- --> 
+        <!-- ----- get login input ----- --> 
         <div class="SubmitForLogin">
             <input type="text" placeholder="Email" name="Email">
             <input type="text" placeholder="Password" name="Password">
+            
+            <br>
+            <a href="default.asp" target="_blank" class="txt_link_left"> forget password? </a>
+            <a href="default.asp" target="_blank" class="txt_link_right"> as a staff? </a>
             <br>
             <button type="submit" class="btn" name="login_user"> LOG IN </button>
         </div>

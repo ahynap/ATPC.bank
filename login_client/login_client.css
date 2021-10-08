@@ -78,7 +78,7 @@ form {
 
 /* ----- Login botton when hover ----- */
 .SubmitForLogin .btn::before,
-.SubmitForLogin .btn::after{
+.SubmitForLogin .btn::after {
     position: absolute;
     display: block;
     content: '';
@@ -89,6 +89,46 @@ form {
     background-color: #7EAC85;
     color: #F4F1EC;
 }
+
+/* ----- text link ----- */
+a {
+    text-decoration: underline;
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: #7585BD;
+}
+
+a::before,
+a::after {
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all .5s;
+}
+
+a:hover {
+  opacity: 0.5;
+}
+
+.txt_link_left{
+    text-align: left;
+    position: absolute;
+    left: 76px;
+}
+
+.txt_link_right{
+    text-align: left;
+    position: absolute;
+    right: 76px;
+}
+
+
+
+
+
 
 /* ----- Don’t have an account? -----  */
 .Text-with-line {
