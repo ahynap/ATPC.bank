@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2021 at 10:30 AM
+-- Generation Time: Oct 08, 2021 at 11:21 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -42,8 +42,8 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`AccountID`, `AccountNo`, `Email`, `Password`, `Name`, `SerName`, `Phone`) VALUES
-(1, '145879521456', 'sompongsu', 'sususompong', '', '', ''),
-(2, '214517845621', 'PPkerati', 'ppsuza', '', '', '');
+(1, '145879521456', 'sompongsu@gmail.com', 'sususompong', 'sompong', 'susu', '0815429741'),
+(2, '214517845621', 'PPkerati@gmail.com', 'ppsuza', 'PP', 'suza', '0842654125');
 
 -- --------------------------------------------------------
 
@@ -66,13 +66,20 @@ CREATE TABLE `accountnoinfo` (
 --
 
 CREATE TABLE `staffaccount` (
-  `StaffAccountID` int(20) NOT NULL,
+  `staffaccountID` int(50) NOT NULL,
   `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `SerName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `StaffPin` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
   `Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Password` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `staffaccount`
+--
+
+INSERT INTO `staffaccount` (`staffaccountID`, `Name`, `SerName`, `StaffPin`, `Email`, `Password`) VALUES
+(1, 'somsri', 'zaza', '123456', 'somsriza@gmail.com', 'zazasomsri');
 
 --
 -- Indexes for dumped tables
@@ -88,7 +95,7 @@ ALTER TABLE `account`
 -- Indexes for table `staffaccount`
 --
 ALTER TABLE `staffaccount`
-  ADD PRIMARY KEY (`StaffAccountID`);
+  ADD PRIMARY KEY (`staffaccountID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -99,6 +106,12 @@ ALTER TABLE `staffaccount`
 --
 ALTER TABLE `account`
   MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `staffaccount`
+--
+ALTER TABLE `staffaccount`
+  MODIFY `staffaccountID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
