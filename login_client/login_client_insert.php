@@ -1,14 +1,14 @@
 <?php 
     session_start();
-    include('server.php');
+    include('..\server\server.php');
 
     $errors = array();
 
     if (isset($_POST['login_user'])) {
-        $UserName = mysqli_real_escape_string($conn, $_POST['UserName']);
+        $Email = mysqli_real_escape_string($conn, $_POST['Email']);
         $Password = mysqli_real_escape_string($conn, $_POST['Password']);
 
-        if (empty($UserName)) {
+        if (empty($Email)) {
             array_push($errors, "Email is required");
         }
 
@@ -18,11 +18,11 @@
 
         if (count($errors) == 0) {
             $password = md5($password);
-            $query = "SELECT * FROM account WHERE UserName = '$UserName' AND Password = '$Password' ";
+            $query = "SELECT * FROM account WHERE Email = '$Email' AND Password = '$Password' ";
             $result = mysqli_query($conn, $query);
 
             if (mysqli_num_rows($result) == 1) {
-                $_SESSION['UserName'] = $UserName;
+                $_SESSION['Email'] = $Email;
                 $_SESSION['success'] = "Your are now logged in";
                 header("location: login_succes.php");
             } else {

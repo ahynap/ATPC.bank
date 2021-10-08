@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include('server.php'); 
+    include('..\server\server.php'); 
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +40,7 @@
 
         <!-- ----- logo ATPC bank ----- --> 
         <div class="SubmitForLogin">
-            <input type="text" placeholder="Username" name="UserName">
+            <input type="text" placeholder="Email" name="Email">
             <input type="text" placeholder="Password" name="Password">
             <br>
             <button type="submit" class="btn" name="login_user"> LOG IN </button>
@@ -62,9 +62,6 @@
 
 <?php
     mysqli_close($conn); 
-    echo "<br><br>";
-    echo "--- END ---";
-
 ?>
 
 
