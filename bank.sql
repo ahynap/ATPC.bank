@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2021 at 11:21 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.15
+-- Generation Time: Oct 08, 2021 at 01:28 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -28,22 +29,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `account` (
-  `AccountID` int(20) NOT NULL,
-  `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `SerName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `Phone` varchar(10) COLLATE utf8_unicode_ci NOT NULL
+  `SurName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Phone` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `accountID` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`AccountID`, `AccountNo`, `Email`, `Password`, `Name`, `SerName`, `Phone`) VALUES
-(1, '145879521456', 'sompongsu@gmail.com', 'sususompong', 'sompong', 'susu', '0815429741'),
-(2, '214517845621', 'PPkerati@gmail.com', 'ppsuza', 'PP', 'suza', '0842654125');
+INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `accountID`) VALUES
+('oh@hotmail.com', 'dddsnmam', 'oh', 'wow', '06000001', 1),
+('baanan@hotmail.com', 'ewqg', 'a', 's', 'SA ', 2);
 
 -- --------------------------------------------------------
 
@@ -66,20 +66,13 @@ CREATE TABLE `accountnoinfo` (
 --
 
 CREATE TABLE `staffaccount` (
-  `staffaccountID` int(50) NOT NULL,
+  `StaffID` int(20) NOT NULL,
   `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `SerName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `SurName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `StaffPin` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
   `Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Password` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `staffaccount`
---
-
-INSERT INTO `staffaccount` (`staffaccountID`, `Name`, `SerName`, `StaffPin`, `Email`, `Password`) VALUES
-(1, 'somsri', 'zaza', '123456', 'somsriza@gmail.com', 'zazasomsri');
 
 --
 -- Indexes for dumped tables
@@ -89,13 +82,13 @@ INSERT INTO `staffaccount` (`staffaccountID`, `Name`, `SerName`, `StaffPin`, `Em
 -- Indexes for table `account`
 --
 ALTER TABLE `account`
-  ADD PRIMARY KEY (`AccountID`);
+  ADD PRIMARY KEY (`accountID`);
 
 --
 -- Indexes for table `staffaccount`
 --
 ALTER TABLE `staffaccount`
-  ADD PRIMARY KEY (`staffaccountID`);
+  ADD PRIMARY KEY (`StaffID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -105,13 +98,7 @@ ALTER TABLE `staffaccount`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `staffaccount`
---
-ALTER TABLE `staffaccount`
-  MODIFY `staffaccountID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `accountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
