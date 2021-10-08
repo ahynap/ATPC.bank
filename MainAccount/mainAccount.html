@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATPC Main Account</title>
+    <link rel="stylesheet" href="mainAccount.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet'
+        type='text/css'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <!------- Navbar ------->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="picture/logo_blue.png" style="width:15%">
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="navUser" href="#">username</a></li>
+                <li><a href="#"><button class="button">LOG OUT</button></a></li>
+  
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <!------- Main Account Form ------->
+    <form>
+
+        <!------- Connect Bank Account button ------->
+        <div class="AddAccount">
+            <button type="submit" class="btn"> CONNECT BANK ACCOUNT </button>
+        </div><br>
+
+        <!---------- MyAccount Transfer ViewHistory ----------->
+        <div class="row ">
+            <div class="col">
+                <a href="#">
+                    <img src="picture/accountIcon.png" style="width:83%">
+                    <div class="method">
+                        <h4>MY ACCOUNT</h4>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="#">
+                    <img src="picture/withdrawIcon.png" style="width:83%">
+                    <div class="method">
+                        <h4>TRANSFER</h4>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col">
+                <a href="#">
+                    <img src="picture/historyIcon.png" style="width:83%">
+                    <div class="method">
+                        <h4>VIEW HISTORY</h4>
+                    </div>
+                </a>
+            </div>
+        </div><br>
+
+    </form>
+
+</body>
+
+</html>
