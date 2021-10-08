@@ -12,10 +12,12 @@
 </head>
 
 <body>
+ 
     <!-- ----- Login form ----- --> 
-    <form>
+    <form method="post">
+
         <div class="back">
-            <button type="submit" class="btn"> BACK </button>
+            <button type="submit" class="btn" onClick="this.form.action='../login_client/login_client.php'; submit()"> BACK </button>
         </div>
 
         <!-- ----- WHO ARE YOU? ----- --> 
@@ -24,15 +26,15 @@
 
         <!-- ----- Client botton ----- --> 
         <div class="client_role">
-            <button class="btn" onclick="window.location.href='../regis_staff/regis_staff.php'">
+            <button type="button" class="btn" onClick="this.form.action='../regis_client/regis_client.php'; submit()">
                 CLIENT 
-                <input type="image" src="client.png" class="pic_in_btn"/>
+               <input type="image" src="client.png" class="pic_in_btn"/>
             </button>
         </div>
 
         <!-- ----- Staff botton ----- --> 
         <div class="staff_role">
-            <button class="btn" onclick="window.location.href='../regis_staff/regis_staff.php'">
+            <button type="button" class="btn" onClick="this.form.action='../regis_staff/regis_staff.php'; submit()">
                     STAFF
                 <input type="image" src="staff.png" class="pic_in_btn"/>
             </button>

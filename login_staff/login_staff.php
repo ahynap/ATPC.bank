@@ -9,8 +9,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATPC login for staff</title>
-    <link rel="stylesheet" href="login_staff.css">
+    <title>ATPC login</title>
+    <link rel="stylesheet" href="login_client.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
@@ -31,33 +31,33 @@
         <?php endif ?>
 
     <!-- ----- Login form ----- --> 
-    <form>
 
         <!-- ----- logo ATPC bank ----- --> 
         <div class="logo">
             <img src="logo_blue.png" width=242>
         </div>
 
-        <!-- ----- get staff login input ----- --> 
+        <!-- ----- get login input ----- --> 
         <div class="SubmitForLogin">
             <input type="text" placeholder="Email" name="Email">
             <input type="text" placeholder="Password" name="Password">
             
             <br>
             <a href="default.asp" target="_blank" class="txt_link_left"> forget password? </a>
-            <a href="default.asp" target="_blank" class="txt_link_right"> as a client? </a>
+            <a href="../login_client/login_client.php" target="_blank" class="txt_link_right"> as a staff? </a>
             <br>
             <button type="submit" class="btn" name="login_user"> LOG IN AS STAFF </button>
         </div>
-
-        <!-- ----- Don’t have an account? ----- --> 
+   
+            <!-- ----- Don’t have an account? ----- --> 
         <span class="Text-with-line"> Don’t have an account? </span>
-      
+    </form>
+  
         <!-- ----- SIGN UP FOR ATPC ACCOUNT button ----- --> 
         <div class="GoToSignIn">
-            <button type="submit" class="btn" > SIGN UP FOR ATPC ACCOUNT </button>
+            <button class="btn" onclick="window.location.href='../regis_role_choose/regis_role.php'"> SIGN UP FOR ATPC ACCOUNT </button>
+
         </div>
-    </form>
 
 </body>
 
@@ -67,6 +67,11 @@
 <?php
     mysqli_close($conn); 
 ?>
+
+
+
+
+
 
 
 

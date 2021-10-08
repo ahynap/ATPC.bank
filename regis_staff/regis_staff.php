@@ -31,7 +31,7 @@
     <!-- ----- Login form ----- --> 
     <form>
         <div class="back">
-            <button type="submit" class="btn"> BACK </button>
+            <button type="submit" class="btn" onClick="this.form.action='../regis_role_choose/regis_role.php'; submit()"> BACK </button>
         </div>
 
         <!-- ----- logo ATPC bank ----- --> 

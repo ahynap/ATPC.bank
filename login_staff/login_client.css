@@ -6,7 +6,7 @@ body
 
 
 /* ----- background of form ----- */
-form {
+form{
     position: absolute;
     width: 456px;
     height: 642px;
@@ -157,11 +157,11 @@ a:hover {
 
 /* ----- SIGN UP FOR ATPC ACCOUNT button -----  */
 .GoToSignIn{
-    text-align: center;
+    margin-left: 345px;
 }
 
 .GoToSignIn .btn{
-    margin-top: 20px;
+    margin-top: 600px;
     width: 321px;
     height: 54px;
     left: 352px;

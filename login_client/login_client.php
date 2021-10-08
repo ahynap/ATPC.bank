@@ -31,7 +31,6 @@
         <?php endif ?>
 
     <!-- ----- Login form ----- --> 
-    <form>
 
         <!-- ----- logo ATPC bank ----- --> 
         <div class="logo">
@@ -45,19 +44,20 @@
             
             <br>
             <a href="default.asp" target="_blank" class="txt_link_left"> forget password? </a>
-            <a href="default.asp" target="_blank" class="txt_link_right"> as a staff? </a>
+            <a href="../login_staff/login_staff.php" target="_blank" class="txt_link_right"> as a staff? </a>
             <br>
             <button type="submit" class="btn" name="login_user"> LOG IN </button>
         </div>
-
-        <!-- ----- Don’t have an account? ----- --> 
+   
+            <!-- ----- Don’t have an account? ----- --> 
         <span class="Text-with-line"> Don’t have an account? </span>
-      
+    </form>
+  
         <!-- ----- SIGN UP FOR ATPC ACCOUNT button ----- --> 
         <div class="GoToSignIn">
-            <button type="submit" class="btn" > SIGN UP FOR ATPC ACCOUNT </button>
+            <button class="btn" onclick="window.location.href='../regis_role_choose/regis_role.php'"> SIGN UP FOR ATPC ACCOUNT </button>
+
         </div>
-    </form>
 
 </body>
 
