@@ -2,6 +2,10 @@ body
 {
     background: #7585BD;
     font-family: 'Kanit';
+    
+    position: relative;
+    width: 1024px;
+    height: 768px;
 }
 
 
