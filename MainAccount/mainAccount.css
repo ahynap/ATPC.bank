@@ -88,17 +88,41 @@ form {
     color:black;
     font-size: 20px;
     font-weight: bold;
+    right: 10px;
 }
-
-.navbar-collapse .button{
+ 
+.button {
     font-family: 'Kanit';
-    background-color: #7585BD;
-    color:white;
-    font-size: 16px;
-    font-weight: bold;
-    width: 150px;;
-    margin-bottom: 30px;
-    border-radius: 50px;
+    background-color:#7585BD;
+    border: none;
+    color: white;
+    padding: 5px 17px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+ 
+.navbar {
+    overflow: hidden;
+    bottom: 0;
+    width: 100%;
+}
+  
+.navbar a {
+    float: left;
+    display: block;
+    color: #02111d;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+  
+.navbar a:hover {
+    color: #494e5a;
 }
 
 
