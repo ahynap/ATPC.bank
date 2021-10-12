@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2021 at 03:58 PM
+-- Generation Time: Oct 12, 2021 at 05:00 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -34,16 +34,31 @@ CREATE TABLE `account` (
   `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `SurName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Phone` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `accountID` int(20) NOT NULL
+  `AccountID` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `accountID`) VALUES
+INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `AccountID`) VALUES
 ('oh@hotmail.com', 'dddsnmam', 'oh', 'wow', '06000001', 1),
 ('baanan@hotmail.com', 'ewqg', 'a', 's', 'SA ', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accountno`
+--
+
+CREATE TABLE `accountno` (
+  `SerialNo` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `DepositorName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `AccountType` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `BrunchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `accountID` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -52,13 +67,8 @@ INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `account
 --
 
 CREATE TABLE `accountnoinfo` (
-  `Balance` float NOT NULL,
-  `SerialNo` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `DepositorName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `AccountType` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
-  `BrunchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `accountID` int(20) NOT NULL
+  `AccountNo` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `Balance` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -84,13 +94,20 @@ CREATE TABLE `staffaccount` (
 -- Indexes for table `account`
 --
 ALTER TABLE `account`
-  ADD PRIMARY KEY (`accountID`);
+  ADD PRIMARY KEY (`AccountID`);
+
+--
+-- Indexes for table `accountno`
+--
+ALTER TABLE `accountno`
+  ADD KEY `fk_accountID` (`accountID`),
+  ADD KEY `fk_accountNo` (`AccountNo`);
 
 --
 -- Indexes for table `accountnoinfo`
 --
 ALTER TABLE `accountnoinfo`
-  ADD KEY `fk_accountID` (`accountID`);
+  ADD PRIMARY KEY (`AccountNo`);
 
 --
 -- Indexes for table `staffaccount`
@@ -106,17 +123,18 @@ ALTER TABLE `staffaccount`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `accountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `accountnoinfo`
+-- Constraints for table `accountno`
 --
-ALTER TABLE `accountnoinfo`
-  ADD CONSTRAINT `fk_accountID` FOREIGN KEY (`accountID`) REFERENCES `account` (`accountID`) ON DELETE CASCADE;
+ALTER TABLE `accountno`
+  ADD CONSTRAINT `fk_accountID` FOREIGN KEY (`accountID`) REFERENCES `account` (`accountID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_accountNo` FOREIGN KEY (`AccountNo`) REFERENCES `accountnoinfo` (`accountNo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
