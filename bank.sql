@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2021 at 08:48 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.15
+-- Generation Time: Oct 12, 2021 at 03:58 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -42,8 +43,7 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `accountID`) VALUES
 ('oh@hotmail.com', 'dddsnmam', 'oh', 'wow', '06000001', 1),
-('baanan@hotmail.com', 'ewqg', 'a', 's', 'SA ', 2),
-('sompongsu@gmail.com', 'sususompong', 'sompong', 'susu', '0849992145', 3);
+('baanan@hotmail.com', 'ewqg', 'a', 's', 'SA ', 2);
 
 -- --------------------------------------------------------
 
@@ -54,9 +54,11 @@ INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `account
 CREATE TABLE `accountnoinfo` (
   `Balance` float NOT NULL,
   `SerialNo` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `DepositorName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `AccountType` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
-  `BrunchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `BrunchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `accountID` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -75,13 +77,6 @@ CREATE TABLE `staffaccount` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `staffaccount`
---
-
-INSERT INTO `staffaccount` (`StaffID`, `Name`, `SurName`, `StaffPin`, `Email`, `Password`) VALUES
-(111111, 'somsri', '', '123456', 'somsriza@gmail.com', 'zazasomsri');
-
---
 -- Indexes for dumped tables
 --
 
@@ -90,6 +85,12 @@ INSERT INTO `staffaccount` (`StaffID`, `Name`, `SurName`, `StaffPin`, `Email`, `
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`accountID`);
+
+--
+-- Indexes for table `accountnoinfo`
+--
+ALTER TABLE `accountnoinfo`
+  ADD KEY `fk_accountID` (`accountID`);
 
 --
 -- Indexes for table `staffaccount`
@@ -105,7 +106,17 @@ ALTER TABLE `staffaccount`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `accountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `accountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `accountnoinfo`
+--
+ALTER TABLE `accountnoinfo`
+  ADD CONSTRAINT `fk_accountID` FOREIGN KEY (`accountID`) REFERENCES `account` (`accountID`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
