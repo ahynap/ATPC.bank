@@ -57,7 +57,8 @@
         <input type="text" placeholder="Depositor Name" name="DepositorName"><br>
         <input type="text" placeholder="Branch Name" name="BranchName"><br>
         <input type="text" placeholder="Serial Number" name="SerialNo"><br>
-        <input type="password" placeholder="accountID" name="accountID"><br>
+        <input type="text" placeholder="Email" name="Email"><br>
+        <input type="password" placeholder="Password" name="Password"><br>
 
         <select name="AccountType">
             <option value="" disabled selected>Type of Account</option>
@@ -68,7 +69,7 @@
 
     <!-- ----- connect button ----- --> 
     <div class="connect">
-    <button type="submit" class="btn" > CONNECT </button>
+    <button type="submit" class="btn" name="connect_user"> CONNECT </button>
     </div>
 
 </body>
