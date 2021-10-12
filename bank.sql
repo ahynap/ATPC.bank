@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2021 at 05:00 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Oct 12, 2021 at 05:18 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -56,7 +55,7 @@ CREATE TABLE `accountno` (
   `DepositorName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `AccountType` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
-  `BrunchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `BranchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `accountID` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -133,8 +132,8 @@ ALTER TABLE `account`
 -- Constraints for table `accountno`
 --
 ALTER TABLE `accountno`
-  ADD CONSTRAINT `fk_accountID` FOREIGN KEY (`accountID`) REFERENCES `account` (`accountID`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_accountNo` FOREIGN KEY (`AccountNo`) REFERENCES `accountnoinfo` (`accountNo`);
+  ADD CONSTRAINT `fk_accountID` FOREIGN KEY (`accountID`) REFERENCES `account` (`AccountID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_accountNo` FOREIGN KEY (`AccountNo`) REFERENCES `accountnoinfo` (`AccountNo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
