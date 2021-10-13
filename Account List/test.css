@@ -1,0 +1,55 @@
+body 
+{
+    background: #F4F1EC;
+    font-family: 'Kanit';
+    margin:-35px -35px 0 0;
+}
+
+/*    */
+.button1{
+    height: 217px;
+    width: 579px;
+    left: 430px;
+    top: 191px;
+    border-radius: 35px;
+    background: #7585BD;
+}
+
+.button2 {
+    height: 217px;
+    width: 579px;
+    left: 430px;
+    top: 453px;
+    border-radius: 35px;
+    background: #7585BD;
+}
+
+.button3 {
+    height: 217px;
+    width: 579px;
+    left: 430px;
+    top: 726px;
+    bottom: 85px;
+    border-radius: 35px;    
+    background: #7585BD;
+}
+
+.ribbon {
+ 
+    border-radius: 35px;
+    padding: 3px 10px;
+    top: 5px;
+    left: 1600px;
+
+    font-family: 'Kanit';
+    font-size: 20px;
+
+    color: #414141;
+    background: rgba(194, 204, 236, 0.5);
+   
+}
+
+
+
+
+
