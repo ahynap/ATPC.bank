@@ -17,25 +17,68 @@
 </head>
 
 <body>
-     
+    <!--   navbar   -->
     <nav class="navbar navbar-light">
         <a class="navbar-brand" href="#">
             <img src="picture/logo_blue.png" style="width:15%">
         </a>
         <div class="navbar">
             <ul class="nav navbar-right">
-                <a class="navUser" href="#">username</a>
-                <a href="#"><button class="button buttom-right">LOG OUT</button></a>
+                <a href="#">username
+                    <img src="picture/client_icon.png" width="58.36px" height="58.36px">
+                </a>
+                <a href="#">
+                    <button class="btn navbar-btn" style="display: inline; 
+                        color: white; 
+                        background-color: #7585BD;  
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                        border: 0px;
+                        border-radius: 35px; 
+                        font-family: Kanit;
+                        font-style: normal; 
+                        font-weight: bold; 
+                        font-size: 18px; 
+                        text-decoration: none; 
+                        outline: none ">
+                        LOG OUT</button>
+                </a>
             </ul>
         </div>
-      </nav>
-            
+    </nav>
+
     <!------- Main Account Form ------->
     <form>
 
+        <!------- Info in form -------->
+
+        <div class="Info">
+            <div class="row">
+                <div class="col-6">
+                    <div class="profile">
+                        <img src="picture/client_icon.png">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <p class="test1">MAIN ACCOUNT</p>
+                <p class="test2">9999xxxx9991</p>
+            </div>
+
+            <div class="col-6">
+                <p class="test3">123,456.28</p>
+            </div>
+
+
+
+
+        </div>
+
+
         <!------- Connect Bank Account button ------->
         <div class="AddAccount">
-            <button type="submit" class="btn"> CONNECT BANK ACCOUNT </button>
+            <button type="submit" class="btn" style="outline: none"> CONNECT BANK ACCOUNT </button>
         </div><br>
 
         <!---------- MyAccount Transfer ViewHistory ----------->

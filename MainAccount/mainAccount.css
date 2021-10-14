@@ -104,7 +104,8 @@ form {
     cursor: pointer;
     border-radius: 16px;
 }
- 
+
+/*  navbar  */
 .navbar {
     overflow: hidden;
     bottom: 0;
@@ -117,13 +118,78 @@ form {
     color: #02111d;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+    font-size: 24px;
+    font-weight: bold;
 }
   
 .navbar a:hover {
     color: #494e5a;
+    text-decoration: none;
+} 
+
+/*  profile in form */
+.profile img{
+    height: 100px;
+    width: 100px;
+    display: block;
+    margin-top: 30px;
+    margin-left: 35px;
+    margin-bottom: -387px;
+    border-radius: 0px; 
 }
+
+/*     number in form      */
+p.test1 {
+    font-family: 'Kanit';
+    font-size: 24px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 35.88px;
+
+    color: #F4F1EC;
+
+    height: 41px;
+    width: 172px;
+    margin-left: 134px;
+    margin-top: 24px;
+}
+
+p.test2 {
+    font-family: 'Kanit';
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 27px;
+
+    color: #F4F1EC;
+
+    height: 28px;
+    width: 116px;
+    margin-left: 134px;
+    margin-top: -20px;
+    margin-bottom: -20px;
+}
+
+p.test3 {
+    font-family: 'Kanit';
+    font-size: 48px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 72px;
+
+    color: #F4F1EC;
+
+    height: 72px;
+    width: 226px;
+    margin-left: 184px;
+    margin-top: 20px;
+    margin-bottom: -150px;
+}
+
+
+
+
+
 
 
 
