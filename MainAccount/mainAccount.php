@@ -91,22 +91,23 @@
                 <div class="col-3">
                     <div class="profile">
         
-                        <img src="picture/client_icon.png" style="width: 20%; margin-top: 30px; margin-left: 35px;">
+                        <img src="picture/client_icon.png">
 
                     </div>
                 </div>
       
 
             
-            <div class="col-3">
+            <div class="col-3" style="margin-top:285px" >
+               <!-- <br><br><br><br><br><br><br><br><br><br><br><br> -->
 
-                <p class="test1">MAIN ACCOUNT</p>
+                <p class="test1" style="margin-left: 150px;">MAIN ACCOUNT </p>
                
                     <?php
                         while($row = mysqli_fetch_array($result)) {
                     ?>
 
-                        <p class="test2"><?php echo $row["AccountNo"]; ?></p>
+                        <p class="test2" style="margin-left: 150px;"><?php echo $row["AccountNo"]; ?></p>
                                  
                     <?php
                       
@@ -132,8 +133,8 @@
         </div>
 
           <!-- Connect Bank Account button -->
-        <div class="AddAccount" style="margin: 10px">
-            <button type="submit" class="btn" style="outline: none; margin: 10px"> CONNECT BANK ACCOUNT </button>
+        <div class="AddAccount" style="margin-top: 100px;">
+            <button type="submit" class="btn" style="outline: none;"> CONNECT BANK ACCOUNT </button>
         </div><br>
 
 
