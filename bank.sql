@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2021 at 06:38 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.15
+-- Generation Time: Oct 17, 2021 at 10:14 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -42,15 +43,7 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `AccountID`, `Pin`) VALUES
-('oh@hotmail.com', 'dddsnmam', 'oh', 'wow', '06000001', 1, ''),
-('baanan@hotmail.com', 'ewqg', 'a', 's', 'SA ', 2, ''),
-('sompongsu@gmail.com', 'sususompong', 'sompong', 'susu', '0849992145', 3, ''),
-('earn@gmail.com', '01254102', 'earn', 'anchi', '0284254224', 4, ''),
-('a@gmail.com', '0215418741', 'aa', 'pp', '0158475162', 5, '111111'),
-('f@gmail.com', '0125478412', 'eee', 'jjj', '0215471541', 6, '222222'),
-('xcvb', 'dfgh', 'xcvb', 'sdf', 'sdfg', 7, '124515'),
-('ttt', 'ttt', 'ttt', 'ttt', 'ttt', 8, '147852'),
-('yyy', '147852', 'yyy', 'yyy', '0215487451', 9, '123654');
+('sompongsu@gmail.com', 'sususompong', 'sompong', 'susu', '0812459495', 2, '555555');
 
 -- --------------------------------------------------------
 
@@ -65,8 +58,15 @@ CREATE TABLE `accountno` (
   `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `BranchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `AccountID` int(20) NOT NULL,
-  `Date` timestamp NOT NULL DEFAULT current_timestamp()
+  `DayTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `accountno`
+--
+
+INSERT INTO `accountno` (`SerialNo`, `DepositorName`, `AccountType`, `AccountNo`, `BranchName`, `AccountID`, `DayTime`) VALUES
+('fwe', 'somsom', 'wevq', '2', 'KMUTT', 2, '2021-10-17 17:32:41');
 
 -- --------------------------------------------------------
 
@@ -78,6 +78,13 @@ CREATE TABLE `accountnoinfo` (
   `AccountNo` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `Balance` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `accountnoinfo`
+--
+
+INSERT INTO `accountnoinfo` (`AccountNo`, `Balance`) VALUES
+('2', 442360);
 
 -- --------------------------------------------------------
 
@@ -132,7 +139,7 @@ ALTER TABLE `staffaccount`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -142,7 +149,7 @@ ALTER TABLE `account`
 -- Constraints for table `accountno`
 --
 ALTER TABLE `accountno`
-  ADD CONSTRAINT `fk_accountID` FOREIGN KEY (`accountID`) REFERENCES `account` (`AccountID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_accountID` FOREIGN KEY (`AccountID`) REFERENCES `account` (`AccountID`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_accountNo` FOREIGN KEY (`AccountNo`) REFERENCES `accountnoinfo` (`AccountNo`);
 COMMIT;
 
