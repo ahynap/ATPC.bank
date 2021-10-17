@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2021 at 05:59 PM
+-- Generation Time: Oct 17, 2021 at 06:11 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -33,16 +33,17 @@ CREATE TABLE `account` (
   `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `SurName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Phone` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `AccountID` int(20) NOT NULL
+  `AccountID` int(20) NOT NULL,
+  `Pin` varchar(6) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `AccountID`) VALUES
-('oh@hotmail.com', 'dddsnmam', 'oh', 'wow', '06000001', 1),
-('baanan@hotmail.com', 'ewqg', 'a', 's', 'SA ', 2);
+INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `AccountID`, `Pin`) VALUES
+('oh@hotmail.com', 'dddsnmam', 'oh', 'wow', '06000001', 1, ''),
+('baanan@hotmail.com', 'ewqg', 'a', 's', 'SA ', 2, '');
 
 -- --------------------------------------------------------
 
@@ -57,7 +58,7 @@ CREATE TABLE `accountno` (
   `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `BranchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `AccountID` int(20) NOT NULL,
-  `Date` date NOT NULL
+  `Date` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
