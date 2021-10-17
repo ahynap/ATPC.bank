@@ -6,7 +6,7 @@
     $result = mysqli_query($conn,"SELECT AccountNo FROM accountno WHERE AccountID ORDER BY DATE IN (SELECT AccountID FROM account WHERE Email='$Email') LIMIT 1");
     $result2 = mysqli_query($conn,"SELECT Balance FROM accountnoinfo WHERE AccountNo IN (SELECT AccountNo FROM accountno WHERE AccountID ORDER BY DATE IN (SELECT AccountID FROM account WHERE Email='$Email')  LIMIT 1");
      
-
+//////////////////////
 ?>
 <!DOCTYPE html>
 <html lang="en">
