@@ -24,7 +24,7 @@
             if (mysqli_num_rows($result) == 1) {
                 $_SESSION['Email'] = $Email;
                 $_SESSION['success'] = "Your are now logged in";
-                header("location: login_succes.php");
+                header("location: mainAccount.php");
             } else {
                 array_push($errors, "Wrong Email or Password");
                 $_SESSION['error'] = "Wrong Email or Password!";

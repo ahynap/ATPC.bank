@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2021 at 08:46 PM
+-- Generation Time: Oct 17, 2021 at 05:59 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -56,7 +56,8 @@ CREATE TABLE `accountno` (
   `AccountType` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `BranchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `AccountID` int(20) NOT NULL
+  `AccountID` int(20) NOT NULL,
+  `Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
