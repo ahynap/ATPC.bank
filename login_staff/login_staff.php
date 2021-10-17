@@ -44,7 +44,7 @@
             
             <br>
             <a href="default.asp" target="_blank" class="txt_link_left"> forget password? </a>
-            <a href="../login_client/login_client.php" target="_blank" class="txt_link_right"> as a staff? </a>
+            <a href="../login_client/login_client.php" target="_blank" class="txt_link_right"> as a client? </a>
             <br>
             <button type="submit" class="btn" name="login_user"> LOG IN AS STAFF </button>
         </div>
