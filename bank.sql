@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2021 at 06:11 PM
+-- Generation Time: Oct 17, 2021 at 06:38 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -43,7 +43,14 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `AccountID`, `Pin`) VALUES
 ('oh@hotmail.com', 'dddsnmam', 'oh', 'wow', '06000001', 1, ''),
-('baanan@hotmail.com', 'ewqg', 'a', 's', 'SA ', 2, '');
+('baanan@hotmail.com', 'ewqg', 'a', 's', 'SA ', 2, ''),
+('sompongsu@gmail.com', 'sususompong', 'sompong', 'susu', '0849992145', 3, ''),
+('earn@gmail.com', '01254102', 'earn', 'anchi', '0284254224', 4, ''),
+('a@gmail.com', '0215418741', 'aa', 'pp', '0158475162', 5, '111111'),
+('f@gmail.com', '0125478412', 'eee', 'jjj', '0215471541', 6, '222222'),
+('xcvb', 'dfgh', 'xcvb', 'sdf', 'sdfg', 7, '124515'),
+('ttt', 'ttt', 'ttt', 'ttt', 'ttt', 8, '147852'),
+('yyy', '147852', 'yyy', 'yyy', '0215487451', 9, '123654');
 
 -- --------------------------------------------------------
 
@@ -58,7 +65,7 @@ CREATE TABLE `accountno` (
   `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `BranchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `AccountID` int(20) NOT NULL,
-  `Date` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
+  `Date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -125,7 +132,7 @@ ALTER TABLE `staffaccount`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
