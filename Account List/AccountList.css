@@ -1,0 +1,145 @@
+body 
+{
+    background: #F4F1EC;
+    font-family: 'Kanit';
+
+    position: relative;
+    width: auto;
+    height: 768px;
+}
+
+ 
+/* ------- Navbar ------- */
+.navUser {
+    font-family: 'Kanit';
+    color:black;
+    font-size: 20px;
+    font-weight: bold;
+    right: 10px;
+}
+ 
+.button {
+    font-family: 'Kanit';
+    background-color:#7585BD;
+    border: none;
+    color: white;
+    padding: 5px 17px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+/* ------ navbar ------  */
+.navbar {
+    overflow: hidden;
+    bottom: 0;
+    width: 100%;
+}
+  
+.navbar a {
+    float: left;
+    display: block;
+    color: #02111d;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 24px;
+    font-weight: bold;
+}
+  
+.navbar a:hover {
+    color: #494e5a;
+    text-decoration: none;
+} 
+
+/* ------ button ------ */
+.button1 {
+    height: 217px;
+    width: 579px;
+    
+    border: none;
+    border-radius: 35px; 
+    background: #7585BD;
+
+    margin-left:365px;
+}
+
+.button2 {
+    height: 217px;
+    width: 579px;
+    
+    border: none;
+    border-radius: 35px; 
+    background: #7585BD;
+
+    margin-left:365px;
+    margin-top: 45px;
+}
+
+.button3 {
+    height: 217px;
+    width: 579px;
+    
+    border: none;
+    border-radius: 35px; 
+    background: #7585BD;
+
+    margin-left:365px;
+    margin-top: 45px;
+}
+
+
+p {
+    font-family: 'Kanit';
+    color:#F4F1EC;
+}
+
+p.test1 {
+    font-size:36px; 
+    font-weight: 400;
+
+    text-align: left; 
+    margin-left: 35px;
+}
+
+p.test2 {
+    font-size:24px; 
+    font-weight: 400;
+
+    text-align: left; 
+    margin-left: 35px;
+
+}
+
+p.test4 {
+    font-family: Kanit;
+    font-style: normal;
+    font-size:64px;
+    font-weight: 700;
+
+    float: right; 
+    margin-right: 33px;
+}
+
+span.test3 {
+    font-family: Kanit;
+    font-style: normal; 
+    font-size: 24px; 
+    font-weight: 400;
+
+    width: 186px; 
+    height: 48px; 
+    
+    border-radius: 35px;
+
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+  
+    margin-left: 350px;
+
+    background: rgba(194, 204, 236, 0.5); 
+    color: #414141;
+}
