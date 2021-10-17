@@ -3,10 +3,16 @@
     include('..\server\server.php');
     $Email = $_REQUEST['Email'];
     $result3 = mysqli_query($conn,"SELECT Name FROM account WHERE Email='$Email'");
-    $result = mysqli_query($conn,"SELECT AccountNo FROM accountno WHERE AccountID ORDER BY DATE IN (SELECT AccountID FROM account WHERE Email='$Email') LIMIT 1");
-    $result2 = mysqli_query($conn,"SELECT Balance FROM accountnoinfo WHERE AccountNo IN (SELECT AccountNo FROM accountno WHERE AccountID ORDER BY DATE IN (SELECT AccountID FROM account WHERE Email='$Email')  LIMIT 1");
+    $result = mysqli_query($conn,"SELECT AccountNo FROM accountno WHERE AccountID ORDER BY DayTime IN (SELECT AccountID FROM account WHERE Email='$Email')");
+    $result2 = mysqli_query($conn, 
+        "SELECT Balance FROM accountnoinfo
+          JOIN accountno
+            ON accountnoinfo.AccountNo = accountno.AccountNo
+          JOIN account
+            ON accountno.AccountID = account.AccountID
+          WHERE account.Email = '$Email'");
      
-//////////////////////
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,20 +30,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+    <script src="jquery.js"></script>
+    <script>
+        $(function(){
+            $("#includeContent").load("../login_client/login_client_insert.php");
+        }
+    </script>
+
 </head>
 
-<body>
-    <form action="login_staff_insert.php" method="post">
-        <?php if (isset($_SESSION['error'])) : ?>
-            <div class="error">
-                <h3>
-                    <?php 
-                        echo $_SESSION['error'];
-                        unset($_SESSION['error']);
-                    ?>
-                </h3>
-            </div>
-        <?php endif ?>
+<body style="background: #F4F1EC;">
+   
 
     <!--   navbar   -->
     <nav class="navbar navbar-light">
@@ -48,13 +51,13 @@
             <ul class="nav navbar-right">
                 <a href="#">
                     <?php
-                        if (mysqli_num_rows($result3) > 0) { 
-                        $i=0;
-                        while($row = mysqli_fetch_array($result3)) {?>
-                        <?php
-                        $i++;
-                        }
-                        }
+                        while($row = mysqli_fetch_array($result3)) {
+                    ?>
+                        <a class="navUser" href="#"><?php echo $row["Name"]; ?></a>
+
+                     <?php
+                     
+                     }
                     ?>
                     <img src="picture/client_icon.png" width="58.36px" height="58.36px">
                 </a>
@@ -78,71 +81,63 @@
         </div>
     </nav>
 
-    <!------- Main Account Form ------->
+    <!-- Main Account Form-->
     <form>
 
-        <!------- Info in form -------->
+        <!--Info in form -->
 
         <div class="Info">
             <div class="row">
-                <div class="col-6">
+                <div class="col-3">
                     <div class="profile">
-                        <img src="picture/client_icon.png">
+        
+                        <img src="picture/client_icon.png" style="width: 20%; margin-top: 30px; margin-left: 35px;">
 
                     </div>
                 </div>
-            </div>
+      
 
             
+            <div class="col-3">
+
                 <p class="test1">MAIN ACCOUNT</p>
                
                     <?php
-                        if (mysqli_num_rows($result) > 0) { 
-                        $i=0;
-                        while($row = mysqli_fetch_array($result)) {?>
+                        while($row = mysqli_fetch_array($result)) {
+                    ?>
 
-                                <div class="col-6">
-                                    
-                                       <p class="test2">  <?php echo $row["BranchName"]; ?>
-                                    <?php echo $row["AccountNo"]; ?>
+                        <p class="test2"><?php echo $row["AccountNo"]; ?></p>
                                  
-                            < <?php
-                        $i++;
-                        }
+                    <?php
+                      
                         }
                     ?>
                     </p>
             </div>
 
+                <div class="col-3">
+                             
                     <?php
-                        if (mysqli_num_rows($result2) > 0) { 
-                        $i=0;
-                        while($row = mysqli_fetch_array($result2)) {?>
-                                  
-                              <div class="col-6">
-                                  
-                                     <p class="test3"><?php echo $row["Balance"]; ?></p>
+                      while($row = mysqli_fetch_array($result2)) {
+                    ?>
+                                     
+                         <p class="test3"><?php echo $row["Balance"]; ?></p>
                                 
                           
-                            <?php
-                        $i++;
-                        }
-                        }
-                    ?>
+                 <?php
+                
+                     }
+                ?>
             </div>
-
-
-
-
         </div>
 
-
-        <!------- Connect Bank Account button ------->
-        <div class="AddAccount">
-            <button type="submit" class="btn" style="outline: none"> CONNECT BANK ACCOUNT </button>
+          <!-- Connect Bank Account button -->
+        <div class="AddAccount" style="margin: 10px">
+            <button type="submit" class="btn" style="outline: none; margin: 10px"> CONNECT BANK ACCOUNT </button>
         </div><br>
 
-        <!---------- MyAccount Transfer ViewHistory ----------->
+
+        <!-- MyAccount Transfer ViewHistory -->
         <div class="row ">
             <div class="col">
                 <a href="#">
@@ -172,6 +167,7 @@
             </div>
         </div><br>
 
+    
     </form>
 
 </body>

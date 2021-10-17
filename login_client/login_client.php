@@ -18,7 +18,7 @@
 
 <body>
 
-    <form action="login_client_insert.php" method="post">
+    <form action="../MainAccount/mainAccount.php" method="post">
         <?php if (isset($_SESSION['error'])) : ?>
             <div class="error">
                 <h3>
@@ -30,14 +30,14 @@
             </div>
         <?php endif ?>
 
-    <!-- ----- Login form ----- --> 
+    <!-- - Login form --> 
 
-        <!-- ----- logo ATPC bank ----- --> 
+        <!--logo ATPC bank --> 
         <div class="logo">
             <img src="logo_blue.png" width=242>
         </div>
 
-        <!-- ----- get login input ----- --> 
+        <!-- get login input --> 
         <div class="SubmitForLogin">
             <input type="text" placeholder="Email" name="Email">
             <input type="password" placeholder="Password" name="Password">
@@ -49,11 +49,11 @@
             <button type="submit" class="btn" name="login_user"> LOG IN </button>
         </div>
    
-            <!-- ----- Don’t have an account? ----- --> 
+            <!-- Don’t have an account? --> 
         <span class="Text-with-line"> Don’t have an account? </span>
     </form>
   
-        <!-- ----- SIGN UP FOR ATPC ACCOUNT button ----- --> 
+        <!-- SIGN UP FOR ATPC ACCOUNT button --> 
         <div class="GoToSignIn">
             <button class="btn" onclick="window.location.href='../regis_role_choose/regis_role.php'"> SIGN UP FOR ATPC ACCOUNT </button>
 
