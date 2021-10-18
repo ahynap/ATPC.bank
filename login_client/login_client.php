@@ -18,7 +18,7 @@
 
 <body>
 
-    <form action="../MainAccount/mainAccount.php" method="post">
+    <form action="../connect_account/connect_account.php" method="post">
         <?php if (isset($_SESSION['error'])) : ?>
             <div class="error">
                 <h3>

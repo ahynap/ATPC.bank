@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2021 at 06:35 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.15
+-- Generation Time: Oct 18, 2021 at 07:01 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -42,6 +43,7 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `AccountID`, `Pin`) VALUES
+('ohteh@hotmail.com', '555', 'oh', 'teh', '06000002', 1, '455245'),
 ('sompongsu@gmail.com', 'sususompong', 'sompong', 'susu', '0812459495', 2, '555555');
 
 -- --------------------------------------------------------
@@ -57,7 +59,7 @@ CREATE TABLE `accountno` (
   `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `BranchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `AccountID` int(20) NOT NULL,
-  `DayTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `DayTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `MainAccount` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -66,7 +68,9 @@ CREATE TABLE `accountno` (
 --
 
 INSERT INTO `accountno` (`SerialNo`, `DepositorName`, `AccountType`, `AccountNo`, `BranchName`, `AccountID`, `DayTime`, `MainAccount`) VALUES
-('fwe', 'somsom', 'wevq', '2', 'KMUTT', 2, '2021-10-17 17:32:41', '');
+('fwe', 'somsom', 'wevq', '2', 'KMUTT', 2, '2021-10-17 17:32:41', ''),
+('123456', 'sompong', 'above 13', '3', 'CPEE', 2, '2021-10-18 16:41:02', NULL),
+('123456', 'sompong', 'above 13', '4', 'sdaba', 1, '2021-10-18 16:56:02', 'Main Account');
 
 -- --------------------------------------------------------
 
@@ -84,7 +88,9 @@ CREATE TABLE `accountnoinfo` (
 --
 
 INSERT INTO `accountnoinfo` (`AccountNo`, `Balance`) VALUES
-('2', 442360);
+('2', 442360),
+('3', 43526),
+('4', 55);
 
 -- --------------------------------------------------------
 

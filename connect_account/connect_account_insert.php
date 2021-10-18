@@ -11,7 +11,7 @@
         $SerialNo = mysqli_real_escape_string($conn, $_POST['SerialNo']);
         $AccountType = mysqli_real_escape_string($conn, $_POST['AccountType']);
         $Email = mysqli_real_escape_string($conn, $_POST['Email']);
-        $Password = mysqli_real_escape_string($conn, $_POST['Password']);
+    
 
         if (empty($AccountNo)) {
             array_push($errors, "AccountNo is required");
@@ -43,11 +43,6 @@
             $_SESSION['error'] = "Email is required";
         }
 
-        if (empty($Password)) {
-            array_push($errors, "Password is required");
-            $_SESSION['error'] = "Password is required";
-        }
-
 
         /* Check Account Number */
 
@@ -68,28 +63,56 @@
 
         /* Check Authentication */
 
-        $user_check_query2 = "SELECT * FROM account WHERE Email = '$Email' AND Password = '$Password'";
+        $user_check_query2 = "SELECT * FROM account WHERE Email = '$Email'";
         $query2 = mysqli_query($conn, $user_check_query2);
         $result2 = mysqli_fetch_assoc($query2);
 
-            if ($result2['Email'] != $Email OR $result2['Password'] != $Password) {
-                array_push($errors, "Email OR Password not exist");
-                $_SESSION['error'] = "Email OR Password not exist";
+            if ($result2['Email'] != $Email) {
+                array_push($errors, "Email not exist");
+                $_SESSION['error'] = "Email not exist";
                 header("location: connect_account.php");
             }
+
 
 
         /* Connect Account (Add Account) */
                 
         if (count($errors) == 0) {
-            
-            $sql = "
-            INSERT INTO accountno (AccountNo, DepositorName, BranchName, SerialNo, AccountType, AccountID)
-            VALUES ('$AccountNo','$DepositorName','$BranchName','$SerialNo','$AccountType', (SELECT AccountID FROM account WHERE Password = '$Password'));
+
+        /* Specify Main Account */
+
+             $Email = $_REQUEST['Email'];
+             $result3 = "SELECT AccountNo FROM accountno
+             JOIN account
+             ON accountno.AccountID = account.AccountID
+             WHERE account.Email = '$Email'";
+
+             $getresult3 = mysqli_query($result3);
+
+             $count = count($getresult3);
+
+             if ($count == 0) {
+
+                 $sql = "
+                 INSERT INTO accountno (AccountNo, DepositorName, BranchName, SerialNo, AccountType, AccountID, MainAccount)
+                 VALUES ('$AccountNo','$DepositorName','$BranchName','$SerialNo','$AccountType', (SELECT AccountID FROM account WHERE Email = '$Email'), 'Main Account');
             ";
             mysqli_query($conn, $sql);
 
              header('location: connect_succes.php');
+        
+            } else if ($count > 0) {
+
+                 $sql = "
+                 INSERT INTO accountno (AccountNo, DepositorName, BranchName, SerialNo, AccountType, AccountID, MainAccount)
+                 VALUES ('$AccountNo','$DepositorName','$BranchName','$SerialNo','$AccountType', (SELECT AccountID FROM account WHERE Email = '$Email'), NULL);
+            ";
+            mysqli_query($conn, $sql);
+
+             header('location: connect_succes.php');
+        
+            }
+            
         } else {
             header("location: connect_account.php");
         }

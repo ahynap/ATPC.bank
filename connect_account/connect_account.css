@@ -27,9 +27,7 @@ body
 
 .show_name{
     position: absolute;
-    width: 122px;
     height: 41px;
-    left: 648px;
     top: 51px;
 
     font-family: Kanit;

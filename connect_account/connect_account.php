@@ -1,6 +1,10 @@
 <?php
     session_start();
     include('..\server\server.php'); 
+
+    $Email = $_REQUEST['Email'];
+    $result = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
+    $result2 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +17,14 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
+
+       <script src="jquery.js"></script>
+    <script>
+        $(function(){
+            $("#includeContent").load("../login_client/login_client_insert.php");
+        }
+    </script>
+
 </head>
 
 <body>
@@ -34,8 +46,17 @@
         <img src="logo_blue.png" width=127>   
     </div>
 
-    <!-- ----- user's name show here! ----- --> 
-    <span class="show_name"> username </span>
+    <!-- ----- user's name show here! ----- -->
+
+        <?php
+             while($row = mysqli_fetch_array($result)) {
+        ?>
+                   <span class="show_name" href="#" style="width: 350px; left: 450px; text-align: center"><?php echo $row["Email"]; ?></span>
+
+        <?php
+            }
+        ?>
+  
     <img src="client_icon.png" width=58.36 class="icon"> 
     
     <!-- ----- logout button ----- --> 
@@ -57,8 +78,16 @@
         <input type="text" placeholder="Depositor Name" name="DepositorName"><br>
         <input type="text" placeholder="Branch Name" name="BranchName"><br>
         <input type="text" placeholder="Serial Number" name="SerialNo"><br>
-        <input type="text" placeholder="Email" name="Email"><br>
-        <input type="password" placeholder="Password" name="Password"><br>
+
+         <?php
+             while($row2 = mysqli_fetch_array($result2)) {
+        ?>
+
+                 <input type="text" name="Email" value=<?php echo $row2["Email"]; ?>>
+
+         <?php
+            }
+        ?>
 
         <select name="AccountType">
             <option value="" disabled selected>Type of Account</option>
