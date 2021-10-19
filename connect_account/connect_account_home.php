@@ -45,7 +45,7 @@
              while($row3 = mysqli_fetch_array($result3)) {
         ?>
 
-        <input type="image" src="logo_blue.png" width="127" onClick="this.form.action='../MainAccount/mainAccount.php'; submit()" name="Email" value=<?php echo $row3["Email"]; ?> />  
+        <input type="image" src="logo_blue.png" width="127" name="Email" value=<?php echo $row3["Email"]; ?> />  
 
          <?php
             }
@@ -68,11 +68,6 @@
     <!-- ----- logout button ----- --> 
     <button type="submit" class="btn" > LOG OUT </button>
 
-    <!-- ----- logo ATPC bank ----- --> 
-    <div class="back">
-        <button type="submit" class="btn" onClick="this.form.action='../login_client/login_client.php'; submit()">BACK</button>
-    </div>
-        
     <!-- ----- header text ----- --> 
     <span class="header_txt"> CONNECT TO <br> BANK ACCOUNT </span>
     

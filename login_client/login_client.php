@@ -18,7 +18,7 @@
 
 <body>
 
-    <form action="../connect_account/connect_account.php" method="post">
+    <form action="..\login_client\login_client_insert.php" method="post">
         <?php if (isset($_SESSION['error'])) : ?>
             <div class="error">
                 <h3>
