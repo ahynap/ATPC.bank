@@ -10,7 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
 
-
+    <!-- ----- select accout ----- --> 
+    <link rel="stylesheet" href="show_account.css">
 
 </head>
 
@@ -39,13 +40,44 @@
     <!-- ----- Text-with-line of from ----- --> 
     <span class="Text-with-line"> FROM </span>
 
-    <!-- ----- select accout ----- --> 
-    <div class="select_accout">
-        <button class="btn">
-            show account
-        </button>
-    </div>
 
+
+
+
+    <!-- ----- select accout ----- --> 
+    <button class="select_accout">
+
+        <!-- ----- in blue squre box detail ----- --> 
+        <!-- ----- account_type ----- --> 
+        <div class="account_type">
+            <!-- <label> saving </label> --> 
+            <label> <?php echo $row["AccountType"]; ?> </label>
+        </div>
+
+        <!-- ----- account_number ----- --> 
+        <div class="account_number">
+            <!-- <label> account_number </label> -->
+            <label> <?php echo $row["AccountNo"]; ?> </label>
+        </div>
+
+        <!-- ----- account_number ----- --> 
+        <div class="balance">
+             <!-- <label> balance </label> -->
+            <label> <?php echo $row["main_account"]; ?> </label>
+        </div>
+        
+
+        <!-- ----- if this account is MAIN ACCOUNT please show this section ----- --> 
+        <div class="main_account">
+            <label> MAIN ACCOUNT </label>
+        </div>
+
+    </button>
+
+
+
+
+    
     <!-- ----- Text-with-line of from RECIPIENT ----- --> 
     <span class="Text-with-line_recipient"> RECIPIENT </span>
 
@@ -62,6 +94,9 @@
         <input type="text" placeholder="0.00"> <br>
         
     </div>
+
+
+
 
     
     <!-- ----- trans ----- --> 
