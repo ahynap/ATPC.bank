@@ -3,6 +3,7 @@
     include('..\server\server.php');
 
     $errors = array();
+\\
 
     if (isset($_POST['login_user'])) {
         $Email = mysqli_real_escape_string($conn, $_POST['Email']);
@@ -23,7 +24,24 @@
 
             if (mysqli_num_rows($result) == 1) {
                 $_SESSION['Email'] = $Email;
-                header("location: ..\connect_account\connect_account.php");
+
+
+             $result = "SELECT AccountNo FROM accountno
+             JOIN account
+             ON accountno.AccountID = account.AccountID
+             WHERE account.Email = '$Email'";
+
+             $getresult = mysqli_query($conn, $result);
+             $count = mysqli_num_rows($getresult);
+             echo $count;
+
+             if($count == "0"){
+                 header("location: ..\connect_account\connect_account.php");
+           
+             }else if($count != "0"){
+                 header("location: ..\MainAccount\mainAccount.php");
+             }
+
             } else {
                 array_push($errors, "Wrong Email or Password");
                 $_SESSION['error'] = "Wrong Email or Password!";

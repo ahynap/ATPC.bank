@@ -53,7 +53,7 @@
         <span class="Text-with-line"> Don’t have an account? </span>
     </form>
   
-        <!-- SIGN UP FOR ATPC ACCOUNT button --> 
+        <!-- SIGN UP FOR ATPC ACCOUNT button \\--> 
         <div class="GoToSignIn">
             <button class="btn" onclick="window.location.href='../regis_role_choose/regis_role.php'"> SIGN UP FOR ATPC ACCOUNT </button>
 
