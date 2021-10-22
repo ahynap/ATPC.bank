@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2021 at 03:01 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Oct 22, 2021 at 04:27 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -44,7 +43,8 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `AccountID`, `Pin`) VALUES
 ('ohteh@hotmail.com', '555', 'oh', 'teh', '06000002', 1, '455245'),
-('sompongsu@gmail.com', 'sususompong', 'sompong', 'susu', '0812459495', 2, '555555');
+('sompongsu@gmail.com', 'sususompong', 'sompong', 'susu', '0812459495', 2, '555555'),
+('earn@gmail.com', '123', 'earn', 'anchi', '0821981506', 3, '123456');
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,7 @@ CREATE TABLE `accountno` (
   `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `BranchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `AccountID` int(20) NOT NULL,
-  `DayTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `DayTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `MainAccount` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -68,11 +68,17 @@ CREATE TABLE `accountno` (
 --
 
 INSERT INTO `accountno` (`SerialNo`, `DepositorName`, `AccountType`, `AccountNo`, `BranchName`, `AccountID`, `DayTime`, `MainAccount`) VALUES
+('55555', 'oh', 'Fixed Deposites', '10', 'kmutt', 1, '2021-10-22 13:15:26', NULL),
+('888888', 'som', 'Savings', '11', 'kmutt', 2, '2021-10-22 13:18:50', NULL),
+('54785', 'anchi', 'Fixed Deposites', '12', 'kmutt', 1, '2021-10-22 13:22:12', NULL),
+('1236547', 'anchi', 'Savings', '13', 'kmutt', 3, '2021-10-22 13:44:11', 'Main Account'),
+('147', 'anchi', 'Savings', '14', 'kmutt', 3, '2021-10-22 14:25:02', NULL),
 ('sbafb', 'sompong', 'Fixed Deposites', '4', 'sdaba', 2, '2021-10-22 10:25:27', 'Main Account'),
 ('db', 'oh', 'Savings', '5', 'LX', 1, '2021-10-22 10:28:08', 'Main Account'),
 ('555', 'sompong', 'Savings', '6', 'CU', 2, '2021-10-22 10:42:35', NULL),
 ('555', 'sompong', 'Fixed Deposites', '7', 'sdaba', 2, '2021-10-22 12:59:00', NULL),
-('db', 'oh', 'Savings', '8', 'CU', 1, '2021-10-22 13:00:58', NULL);
+('db', 'oh', 'Savings', '8', 'CU', 1, '2021-10-22 13:00:58', NULL),
+('123654778', 'som', 'Savings', '9', 'kmutt', 2, '2021-10-22 13:09:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -90,13 +96,19 @@ CREATE TABLE `accountnoinfo` (
 --
 
 INSERT INTO `accountnoinfo` (`AccountNo`, `Balance`) VALUES
+('10', 65412),
+('11', 999999),
+('12', 85410),
+('13', 574812),
+('14', 100000000),
 ('2', 442360),
 ('3', 43526),
 ('4', 55.5),
 ('5', 463264),
 ('6', 63262500),
 ('7', 123456),
-('8', 55);
+('8', 55),
+('9', 125478);
 
 -- --------------------------------------------------------
 
@@ -151,7 +163,7 @@ ALTER TABLE `staffaccount`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

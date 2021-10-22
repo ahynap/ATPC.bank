@@ -45,7 +45,7 @@
              while($row3 = mysqli_fetch_array($result3)) {
         ?>
 
-        <input type="image" src="logo_blue.png" width="127" onClick="this.form.action='../MainAccount/mainAccount.php'; submit()" name="fix" value=<?php echo $row3["Email"]; ?> />  
+        <input type="image" src="logo_blue.png" width="127"/>  
 
          <?php
             }
