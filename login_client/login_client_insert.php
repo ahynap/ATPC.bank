@@ -38,13 +38,14 @@
              $getresult = mysqli_query($conn, $result);
              $count = mysqli_num_rows($getresult);
              echo $count;
-
+            
+            $_SESSION['Email'] = $Email;
              if($count == "0"){
-                $_SESSION['Email'] = $Email;
+                
                  header("location: ..\connect_account\connect_account.php");
            
              }else if($count != "0"){
-                $_SESSION['Phone'] = $Phone;
+                
                  header("location: ..\MainAccount\mainAccount.php");
              }
 

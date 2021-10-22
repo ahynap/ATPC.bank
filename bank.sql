@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2021 at 04:27 PM
+-- Generation Time: Oct 22, 2021 at 10:08 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -44,7 +44,9 @@ CREATE TABLE `account` (
 INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `AccountID`, `Pin`) VALUES
 ('ohteh@hotmail.com', '555', 'oh', 'teh', '06000002', 1, '455245'),
 ('sompongsu@gmail.com', 'sususompong', 'sompong', 'susu', '0812459495', 2, '555555'),
-('earn@gmail.com', '123', 'earn', 'anchi', '0821981506', 3, '123456');
+('earn@gmail.com', '123', 'earn', 'anchi', '0821981506', 3, '123456'),
+('a', '1', 't', 'i', '02', 4, '120120'),
+('f@gmail.com', '123', 'fern', 'susu', '01000', 5, '123654');
 
 -- --------------------------------------------------------
 
@@ -73,6 +75,14 @@ INSERT INTO `accountno` (`SerialNo`, `DepositorName`, `AccountType`, `AccountNo`
 ('54785', 'anchi', 'Fixed Deposites', '12', 'kmutt', 1, '2021-10-22 13:22:12', NULL),
 ('1236547', 'anchi', 'Savings', '13', 'kmutt', 3, '2021-10-22 13:44:11', 'Main Account'),
 ('147', 'anchi', 'Savings', '14', 'kmutt', 3, '2021-10-22 14:25:02', NULL),
+('12369', 'a', 'Savings', '15', 'kmutt', 4, '2021-10-22 18:16:25', 'Main Account'),
+('12369', 'anchi', 'Savings', '16', 'kmutt', 4, '2021-10-22 18:24:14', NULL),
+('147', 'oh', 'Fixed Deposites', '17', 'kmutt', 1, '2021-10-22 18:27:09', NULL),
+('123456', 'anchi', 'Savings', '19', 'kmutt', 3, '2021-10-22 19:17:38', NULL),
+('852', 'anchi', 'Savings', '20', 'kmutt', 3, '2021-10-22 20:01:42', NULL),
+('12369', 'oh', 'Savings', '21', 'kmutt', 1, '2021-10-22 20:03:18', NULL),
+('147', 'fern', 'Savings', '22', 'kmutt', 5, '2021-10-22 20:06:49', 'Main Account'),
+('54785', 'fern', 'Savings', '23', 'kmutt', 5, '2021-10-22 20:07:31', NULL),
 ('sbafb', 'sompong', 'Fixed Deposites', '4', 'sdaba', 2, '2021-10-22 10:25:27', 'Main Account'),
 ('db', 'oh', 'Savings', '5', 'LX', 1, '2021-10-22 10:28:08', 'Main Account'),
 ('555', 'sompong', 'Savings', '6', 'CU', 2, '2021-10-22 10:42:35', NULL),
@@ -101,7 +111,16 @@ INSERT INTO `accountnoinfo` (`AccountNo`, `Balance`) VALUES
 ('12', 85410),
 ('13', 574812),
 ('14', 100000000),
+('15', 20),
+('16', 200),
+('17', 100),
+('18', 1200),
+('19', 500),
 ('2', 442360),
+('20', 400),
+('21', 100),
+('22', 300),
+('23', 10000),
 ('3', 43526),
 ('4', 55.5),
 ('5', 463264),
@@ -163,7 +182,7 @@ ALTER TABLE `staffaccount`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

@@ -2,21 +2,21 @@
 
     session_start();
     include('..\server\server.php');
-    $Phone = $_SESSION['Phone'];
-    $result3 = mysqli_query($conn,"SELECT Email FROM account WHERE Phone = '$Phone' ");
-    $result4 = mysqli_query($conn,"SELECT * FROM account WHERE Phone = '$Phone'");
+    $Email = $_SESSION['Email'];
+    $result3 = mysqli_query($conn,"SELECT Email FROM account WHERE Email = '$Email' ");
+    $result4 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
     $result = mysqli_query($conn,
         "SELECT AccountNo FROM accountno 
          JOIN account
            ON accountno.AccountID = account.AccountID
-          WHERE account.Phone = '$Phone'  AND accountno.MainAccount = 'Main Account'");
+          WHERE account.Email = '$Email'  AND accountno.MainAccount = 'Main Account'");
     $result2 = mysqli_query($conn, 
         "SELECT Balance FROM accountnoinfo
           JOIN accountno
             ON accountnoinfo.AccountNo = accountno.AccountNo
           JOIN account
             ON accountno.AccountID = account.AccountID
-          WHERE account.Phone = '$Phone' AND accountno.MainAccount = 'Main Account' ");
+          WHERE account.Email = '$Email' AND accountno.MainAccount = 'Main Account' ");
     
     
     

@@ -80,7 +80,7 @@
         <input type="text" placeholder="Branch Name" name="BranchName"><br>
         <input type="text" placeholder="Serial Number" name="SerialNo"><br>
 
-    <input type="text" placeholder="Phone number" name="Phone" /> 
+    <input type="text" placeholder="Email number" name="Email" /> 
 
 
         <select name="AccountType">
