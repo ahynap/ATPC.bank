@@ -45,7 +45,7 @@
              while($row3 = mysqli_fetch_array($result3)) {
         ?>
 
-        <input type="image" src="logo_blue.png" width="127" name="Email" value=<?php echo $row3["Email"]; ?> />  
+        <input type="image" src="logo_blue.png" width="127" onClick="this.form.action='../MainAccount/mainAccount.php'; submit()" value=<?php echo $row3["Email"]; ?> />  
 
          <?php
             }
@@ -67,7 +67,7 @@
     
     <!-- ----- logout button ----- --> 
     <button type="submit" class="btn" > LOG OUT </button>
-
+        
     <!-- ----- header text ----- --> 
     <span class="header_txt"> CONNECT TO <br> BANK ACCOUNT </span>
     
@@ -80,20 +80,13 @@
         <input type="text" placeholder="Branch Name" name="BranchName"><br>
         <input type="text" placeholder="Serial Number" name="SerialNo"><br>
 
-         <?php
-             while($row2 = mysqli_fetch_array($result2)) {
-        ?>
+    <input type="text" placeholder="Phone number" name="Phone" /> 
 
-                 <input type="text" name="Email" value=<?php echo $row2["Email"]; ?>>
-
-         <?php
-            }
-        ?>
 
         <select name="AccountType">
             <option value="" disabled selected>Type of Account</option>
-            <option value="normal">Savings</option>
-            <option value="above 13">Fixed Deposites</option>
+            <option value="Savings">Savings</option>
+            <option value="Fixed Deposites">Fixed Deposites</option>
         </select>
     </div>
 

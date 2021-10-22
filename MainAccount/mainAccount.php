@@ -2,21 +2,21 @@
     session_start();
     include('..\server\server.php');
     
-    $Email = $_SESSION['Email'];
-    $result3 = mysqli_query($conn,"SELECT * FROM account WHERE Email='$Email'");
-    $result4 = mysqli_query($conn,"SELECT * FROM account WHERE Email='$Email'");
+    $Phone = $_SESSION['Phone'];
+    $result3 = mysqli_query($conn,"SELECT Email FROM account WHERE Phone = '$Phone'");
+    $result4 = mysqli_query($conn,"SELECT * FROM account WHERE Phone = '$Phone'");
     $result = mysqli_query($conn,
         "SELECT AccountNo FROM accountno 
          JOIN account
            ON accountno.AccountID = account.AccountID
-          WHERE account.Email = '$Email' AND accountno.MainAccount = 'Main Account'");
+          WHERE account.Phone = '$Phone' AND accountno.MainAccount = 'Main Account'");
     $result2 = mysqli_query($conn, 
         "SELECT Balance FROM accountnoinfo
           JOIN accountno
             ON accountnoinfo.AccountNo = accountno.AccountNo
           JOIN account
             ON accountno.AccountID = account.AccountID
-          WHERE account.Email = '$Email'");
+          WHERE account.Phone = '$Phone' AND accountno.MainAccount = 'Main Account'");
 
 
 
@@ -58,12 +58,11 @@
             <ul class="nav navbar-right">
                 <a href="#">
                     <?php
-                        while($row = mysqli_fetch_array($result3)) {
+                        while($row3 = mysqli_fetch_array($result3)) {
                     ?>
-                        <a class="navUser" href="#"><?php echo $row["Email"]; ?></a>
+                        <a class="navUser" href="#"><?php echo $row3["Email"]; ?></a>
 
-                     <?php
-                     
+                    <?php
                      }
                     ?>
                     <img src="picture/client_icon.png" width="58.36px" height="58.36px">
@@ -126,10 +125,10 @@
                 <div class="col-3">
                              
                     <?php
-                      while($row = mysqli_fetch_array($result2)) {
+                      while($row2 = mysqli_fetch_array($result2)) {
                     ?>
                                      
-                         <p class="test3"><?php echo $row["Balance"]; ?></p>
+                         <p class="test3" style="text-align: right;"><?php echo $row2["Balance"]; ?></p>
                                 
                           
                  <?php

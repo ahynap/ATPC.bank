@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2021 at 07:01 PM
+-- Generation Time: Oct 22, 2021 at 03:01 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -68,9 +68,11 @@ CREATE TABLE `accountno` (
 --
 
 INSERT INTO `accountno` (`SerialNo`, `DepositorName`, `AccountType`, `AccountNo`, `BranchName`, `AccountID`, `DayTime`, `MainAccount`) VALUES
-('fwe', 'somsom', 'wevq', '2', 'KMUTT', 2, '2021-10-17 17:32:41', ''),
-('123456', 'sompong', 'above 13', '3', 'CPEE', 2, '2021-10-18 16:41:02', NULL),
-('123456', 'sompong', 'above 13', '4', 'sdaba', 1, '2021-10-18 16:56:02', 'Main Account');
+('sbafb', 'sompong', 'Fixed Deposites', '4', 'sdaba', 2, '2021-10-22 10:25:27', 'Main Account'),
+('db', 'oh', 'Savings', '5', 'LX', 1, '2021-10-22 10:28:08', 'Main Account'),
+('555', 'sompong', 'Savings', '6', 'CU', 2, '2021-10-22 10:42:35', NULL),
+('555', 'sompong', 'Fixed Deposites', '7', 'sdaba', 2, '2021-10-22 12:59:00', NULL),
+('db', 'oh', 'Savings', '8', 'CU', 1, '2021-10-22 13:00:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -90,7 +92,11 @@ CREATE TABLE `accountnoinfo` (
 INSERT INTO `accountnoinfo` (`AccountNo`, `Balance`) VALUES
 ('2', 442360),
 ('3', 43526),
-('4', 55);
+('4', 55.5),
+('5', 463264),
+('6', 63262500),
+('7', 123456),
+('8', 55);
 
 -- --------------------------------------------------------
 
@@ -145,7 +151,7 @@ ALTER TABLE `staffaccount`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

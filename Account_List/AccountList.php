@@ -10,6 +10,7 @@
            ON accountno.AccountID = account.AccountID
           WHERE account.Email = '$Email'";
 
+
     $result2 = "SELECT * FROM accountnoinfo
           JOIN accountno
             ON accountnoinfo.AccountNo = accountno.AccountNo
@@ -17,8 +18,11 @@
             ON accountno.AccountID = account.AccountID
           WHERE account.Email = '$Email'";
 
-    $getresult2 = mysqli_multi_query($conn, $result2);
-    
+    $result4 =  mysqli_query($conn,"SELECT * FROM accountno WHERE MainAccount = 'Main Account'");
+    $getResult4 = mysqli_fetch_assoc($result4);
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,38 +90,59 @@
 
     <!--  Account List Button  -->
     <div class="List">
+<?php
+    mysqli_multi_query($conn, $result2);
+    do {
 
-          <?php
-             $i = 1;
-             while($row2 = fetch_all($getresult2)) {
-           ?>
+    if ($result4 = mysqli_store_result($conn)) {
+      $i = 1;
+        while ($row4 = mysqli_fetch_row($result4)) {
 
-        <a href="#">
+         
+ ?>
+          <a href="#">
             <button type="button" class="button1">
                 <div class="row">
                     <div class="col-6">
-                        <p class="test1"><?php echo $row2["AccountType"]; ?></p>
-                        <p class="test2"><?php echo $row2["AccountNo"]; ?></p>
+                        <p class="test1"><?php echo $row4[4]; ?></p>
+                        <p class="test2"><?php echo $row4[0]; ?></p>
                     </div>
                     
-                    <!-- <div class="col-6" style="margin-top: -100px; margin-bottom: 38px;">
+                    <?php
+                      if($getResult4['MainAccount'] == $row4[9]) {
+                    ?>
+
+                    <div class="col-6" style="margin-top: -100px; margin-bottom: 38px;">
                         <span class="test3">MAIN ACCOUNT</span>
-                    </div> -->
-                        
+                    </div> 
+
+                     <?php
+                    }
+                      ?>
+ 
                     <div class="col-6" style="margin-buttom: 11px;">
-                        <p class="test4"><?php echo $row2["Balance"]; ?></p>
+                        <p class="test4"><?php echo $row4[1]; ?></p>
                     </div>
                 </div>
             </button>
-        </a>
+        </a> <br><br> <br><br>
+<?php
 
-         <?php
-            $i++;
-             }
-         ?>
+}
+
+   $i++;
+        }
+
+      if (mysqli_more_results($conn)) {
+        printf("-----------------\n");
+  
+    }
+} while (mysqli_next_result($conn));
+
+  ?>
 
 
-    </div> 
+    </div>
 
 </body>
 

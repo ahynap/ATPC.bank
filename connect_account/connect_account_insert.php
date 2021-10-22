@@ -10,7 +10,7 @@
         $BranchName = mysqli_real_escape_string($conn, $_POST['BranchName']);
         $SerialNo = mysqli_real_escape_string($conn, $_POST['SerialNo']);
         $AccountType = mysqli_real_escape_string($conn, $_POST['AccountType']);
-        $Email = mysqli_real_escape_string($conn, $_POST['Email']);
+        $Phone = mysqli_real_escape_string($conn, $_POST['Phone']);
     
 
         if (empty($AccountNo)) {
@@ -38,9 +38,9 @@
             $_SESSION['error'] = "AccountType is required";
         }
 
-        if (empty($Email)) {
-            array_push($errors, "Email is required");
-            $_SESSION['error'] = "Email is required";
+        if (empty($Phone)) {
+            array_push($errors, "Phone is required");
+            $_SESSION['error'] = "Phone is required";
         }
 
 
@@ -63,13 +63,13 @@
 
         /* Check Authentication */
 
-        $user_check_query2 = "SELECT * FROM account WHERE Email = '$Email'";
+        $user_check_query2 = "SELECT * FROM account WHERE Phone = '$Phone'";
         $query2 = mysqli_query($conn, $user_check_query2);
         $result2 = mysqli_fetch_assoc($query2);
 
-            if ($result2['Email'] != $Email) {
-                array_push($errors, "Email not exist");
-                $_SESSION['error'] = "Email not exist";
+            if ($result2['Phone'] != $Phone) {
+                array_push($errors, "Phone not exist");
+                $_SESSION['error'] = "Phone not exist";
                 header("location: connect_account.php");
             }
 
@@ -81,36 +81,37 @@
 
         /* Specify Main Account */
 
-             $Email = $_REQUEST['Email'];
              $result3 = "SELECT AccountNo FROM accountno
              JOIN account
              ON accountno.AccountID = account.AccountID
-             WHERE account.Email = '$Email'";
+             WHERE account.Phone = '$Phone'";
 
              $getresult3 = mysqli_query($conn, $result3);
              $count = mysqli_num_rows($getresult3);
+             echo $count;
 
 
              if ($count == "0") {
 
                  $sql = "
                  INSERT INTO accountno (AccountNo, DepositorName, BranchName, SerialNo, AccountType, AccountID, MainAccount)
-                 VALUES ('$AccountNo','$DepositorName','$BranchName','$SerialNo','$AccountType', (SELECT AccountID FROM account WHERE Email = '$Email'), 'Main Account');
+                 VALUES ('$AccountNo','$DepositorName','$BranchName','$SerialNo','$AccountType', (SELECT AccountID FROM account WHERE Phone = '$Phone'), 'Main Account');
             ";
             mysqli_query($conn, $sql);
+            $_SESSION['Phone'] = $Phone;
         
         
-            } else if ($count != "0") {
+            } else if ($count != "0")  {
 
                  $sql = "
                  INSERT INTO accountno (AccountNo, DepositorName, BranchName, SerialNo, AccountType, AccountID, MainAccount)
-                 VALUES ('$AccountNo','$DepositorName','$BranchName','$SerialNo','$AccountType', (SELECT AccountID FROM account WHERE Email = '$Email'), NULL);
+                 VALUES ('$AccountNo','$DepositorName','$BranchName','$SerialNo','$AccountType', (SELECT AccountID FROM account WHERE Phone = '$Phone'), NULL);
             ";
-        
+                 mysqli_query($conn, $sql);
+                 $_SESSION['Phone'] = $Phone;
             }
 
-             $_SESSION['Email'] = $Email;
-            header("location: ..\MainAccount\mainAccount.php");
+            header("location: ..\MainAccount\mainAccount.php"); 
             
         } else {
             header("location: connect_account.php");
