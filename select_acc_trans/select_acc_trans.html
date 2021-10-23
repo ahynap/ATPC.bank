@@ -41,7 +41,7 @@
     <div class="container_blue">
 
         <!-- ----- ##### now selected accout ##### ----- --> 
-        <div class="select_accout">
+        <button class="select_accout">
             <!-- ----- in blue squre box detail ----- --> 
             <!-- ----- account_type ----- --> 
             <div class="account_type">
@@ -66,13 +66,12 @@
             <div class="main_account">
                 <label> MAIN ACCOUNT </label>
             </div>
-        </div>
+        </button>
         <br>
 
         
         <!-- ----- ##### accout for select #####----- -->
-        <div class="next_select_accout" >
-            <input type="radio" class="check">
+        <button class="next_select_accout" >
             <!-- ----- in blue squre box detail ----- --> 
             <!-- ----- account_type ----- --> 
             <div class="account_type">
@@ -90,17 +89,18 @@
             <div class="balance">
                 <label> balance </label>
                 <label> <?php echo $row["main_account"]; ?> </label>
-            </div>
+            </button>
         </div>
         <br>
         
 
 
         
-        <!-- ----- connect button ----- --> 
+        <!-- ----- connect button ----- 
         <div class="connect">
             <button type="submit" class="btn" > SELECT </button>
         </div>
+        --> 
 
     </div>
 
