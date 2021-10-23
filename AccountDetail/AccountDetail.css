@@ -132,7 +132,7 @@ body {
 }
 
 .button1 {
-  height: 217px;
+  height: 240px;
   width: 579px;
 
   border: none;
@@ -195,7 +195,7 @@ p.test2 {
 p.test4 {
   font-family: Kanit;
   font-style: normal;
-  font-size: 30px;
+  font-size: 48px;
   font-weight: 400;
 
   text-align: left;
@@ -272,7 +272,7 @@ p.test5 {
   font-family: Kanit;
   font-style: normal;
   font-weight: normal;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 45px;
 
   text-align: left;

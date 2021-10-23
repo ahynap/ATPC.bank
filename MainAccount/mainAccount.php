@@ -3,7 +3,7 @@
     session_start();
     include('..\server\server.php');
     $Email = $_SESSION['Email'];
-    $result3 = mysqli_query($conn,"SELECT Email FROM account WHERE Email = '$Email' ");
+    $result3 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email' ");
     $result4 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
     $result = mysqli_query($conn,
         "SELECT AccountNo FROM accountno 
@@ -17,12 +17,12 @@
           JOIN account
             ON accountno.AccountID = account.AccountID
           WHERE account.Email = '$Email' AND accountno.MainAccount = 'Main Account' ");
+     $result5 = mysqli_query($conn,
+        "SELECT AccountNo FROM accountno 
+         JOIN account
+           ON accountno.AccountID = account.AccountID
+          WHERE account.Email = '$Email' AND accountno.MainAccount = 'Main Account'");
     
-    
-    
-    
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,13 +39,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <script src="jquery.js"></script>
-    <script>
-        $(function(){
-            $("#includeContent").load("../connect_account/connect_account_insert.php");
-        }
-    </script>
 
 </head>
 
@@ -66,7 +59,7 @@
                         <a class="navUser" href="#"><?php echo $row3["Email"]; ?></a>
 
                     <?php
-                     }
+                       }
                     ?>
                     <img src="picture/client_icon.png" width="58.36px" height="58.36px">
                 </a>
@@ -91,7 +84,7 @@
     </nav>
 
     <!-- Main Account Form-->
-    <form>
+  <form action="history_insert.php" method="post">
 
         <!--Info in form -->
 
@@ -140,8 +133,7 @@
                 ?>
             </div>
         </div>
-      </form>
-
+     
           <!-- Connect Bank Account button -->
         <div class="AddAccount" style="margin-top: 100px;">
 
@@ -149,7 +141,7 @@
                       while($row4 = mysqli_fetch_array($result4)) {
                 ?>
 
-             <button class="btn" style="outline: none;" onClick="this.form.action='../connect_account/connect_account_home.php'; submit()" name="Email" value=<?php echo $row["Email"]; ?>> CONNECT BANK ACCOUNT </button> 
+             <button class="btn" style="outline: none;" onClick="this.form.action='../connect_account/connect_account_home.php'; submit()"> CONNECT BANK ACCOUNT </button> 
 
 
                  <?php
@@ -157,8 +149,6 @@
                      }
                 ?>
         </div><br>
-  
-
 
         <!-- MyAccount Transfer ViewHistory -->
         <div class="row ">
@@ -172,8 +162,8 @@
             </div>
 
             <div class="col">
-                <a href="#">
-                    <img src="picture/withdrawIcon.png" style="width:83%">
+                <a href="../transfer/transfer.php">
+                    <input type="image" src="picture/withdrawIcon.png" style="width:83%" onClick="this.form.action='../transfer/transfer.php'; submit()">
                     <div class="method">
                         <h4>TRANSFER</h4>
                     </div>
@@ -182,17 +172,25 @@
 
             <div class="col">
                 <a href="#">
-                    <img src="picture/historyIcon.png" style="width:83%">
+
+                   <?php
+                        while($row5 = mysqli_fetch_array($result5)) {
+                     ?>
+
+                    <input type="image" src="picture/historyIcon.png" name="AccountNo" value=<?php echo $row5["AccountNo"]; ?> style="width:83%">
+
                     <div class="method">
-                        <h4>VIEW HISTORY</h4>
+                        <button type="submit" name="AccountNo" value=<?php echo $row5["AccountNo"]; ?>> VIEW HISTORY</button>
                     </div>
+
+                     <?php 
+                     }
+                 ?>
                 </a>
             </div>
         </div><br>
-
+    </form>
     
-  <div id="includedContent"></div>
-
 
 </body>
 

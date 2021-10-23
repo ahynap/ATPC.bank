@@ -44,20 +44,24 @@
 
 <body style="background-color: #F4F1EC;">
     <!--   navbar   -->
- <nav class="navbar navbar-light">
-        <a class="navbar-brand"> 
-              <?php
-             while($row3 = mysqli_fetch_array($result3)) {
-        ?>
 
-        <input type="image" src="logo_blue.png" width="15%" onClick="this.form.action='../MainAccount/mainAccount.php'; submit()" name="Email" value=<?php echo $row3["Email"]; ?> />  
 
-         <?php
-            }
-        ?>
-          </a> 
         <div class="navbar">
-            <ul class="nav navbar-right">
+            <ul class="nav navbar-right" style="float: left!important;">
+              <a href="#" style="text-align: left; width: 750px; height: 133px;">
+
+                  <?php
+                    while($row3 = mysqli_fetch_array($result3)) {
+                  ?>
+
+                        <input type="image" src="logo_blue.png" width="15%" onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row3["Email"]; ?> />  
+
+                 <?php
+                    }
+                  ?>
+
+               </a>
+
                 <a href="#">
                      <?php
                         while($row = mysqli_fetch_array($result)) {
@@ -69,6 +73,7 @@
                     ?>
                     <img src="picture/client_icon.png" width="58.36px" height="58.36px">
                 </a>
+
                 <a href="#">
                     <button class="btn navbar-btn" style="display: inline; 
                         color: white; 
@@ -86,7 +91,7 @@
                 </a>
             </ul>
         </div>
-    </nav>
+
 
     <!--  Account List Button  -->
     <div class="List">
@@ -100,11 +105,11 @@
 
          
  ?>
-          <a href="#">
-            <button type="button" class="button1">
+          <form action="..\Account_List\AccountList_insert.php" method="post">
+            <button type="submit" class="button1" name="AccountNo" value=<?php echo $row4[0]; ?>>
                 <div class="row">
                     <div class="col-6">
-                        <p class="test1"><?php echo $row4[4]; ?></p>
+                        <p class="test1"><?php echo $row4[5]; ?></p>
                         <p class="test2"><?php echo $row4[0]; ?></p>
                     </div>
                     
@@ -120,8 +125,8 @@
                     }
                       ?>
  
-                    <div class="col-6" style="margin-buttom: 11px;">
-                        <p class="test4"><?php echo $row4[1]; ?></p>
+                    <div class="col-6" style="margin-bottom: 11px;">
+                        <p class="test4"><?php echo $row4[2]; ?></p>
                     </div>
                 </div>
             </button>
@@ -141,7 +146,7 @@
 
   ?>
 
-
+ </form>
     </div>
 
 </body>

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2021 at 10:08 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.15
+-- Generation Time: Oct 23, 2021 at 11:10 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -61,7 +62,7 @@ CREATE TABLE `accountno` (
   `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `BranchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `AccountID` int(20) NOT NULL,
-  `DayTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `DayTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `MainAccount` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -83,6 +84,8 @@ INSERT INTO `accountno` (`SerialNo`, `DepositorName`, `AccountType`, `AccountNo`
 ('12369', 'oh', 'Savings', '21', 'kmutt', 1, '2021-10-22 20:03:18', NULL),
 ('147', 'fern', 'Savings', '22', 'kmutt', 5, '2021-10-22 20:06:49', 'Main Account'),
 ('54785', 'fern', 'Savings', '23', 'kmutt', 5, '2021-10-22 20:07:31', NULL),
+('db', 'oh', 'Fixed Deposites', '24', 'CPE', 1, '2021-10-22 20:26:23', NULL),
+('555', 'sompong', 'Fixed Deposites', '25', 'sdaba', 2, '2021-10-22 20:27:12', NULL),
 ('sbafb', 'sompong', 'Fixed Deposites', '4', 'sdaba', 2, '2021-10-22 10:25:27', 'Main Account'),
 ('db', 'oh', 'Savings', '5', 'LX', 1, '2021-10-22 10:28:08', 'Main Account'),
 ('555', 'sompong', 'Savings', '6', 'CU', 2, '2021-10-22 10:42:35', NULL),
@@ -98,36 +101,40 @@ INSERT INTO `accountno` (`SerialNo`, `DepositorName`, `AccountType`, `AccountNo`
 
 CREATE TABLE `accountnoinfo` (
   `AccountNo` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `Balance` float NOT NULL
+  `BankName` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `Balance` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `accountnoinfo`
 --
 
-INSERT INTO `accountnoinfo` (`AccountNo`, `Balance`) VALUES
-('10', 65412),
-('11', 999999),
-('12', 85410),
-('13', 574812),
-('14', 100000000),
-('15', 20),
-('16', 200),
-('17', 100),
-('18', 1200),
-('19', 500),
-('2', 442360),
-('20', 400),
-('21', 100),
-('22', 300),
-('23', 10000),
-('3', 43526),
-('4', 55.5),
-('5', 463264),
-('6', 63262500),
-('7', 123456),
-('8', 55),
-('9', 125478);
+INSERT INTO `accountnoinfo` (`AccountNo`, `BankName`, `Balance`) VALUES
+('10', 'ATPCBank', 65422),
+('11', 'ATPCBank', 1000009),
+('12', 'ATPCBank', 85410),
+('13', 'ATPCBank', 574810),
+('14', 'ATPCBank', 100000000),
+('15', 'ATPCBank', 41),
+('16', 'ATPCBank', 200),
+('17', 'ATPCBank', 100),
+('18', 'ATPCBank', 1200),
+('19', 'ATPCBank', 500),
+('2', 'ATPCBank', 442360),
+('20', 'ATPCBank', 400),
+('21', 'ATPCBank', 100),
+('22', 'ATPCBank', 300),
+('23', 'ATPCBank', 10001),
+('24', 'ATPCBank', 523),
+('25', 'ATPCBank', 59),
+('3', 'ATPCBank', 43526),
+('30', 'ATPCBank', 10000),
+('4', 'ATPCBank', 55.5),
+('5', 'ATPCBank', 463225),
+('6', 'ATPCBank', 63262500),
+('7', 'ATPCBank', 123456),
+('8', 'ATPCBank', 55),
+('9', 'ATPCBank', 125478);
 
 -- --------------------------------------------------------
 
@@ -143,6 +150,30 @@ CREATE TABLE `staffaccount` (
   `Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Password` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transferhistory`
+--
+
+CREATE TABLE `transferhistory` (
+  `TransferID` int(20) NOT NULL,
+  `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `BankName` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `DestinationAccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `DayTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Amount` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `transferhistory`
+--
+
+INSERT INTO `transferhistory` (`TransferID`, `AccountNo`, `BankName`, `DestinationAccountNo`, `DayTime`, `Amount`) VALUES
+(1, '5', 'ATPCBank', '11', '2021-10-23 17:17:00', 1),
+(2, '5', 'ATPCBank', '11', '2021-10-23 17:24:03', 1),
+(3, '25', 'ATPCBank', '11', '2021-10-23 18:12:47', 1);
 
 --
 -- Indexes for dumped tables
@@ -175,6 +206,13 @@ ALTER TABLE `staffaccount`
   ADD PRIMARY KEY (`StaffID`);
 
 --
+-- Indexes for table `transferhistory`
+--
+ALTER TABLE `transferhistory`
+  ADD PRIMARY KEY (`TransferID`),
+  ADD KEY `fk_AcNo` (`AccountNo`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -183,6 +221,12 @@ ALTER TABLE `staffaccount`
 --
 ALTER TABLE `account`
   MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `transferhistory`
+--
+ALTER TABLE `transferhistory`
+  MODIFY `TransferID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -194,6 +238,12 @@ ALTER TABLE `account`
 ALTER TABLE `accountno`
   ADD CONSTRAINT `fk_accountID` FOREIGN KEY (`AccountID`) REFERENCES `account` (`AccountID`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_accountNo` FOREIGN KEY (`AccountNo`) REFERENCES `accountnoinfo` (`AccountNo`);
+
+--
+-- Constraints for table `transferhistory`
+--
+ALTER TABLE `transferhistory`
+  ADD CONSTRAINT `fk_AcNo` FOREIGN KEY (`AccountNo`) REFERENCES `accountnoinfo` (`AccountNo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
