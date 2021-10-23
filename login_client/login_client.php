@@ -41,7 +41,6 @@
         <div class="SubmitForLogin">
             <input type="text" placeholder="Email" name="Email">
             <input type="password" placeholder="Password" name="Password">
-            <input type="text" placeholder="Phone" name="Phone">
             
             <br>
             <a href="default.asp" target="_blank" class="txt_link_left"> forget password? </a>
