@@ -16,11 +16,6 @@
             ON accountnoinfo.AccountNo = accountno.AccountNo
           JOIN account
             ON accountno.AccountID = account.AccountID
-          WHERE account.Email = '$Email' AND accountno.MainAccount = 'Main Account' ");
-     $result5 = mysqli_query($conn,
-        "SELECT AccountNo FROM accountno 
-         JOIN account
-           ON accountno.AccountID = account.AccountID
           WHERE account.Email = '$Email' AND accountno.MainAccount = 'Main Account'");
     
 ?>
@@ -31,7 +26,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ATPC Main Account</title>
-    <link rel="stylesheet" href="mainAccount.css">
+    <link rel="stylesheet" href="mainAccount1.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet'
@@ -43,49 +38,33 @@
 </head>
 
 <body style="background: #F4F1EC;">
-   
 
-    <!--   navbar   -->
-    <nav class="navbar navbar-light">
-        <a class="navbar-brand" href="#">
-            <img src="picture/logo_blue.png" style="width:15%">
-        </a>
-        <div class="navbar">
-            <ul class="nav navbar-right">
-                <a href="#">
-                    <?php
-                        while($row3 = mysqli_fetch_array($result3)) {
-                    ?>
-                        <a class="navUser" href="#"><?php echo $row3["Email"]; ?></a>
+      <!-- ----- logo ATPC bank ----- --> 
+    <div class="logo">
 
-                    <?php
-                       }
-                    ?>
-                    <img src="picture/client_icon.png" width="58.36px" height="58.36px">
-                </a>
-                <a href="#">
-                    <button class="btn navbar-btn" style="display: inline; 
-                        color: white; 
-                        background-color: #7585BD;  
-                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                        border: 0px;
-                        border-radius: 35px; 
-                        font-family: Kanit;
-                        font-style: normal; 
-                        font-weight: bold; 
-                        font-size: 18px; 
-                        text-decoration: none; 
-                        outline: none ">
-                        LOG OUT</button>
-                </a>
+        <input type="image" src="logo_blue.png" width="127"/>  
 
-            </ul>
-        </div>
-    </nav>
+    </div>
 
-    <!-- Main Account Form-->
-  <form action="history_insert.php" method="post">
+    <!-- ----- user's name show here! ----- -->
 
+        <?php
+             while($row3 = mysqli_fetch_array($result3)) {
+        ?>
+                   <span class="show_name" href="#" style="width: 350px; left: 450px; text-align: center"><?php echo $row3["Email"]; ?></span>
+
+        <?php
+            }
+        ?>
+  
+    <img src="client_icon.png" width=58.36 class="icon"> 
+    
+    <!-- ----- logout button ----- --> 
+    <button type="submit" id = "btn3" onclick="window.location.href='../login_client/login_client.php'"> LOG OUT </button>
+
+
+ <!-- Main Account Form-->
+  <form>
         <!--Info in form -->
 
         <div class="Info">
@@ -100,7 +79,7 @@
       
 
             
-            <div class="col-3" style="margin-top:285px" >
+            <div class="col-3" style="margin-top: 285px" >
                <!-- <br><br><br><br><br><br><br><br><br><br><br><br> -->
 
                 <p class="test1" style="margin-left: 150px;">MAIN ACCOUNT </p>
@@ -135,57 +114,37 @@
         </div>
      
           <!-- Connect Bank Account button -->
-        <div class="AddAccount" style="margin-top: 100px;">
-
-              <?php
-                      while($row4 = mysqli_fetch_array($result4)) {
-                ?>
-
-             <button class="btn" style="outline: none;" onClick="this.form.action='../connect_account/connect_account_home.php'; submit()"> CONNECT BANK ACCOUNT </button> 
-
-
-                 <?php
-                
-                     }
-                ?>
+        <div class="AddAccount">
+             <button id ="btn2" style="outline: none;" onClick="this.form.action='../connect_account/connect_account_home.php'; submit()"> CONNECT BANK ACCOUNT </button> 
         </div><br>
 
         <!-- MyAccount Transfer ViewHistory -->
         <div class="row ">
             <div class="col">
-                <a href="../Account_List/AccountList.php">
+                <a href="../Account_List/AccountList.php" style="text-decoration:none">
                     <input type="image" src="picture/accountIcon.png" style="width:83%" onClick="this.form.action='../Account_List/AccountList.php'; submit()">
                     <div class="method">
-                        <h4>MY ACCOUNT</h4>
+                        <h4>&nbsp;MY ACCOUNT</h4>
                     </div>
                 </a>
             </div>
 
             <div class="col">
-                <a href="../transfer/transfer.php">
+                <a href="../transfer/transfer.php" style="text-decoration:none">
                     <input type="image" src="picture/withdrawIcon.png" style="width:83%" onClick="this.form.action='../transfer/transfer.php'; submit()">
                     <div class="method">
-                        <h4>TRANSFER</h4>
+                        <h4>&nbsp;&nbsp;&nbsp;TRANSFER</h4>
                     </div>
                 </a>
             </div>
 
             <div class="col">
-                <a href="#">
-
-                   <?php
-                        while($row5 = mysqli_fetch_array($result5)) {
-                     ?>
-
-                    <input type="image" src="picture/historyIcon.png" name="AccountNo" value=<?php echo $row5["AccountNo"]; ?> style="width:83%">
+                <a href="#" style="text-decoration:none">
+                    <input type="image" src="picture/editprofileIcon.png" style="width:83%" onClick="this.form.action='#'; submit()">
 
                     <div class="method">
-                        <button type="submit" name="AccountNo" value=<?php echo $row5["AccountNo"]; ?>> VIEW HISTORY</button>
+                        <h4>&nbsp;EDIT PROFILE</button>
                     </div>
-
-                     <?php 
-                     }
-                 ?>
                 </a>
             </div>
         </div><br>

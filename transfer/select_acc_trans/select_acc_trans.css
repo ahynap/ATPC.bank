@@ -1,10 +1,11 @@
 body 
 {
-    background: #F4F1EC;
+    background:  #F4F1EC;
     font-family: 'Kanit';
-    margin:-35px -35px 0 0;
-}
+    height: 3000px;
+    
 
+}
 
 /* ----- logo ATPC bank ----- */
 .logo {
@@ -29,6 +30,8 @@ body
     position: absolute;
     height: 41px;
     top: 51px;
+
+    left: 648px;
 
     font-family: Kanit;
     font-style: normal;
@@ -104,7 +107,6 @@ body
     color: #7585BD;
 }
 
-
 /*  ----- header text ----- */
 .header_txt {
     position: absolute;
@@ -114,7 +116,7 @@ body
     top: 181px; 
 
     font-family: 'Kanit';
-    font-style: normal;
+    font-style: bold;
     font-weight: bold;
     font-size: 64px;
     line-height: 50px;
@@ -129,99 +131,16 @@ body
 }
 
 
-/* ----- fill information -----  */
-.text_fill {
-    position: absolute;
-    width: 446px;
-    height: 36px;
-    left: 380px;
-    top: 313px;
-
-    display: flex;
-    align-items: center;
-    
-    font-family: 'Kanit';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 36px;
-
-    color: #414141;
-
-    display: block;
-}
 
 
-/* ----- blank space for get input ----- */
-::placeholder {
-    font-family: 'Kanit';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 27px;
-
-    color: #F4F1EC;
-    padding-left: 5px;
-} 
-
-.fill_information {
-    position: absolute;
-    width: 233px;
-    height: 28px;
-    left: 358px;
-    top: 375px;
-}
-
-.fill_information input{
-    width: 322px;
-    height: 40px;
-    left: 69px;
-    padding-left: 15px;
-    margin-bottom: 12px;
-
-    font-family: 'Kanit';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-
-    background: #C4C4C4;
-    border-radius: 35px;
-    border: 0px
-}
-
-select {
-    width: 338px;
-    height: 40px;
-    left: 69px;
-    padding-left: 15px;
-    margin-bottom: 12px;
-
-    font-family: 'Kanit';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 27px;
-    color: #414141;
-
-    background: #C4C4C4;
-    border-radius: 35px;
-    border: 0px
-}
-
-select option  {
-    color: #414141;
-    border: 5px solid #C4C4C4;
-}
 
 
 /* ----- CONNECT botton ----- */
 .connect .btn{
-    position: absolute;
+    position: relative;
     width: 197px;
     height: 54px;
     left: 425px;
-    top: 655px;
-    
 
     background: #7585BD;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

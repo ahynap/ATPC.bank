@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect Account</title>
-    <link rel="stylesheet" href="connect_account.css">
+    <link rel="stylesheet" href="connect_account1.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
@@ -41,15 +41,8 @@
     <!-- ----- logo ATPC bank ----- --> 
     <div class="logo">
 
-         <?php
-             while($row3 = mysqli_fetch_array($result3)) {
-        ?>
+        <img src="logo_blue.png" width="127"/>  
 
-        <input type="image" src="logo_blue.png" width="127"/>  
-
-         <?php
-            }
-        ?>
     </div>
 
     <!-- ----- user's name show here! ----- -->
@@ -66,12 +59,7 @@
     <img src="client_icon.png" width=58.36 class="icon"> 
     
     <!-- ----- logout button ----- --> 
-    <button type="submit" class="btn" > LOG OUT </button>
-
-    <!-- ----- logo ATPC bank ----- --> 
-    <div class="back">
-        <button type="submit" class="btn" onClick="this.form.action='../login_client/login_client.php'; submit()">BACK</button>
-    </div>
+    <button type="submit" class="btn" onClick="this.form.action='../login_client/login_client.php'; submit()"> LOG OUT </button>
         
     <!-- ----- header text ----- --> 
     <span class="header_txt"> CONNECT TO <br> BANK ACCOUNT </span>
@@ -82,6 +70,7 @@
     <div class="fill_information">
         <input type="text" placeholder="Account Number" name="AccountNo"> <br>
         <input type="text" placeholder="Depositor Name" name="DepositorName"><br>
+        <input type="text" placeholder="Depositor Surname" name="DepositorSurName"><br>
         <input type="text" placeholder="Branch Name" name="BranchName"><br>
         <input type="text" placeholder="Serial Number" name="SerialNo"><br>
 
@@ -91,7 +80,6 @@
         <select name="AccountType">
             <option value="" disabled selected>Type of Account</option>
             <option value="Savings">Savings</option>
-            <option value="Fixed Deposites">Fixed Deposites</option>
         </select>
     </div>
 
@@ -99,8 +87,6 @@
     <div class="connect">
     <button type="submit" class="btn" name="connect_user"> CONNECT </button>
     </div>
-
-
 
 </body>
 

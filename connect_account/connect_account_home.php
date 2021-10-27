@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect Account</title>
-    <link rel="stylesheet" href="connect_account.css">
+    <link rel="stylesheet" href="connect_account1.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
@@ -25,7 +25,7 @@
 <body>
 
 
-     <form action="..\connect_account\connect_account_insert.php" method="post">
+     <form action="..\connect_account\connect_account_insert_home.php" method="post">
         <?php if (isset($_SESSION['error'])) : ?>
             <div class="error">
                 <h3>
@@ -66,7 +66,7 @@
     <img src="client_icon.png" width=58.36 class="icon"> 
     
     <!-- ----- logout button ----- --> 
-    <button type="submit" class="btn" > LOG OUT </button>
+    <button type="submit" class="btn" onClick="this.form.action='../login_client/login_client.php'; submit()"> LOG OUT </button>
         
     <!-- ----- header text ----- --> 
     <span class="header_txt"> CONNECT TO <br> BANK ACCOUNT </span>
@@ -77,6 +77,7 @@
     <div class="fill_information">
         <input type="text" placeholder="Account Number" name="AccountNo"> <br>
         <input type="text" placeholder="Depositor Name" name="DepositorName"><br>
+        <input type="text" placeholder="Depositor Surname" name="DepositorSurName"><br>
         <input type="text" placeholder="Branch Name" name="BranchName"><br>
         <input type="text" placeholder="Serial Number" name="SerialNo"><br>
 

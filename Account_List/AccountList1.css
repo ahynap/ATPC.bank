@@ -1,0 +1,181 @@
+body 
+{
+    background: #F4F1EC;
+    font-family: 'Kanit';
+
+    position: relative;
+    width: auto;
+    height: 768px;
+}
+
+/* ------ button ------ */
+.button1 {
+    height: 217px;
+    width: 579px;
+    
+    border: none;
+    border-radius: 35px; 
+    background: #7585BD;
+
+    margin-left:365px;
+    outline: none ;
+}
+
+.button2 {
+    height: 217px;
+    width: 579px;
+    
+    border: none;
+    border-radius: 35px; 
+    background: #7585BD;
+
+    margin-left:365px;
+    margin-top: 45px;
+    outline: none ;
+}
+
+.button3 {
+    height: 217px;
+    width: 579px;
+    
+    border: none;
+    border-radius: 35px; 
+    background: #7585BD;
+
+    margin-left:365px;
+    margin-top: 45px;
+    outline: none ;
+}
+
+.show_name {
+     position: absolute;   
+     height: 41px;   
+     top: 51px;   
+     font-family: Kanit;   
+     font-style: normal;   
+     font-weight: normal;  
+     font-size: 24px;   
+     line-height: 36px;   
+     color: #414141; } 
+
+/* ----- logo ATPC bank ----- */ 
+.logo {   
+      position: absolute;  
+      width: 127px;   
+      height: 127px;   
+      left: 44px;   top: 29px; 
+} 
+
+/* ----- user's name show here! ----- */ 
+.icon {  
+      position: absolute;   
+      width: 58.36px;  
+      height: 58.36px;   
+      left: 758px;   
+      top: 43px; 
+} 
+
+
+.show_name {   
+      position: absolute;  
+      height: 41px;   
+      top: 51px;   
+      font-family: Kanit; 
+      font-style: normal; 
+      font-weight: normal;  
+      font-size: 24px;  
+      line-height: 36px;   
+      color: #414141; 
+} 
+
+/* ----- LOGOUT botton ----- */ 
+#btn3 {   
+    position: absolute;  
+    width: 131px;   
+    height: 41px;  
+    left: 838px;  
+    top: 51px;  
+    background: #7585bd;   
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+    border-radius: 35px;  
+    border: 0px;   
+    font-family: "Kanit";   
+    font-style: normal; 
+    font-weight: bold; 
+    font-size: 18px;   
+    line-height: 27px;  
+    color: #f4f1ec;   
+    outline: none; } 
+
+/* ----- botton when hover ----- */ 
+#btn3::before, #btn3::after {  
+    position: absolute;   
+    display: block;   
+    content: "";  
+    transition: all 0.5s; 
+} 
+
+#btn3:hover {   
+    background-color: #e36262;   
+    color: #f4f1ec;
+ } 
+
+.back #btn3:hover {   
+    background-color: #fee684;  
+    color: #7585bd; }
+
+
+
+
+p {
+    font-family: 'Kanit';
+    color:#F4F1EC;
+}
+
+p.test1 {
+    font-size:36px; 
+    font-weight: 400;
+
+    text-align: left; 
+    margin-left: 35px;
+}
+
+p.test2 {
+    font-size:24px; 
+    font-weight: 400;
+
+    text-align: left; 
+    margin-left: 35px;
+
+}
+
+p.test4 {
+    font-family: Kanit;
+    font-style: normal;
+    font-size:64px;
+    font-weight: 700;
+
+    float: right; 
+    margin-right: 33px;
+}
+
+span.test3 {
+    font-family: Kanit;
+    font-style: normal; 
+    font-size: 24px; 
+    font-weight: 400;
+
+    width: 186px; 
+    height: 48px; 
+    
+    border-radius: 35px;
+
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+  
+    margin-left: 350px;
+
+    background: rgba(194, 204, 236, 0.5); 
+    color: #414141;
+}

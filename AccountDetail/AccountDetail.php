@@ -69,7 +69,7 @@
     <img src="picture/client_icon.png" width=58.36 class="icon"> 
 
     <!-- ----- logout button ----- --> 
-    <button type="submit" class="btn" > LOG OUT </button>
+    <button type="submit" class="btn"onclick="window.location.href='../login_client/login_client.php'"> LOG OUT </button>
 
     <!-- ----- logo ATPC bank ----- --> 
     <div class="back">

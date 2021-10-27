@@ -33,8 +33,8 @@
     <!-- - Login form --> 
 
         <!--logo ATPC bank --> 
-        <div class="logo">
-            <img src="logo_blue.png" width=242>
+        <div class="logo" style="text-align: center;">
+            <img src="logo_blue.png" width="242">
         </div>
 
         <!-- get login input --> 

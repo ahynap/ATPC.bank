@@ -1,4 +1,5 @@
 <?php
+
     session_start();
     include('..\server\server.php');
     
@@ -24,6 +25,8 @@
 
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +34,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ATPC Account List</title>
-    <link rel="stylesheet" href="AccountList.css">
+    <link rel="stylesheet" href="AccountList1.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet'
@@ -46,51 +49,41 @@
     <!--   navbar   -->
 
 
-        <div class="navbar">
-            <ul class="nav navbar-right" style="float: left!important;">
-              <a href="#" style="text-align: left; width: 750px; height: 133px;">
+      <!-- ----- logo ATPC bank ----- --> 
+    <div class="logo">
 
-                  <?php
-                    while($row3 = mysqli_fetch_array($result3)) {
-                  ?>
+            <?php
+                    while($row = mysqli_fetch_array($result)) {
+            ?>
 
-                        <input type="image" src="logo_blue.png" width="15%" onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row3["Email"]; ?> />  
+                   <input type="image" src="logo_blue.png" width="127" onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row["Email"]; ?> />  
 
-                 <?php
-                    }
-                  ?>
+            <?php
+                  }
+             ?>
 
-               </a>
+    </div>
 
-                <a href="#">
-                     <?php
-                        while($row = mysqli_fetch_array($result)) {
-                     ?>
-                        <a class="navUser" href="#"><?php echo $row["Email"]; ?></a>
+    <!-- ----- user's name show here! ----- -->
 
-                     <?php 
-                     }
-                    ?>
-                    <img src="picture/client_icon.png" width="58.36px" height="58.36px">
-                </a>
+        <?php
+             while($row3 = mysqli_fetch_array($result3)) {
+        ?>
+                   <span class="show_name" href="#" style="width: 350px; left: 450px; text-align: center"><?php echo $row3["Email"]; ?></span>
 
-                <a href="#">
-                    <button class="btn navbar-btn" style="display: inline; 
-                        color: white; 
-                        background-color: #7585BD;  
-                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                        border: 0px;
-                        border-radius: 35px; 
-                        font-family: Kanit;
-                        font-style: normal; 
-                        font-weight: bold; 
-                        font-size: 18px; 
-                        text-decoration: none; 
-                        outline: none ">
-                        LOG OUT</button>
-                </a>
-            </ul>
-        </div>
+        <?php
+            }
+        ?>
+  
+    <img src="client_icon.png" width=58.36 class="icon"> 
+    
+    <!-- ----- logout button ----- --> 
+    <button type="submit" id = "btn3" onclick="window.location.href='../login_client/login_client.php'"> LOG OUT </button>
+
+    <br><br><br><br><br><br><br><br><br><br><br>
+
+
+
 
 
     <!--  Account List Button  -->

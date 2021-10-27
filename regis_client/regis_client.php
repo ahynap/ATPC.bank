@@ -55,8 +55,7 @@
 
         <div class="create_ATPC_account">
             <input type="text" placeholder="Email" name="Email">
-            <input type="text" placeholder="Password" name="Password">
-            <input type="text" placeholder="Pin" name="Pin">
+            <input type="password" placeholder="Password" name="Password">
             <button type="submit" class="btn" name="reg_user"> SIGN UP </button>
         </div>
 

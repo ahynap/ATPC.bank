@@ -1,0 +1,302 @@
+body 
+{
+    background:  #F4F1EC;
+    font-family: 'Kanit';
+    height: 991px;
+    
+
+}
+
+/* ----- logo ATPC bank ----- */
+.logo {
+    position: absolute;
+    width: 127px;
+    height: 127px;
+    left: 44px;
+    top: 29px;    
+}
+
+
+/* ----- user's name show here! ----- */
+.icon {
+    position: absolute;
+    width: 58.36px;
+    height: 58.36px;
+    left: 758px;
+    top: 43px;
+}
+
+.show_name{
+    position: absolute;
+    height: 41px;
+    top: 51px;
+
+    left: 648px;
+
+    font-family: Kanit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 36px;
+
+    color: #414141;
+}
+
+
+/* ----- LOGOUT botton ----- */
+.btn{
+    position: absolute;
+    width: 131px;
+    height: 41px;
+    left: 838px;
+    top: 51px;
+
+    background: #7585BD;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 35px;
+    border: 0px;
+
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    color: #F4F1EC;
+}
+
+
+/* ----- BACK botton ----- */
+.back .btn{
+    position: absolute;
+    width: 95px;
+    height: 41px;
+    left: 59px;
+    top: 144px;
+
+    background: #7585BD;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 35px;
+    border: 0px;
+
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+
+    color: #F4F1EC;
+}
+
+
+/* ----- botton when hover ----- */
+.btn::before,
+.btn::after{
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all .5s;
+}
+
+.btn:hover {
+    background-color: #E36262;
+    color: #F4F1EC;
+}
+
+.back .btn:hover {
+    background-color: #FEE684;
+    color: #7585BD;
+}
+
+/*  ----- header text ----- */
+.header_txt {
+    position: absolute;
+    width: 477px;
+    height: 100px;
+    left: 286px;
+    top: 181px; 
+
+    font-family: 'Kanit';
+    font-style: bold;
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 50px;
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #7585BD;
+
+    display: block;
+}
+
+/* ----- Text-with-line of from -----  */
+.Text-with-line {
+    position: absolute;
+
+    height: 40px;
+    left: 310px;
+    top: 277px;
+    
+    font-style: medium;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    
+    color: #414141;
+    
+}
+
+.Text-with-line:before,
+.Text-with-line:after {
+    content: "";
+    display: inline-block;
+    border-top: 1px solid #414141;
+    width: 7.5em;
+    vertical-align: middle;
+}
+
+
+/* ----- Text-with-line of from RECIPIENT ----- */
+.Text-with-line_recipient {
+    position: absolute;
+
+    height: 40px;
+    left: 310px;
+    top: 550px;
+    
+    font-style: medium;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    
+    color: #414141;
+    
+}
+  
+.Text-with-line_recipient:before,
+.Text-with-line_recipient:after {
+    content: "";
+    display: inline-block;
+    border-top: 1px solid #414141;
+    width: 6.5em;
+    vertical-align: middle;
+}
+
+
+/* ----- fill information -----  */
+.fill_information {
+    position: absolute;
+    width: 439px;
+    height: 40px;
+    left:350px;
+    top: 600px;
+}
+
+.text_fill {
+    position: absolute;
+    width: 446px;
+    height: 36px;
+    left: 380px;
+    top: 313px;
+
+    display: flex;
+    align-items: center;
+    
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 36px;
+
+    color: #414141;
+
+    display: block;
+}
+
+
+/* ----- blank space for get input ----- */
+::placeholder {
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+
+    color: #F4F1EC;
+    padding-left: 5px;
+} 
+
+select {
+    width: 338px;
+    height: 40px;
+    left: 69px;
+    padding-left: 15px;
+    margin-bottom: 17px;
+
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    color: #414141;
+
+    background: #C4C4C4;
+    border-radius: 35px;
+    border: 0px
+}
+
+select option  {
+    color: #414141;
+    border: 5px solid #C4C4C4;
+}
+
+
+.fill_information input{
+    width: 322px;
+    height: 40px;
+    left: 69px;
+    padding-left: 15px;
+    margin-bottom: 17px;
+
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+
+    background: #C4C4C4;
+    border-radius: 35px;
+    border: 0px
+}
+
+
+
+/* ----- trans botton ----- */
+.trans .btn{
+    position: absolute;
+    width: 335px;
+    height: 54px;
+    left: 350px;
+    top: 814px;
+
+    background: #7585BD;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 35px;
+
+    border: 0px;
+
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+
+    color: #F4F1EC;
+}
+
+.trans .btn:hover {
+    background-color: #7EAC85;
+    color: #F4F1EC;
+}

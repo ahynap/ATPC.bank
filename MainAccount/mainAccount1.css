@@ -22,8 +22,7 @@ form {
     margin-top: 25%;
     text-align: center;
 }
-
-.AddAccount .btn{
+#btn2{
     margin-top: 90px;
     width: 321px;
     height: 54px;
@@ -44,15 +43,15 @@ form {
 }
 
 /* ----- Connect Bank Account button  when hover ----- */
-.AddAccount .btn::before,
-.AddAccount .btn::after {
+#btn2::before,
+#btn2::after {
     position: absolute;
     display: block;
     content: '';
     transition: all .5s;
 }
 
-.AddAccount .btn:hover {
+#btn2:hover {
     background-color: #7585BD;
     color: #F4F1EC;
 }
@@ -83,50 +82,83 @@ form {
   }
 
   
-/* ------- Navbar ------- */
-.navUser {
-    font-family: 'Kanit';
-    color:black;
-    font-size: 20px;
-    font-weight: bold;
-    right: 10px;
-}
- 
-.button {
-    font-family: 'Kanit';
-    background-color:#7585BD;
-    border: none;
-    color: white;
-    padding: 5px 17px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 16px;
-}
+.show_name {
+     position: absolute;   
+     height: 41px;   
+     top: 51px;   
+     font-family: Kanit;   
+     font-style: normal;   
+     font-weight: normal;  
+     font-size: 24px;   
+     line-height: 36px;   
+     color: #414141; } 
 
-/*  navbar  */
-.navbar {
-    overflow: hidden;
-    bottom: 0;
-    width: 100%;
-}
-  
-.navbar a {
-    float: left;
-    display: block;
-    color: #02111d;
-    text-align: center;
-    padding: 14px 16px;
-    font-size: 24px;
-    font-weight: bold;
-}
-  
-.navbar a:hover {
-    color: #494e5a;
-    text-decoration: none;
+/* ----- logo ATPC bank ----- */ 
+.logo {   
+      position: absolute;  
+      width: 127px;   
+      height: 127px;   
+      left: 44px;   top: 29px; 
 } 
+
+/* ----- user's name show here! ----- */ 
+.icon {  
+      position: absolute;   
+      width: 58.36px;  
+      height: 58.36px;   
+      left: 758px;   
+      top: 43px; 
+} 
+
+
+.show_name {   
+      position: absolute;  
+      height: 41px;   
+      top: 51px;   
+      font-family: Kanit; 
+      font-style: normal; 
+      font-weight: normal;  
+      font-size: 24px;  
+      line-height: 36px;   
+      color: #414141; 
+} 
+
+/* ----- LOGOUT botton ----- */ 
+#btn3 {   
+    position: absolute;  
+    width: 131px;   
+    height: 41px;  
+    left: 838px;  
+    top: 51px;  
+    background: #7585bd;   
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+    border-radius: 35px;  
+    border: 0px;   
+    font-family: "Kanit";   
+    font-style: normal; 
+    font-weight: bold; 
+    font-size: 18px;   
+    line-height: 27px;  
+    color: #f4f1ec;   
+    outline: none; } 
+
+/* ----- botton when hover ----- */ 
+#btn3::before, #btn3::after {  
+    position: absolute;   
+    display: block;   
+    content: "";  
+    transition: all 0.5s; 
+} 
+
+#btn3:hover {   
+    background-color: #e36262;   
+    color: #f4f1ec;
+ } 
+
+.back #btn3:hover {   
+    background-color: #fee684;  
+    color: #7585bd; }
+
 
 /*  profile in form */
 .profile img{

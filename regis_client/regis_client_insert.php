@@ -10,7 +10,6 @@
         $Phone = mysqli_real_escape_string($conn, $_POST['Phone']);
         $Email = mysqli_real_escape_string($conn, $_POST['Email']);
         $Password = mysqli_real_escape_string($conn, $_POST['Password']);
-        $Pin = mysqli_real_escape_string($conn, $_POST['Pin']);
 
         if (empty($Name)) {
             array_push($errors, "name is required");
@@ -32,12 +31,7 @@
             array_push($errors, "phone is required");
             $_SESSION['error'] = "phone is required";
         }
-        if (empty($Pin)) {
-            array_push($errors, "pin is required");
-            $_SESSION['error'] = "pin is required";
-        }
-
-
+    
         $user_check_query = "SELECT * FROM account WHERE Email = '$Email' LIMIT 1";
         $query = mysqli_query($conn, $user_check_query);
         $result = mysqli_fetch_assoc($query);
@@ -52,8 +46,8 @@
             
          if (count($errors) == 0) {
             $sql = "
-            INSERT INTO account (Name, SurName, Email, Password, Phone,Pin)
-            VALUES ('$Name','$SurName','$Email','$Password','$Phone','$Pin');
+            INSERT INTO account (Name, SurName, Email, Password, Phone)
+            VALUES ('$Name','$SurName','$Email','$Password','$Phone');
             ";
             mysqli_query($conn, $sql);
             
