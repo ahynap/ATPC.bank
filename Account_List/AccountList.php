@@ -1,7 +1,11 @@
 <?php
 
+    /* Connect Database */
+
     session_start();
     include('..\server\server.php');
+
+    /* Use Emaill Session to Access Data from Database for Display 'Username' and 'Amount of Account number of that User' */
     
     $Email = $_SESSION['Email'];
     $result = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
@@ -21,8 +25,6 @@
 
     $result4 =  mysqli_query($conn,"SELECT * FROM accountno WHERE MainAccount = 'Main Account'");
     $getResult4 = mysqli_fetch_assoc($result4);
-
-
 
 ?>
 
@@ -46,10 +48,11 @@
 </head>
 
 <body style="background-color: #F4F1EC;">
+
     <!--   navbar   -->
 
-
       <!-- ----- logo ATPC bank ----- --> 
+
     <div class="logo">
 
             <?php
@@ -64,7 +67,7 @@
 
     </div>
 
-    <!-- ----- user's name show here! ----- -->
+    <!-- ----- User's name show here! ----- -->
 
         <?php
              while($row3 = mysqli_fetch_array($result3)) {
@@ -78,26 +81,29 @@
     <img src="client_icon.png" width=58.36 class="icon"> 
     
     <!-- ----- logout button ----- --> 
+
     <button type="submit" id = "btn3" onclick="window.location.href='../login_client/login_client.php'"> LOG OUT </button>
 
     <br><br><br><br><br><br><br><br><br><br><br>
 
 
+    <!--  Account List  -->
 
-
-
-    <!--  Account List Button  -->
     <div class="List">
-<?php
+
+    <?php
     mysqli_multi_query($conn, $result2);
+
     do {
 
     if ($result4 = mysqli_store_result($conn)) {
-      $i = 1;
+        $i = 1;
+
         while ($row4 = mysqli_fetch_row($result4)) {
 
          
- ?>
+     ?>
+
           <form action="..\Account_List\AccountList_insert.php" method="post">
             <button type="submit" class="button1" name="AccountNo" value=<?php echo $row4[0]; ?>>
                 <div class="row">
@@ -124,22 +130,21 @@
                 </div>
             </button>
         </a> <br><br> <br><br>
-<?php
-
-}
-
-   $i++;
+ <?php
+    }
+        $i++;
         }
 
       if (mysqli_more_results($conn)) {
         printf("-----------------\n");
   
     }
+
 } while (mysqli_next_result($conn));
 
   ?>
 
- </form>
+        </form>
     </div>
 
 </body>

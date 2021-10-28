@@ -44,7 +44,6 @@
 
         <div class="fill_information">
             <input type="text" placeholder="Staff ID" name="StaffID">
-            <input type="text" placeholder="Staff Pin" name="StaffPin">
             <input type="text" placeholder="Name" name="Name">
             <input type="text" placeholder="Surname" name="SurName">
         </div>
@@ -54,7 +53,7 @@
 
         <div class="create_ATPC_account">
             <input type="text" placeholder="Email" name="Email">
-            <input type="text" placeholder="Password" name="Password">
+            <input type="password" placeholder="Password" name="Password">
             <button type="submit" class="btn" name="reg_user"> SIGN UP </button>
         </div>
 

@@ -12,7 +12,8 @@
         $SerialNo = mysqli_real_escape_string($conn, $_POST['SerialNo']);
         $AccountType = mysqli_real_escape_string($conn, $_POST['AccountType']);
         $Email = mysqli_real_escape_string($conn, $_POST['Email']);
-    
+
+         /* Check Fill Required */
 
         if (empty($AccountNo)) {
             array_push($errors, "Account Number is required");
@@ -88,11 +89,11 @@
 
 
 
-        /* Connect Account (Add Account) */
+        /* Connect Account (Add Account next time) */
                 
         if (count($errors) == 0) {
 
-        /* Specify Main Account */
+        /* Connect next Account Number form Home Page */
 
              $result3 = "SELECT AccountNo FROM accountno
              JOIN account

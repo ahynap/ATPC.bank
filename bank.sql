@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2021 at 10:39 PM
+-- Generation Time: Oct 28, 2021 at 05:15 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -97,6 +97,25 @@ INSERT INTO `accountnoinfo` (`AccountNo`, `Name`, `SurName`, `BankName`, `Balanc
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reporthistory`
+--
+
+CREATE TABLE `reporthistory` (
+  `StaffID` int(20) NOT NULL,
+  `AccountNo` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `DayTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `reporthistory`
+--
+
+INSERT INTO `reporthistory` (`StaffID`, `AccountNo`, `DayTime`) VALUES
+(1, '1', '2021-10-28 14:16:17');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `staffaccount`
 --
 
@@ -104,10 +123,39 @@ CREATE TABLE `staffaccount` (
   `StaffID` int(20) NOT NULL,
   `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `SurName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `StaffPin` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
   `Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Password` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `staffaccount`
+--
+
+INSERT INTO `staffaccount` (`StaffID`, `Name`, `SurName`, `Email`, `Password`) VALUES
+(1, 'Chatchanok', 'Vitoondej', 'yha@gmail.com', 'yhayha');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staffinfo`
+--
+
+CREATE TABLE `staffinfo` (
+  `StaffID` int(20) NOT NULL,
+  `BranchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `SurName` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `staffinfo`
+--
+
+INSERT INTO `staffinfo` (`StaffID`, `BranchName`, `Name`, `SurName`) VALUES
+(1, 'Bangkok', 'Chatchanok', 'Vitoondej'),
+(2, 'Korat', 'Thanapromporn', 'Punturux'),
+(3, 'Rayong', 'Phunparporn', 'Amnauymucha'),
+(4, 'Supanburi', 'Anchira', 'Paengsai');
 
 -- --------------------------------------------------------
 
@@ -165,9 +213,21 @@ ALTER TABLE `accountnoinfo`
   ADD PRIMARY KEY (`AccountNo`);
 
 --
+-- Indexes for table `reporthistory`
+--
+ALTER TABLE `reporthistory`
+  ADD PRIMARY KEY (`StaffID`);
+
+--
 -- Indexes for table `staffaccount`
 --
 ALTER TABLE `staffaccount`
+  ADD PRIMARY KEY (`StaffID`);
+
+--
+-- Indexes for table `staffinfo`
+--
+ALTER TABLE `staffinfo`
   ADD PRIMARY KEY (`StaffID`);
 
 --
@@ -188,6 +248,12 @@ ALTER TABLE `account`
   MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `staffinfo`
+--
+ALTER TABLE `staffinfo`
+  MODIFY `StaffID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `transferhistory`
 --
 ALTER TABLE `transferhistory`
@@ -203,6 +269,18 @@ ALTER TABLE `transferhistory`
 ALTER TABLE `accountno`
   ADD CONSTRAINT `fk_accountID` FOREIGN KEY (`AccountID`) REFERENCES `account` (`AccountID`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_accountNo` FOREIGN KEY (`AccountNo`) REFERENCES `accountnoinfo` (`AccountNo`);
+
+--
+-- Constraints for table `reporthistory`
+--
+ALTER TABLE `reporthistory`
+  ADD CONSTRAINT `fk_StaffID2` FOREIGN KEY (`StaffID`) REFERENCES `staffaccount` (`StaffID`);
+
+--
+-- Constraints for table `staffaccount`
+--
+ALTER TABLE `staffaccount`
+  ADD CONSTRAINT `fk_StaffID` FOREIGN KEY (`StaffID`) REFERENCES `staffinfo` (`StaffID`);
 
 --
 -- Constraints for table `transferhistory`

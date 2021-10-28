@@ -13,6 +13,7 @@
         $AccountType = mysqli_real_escape_string($conn, $_POST['AccountType']);
         $Email = mysqli_real_escape_string($conn, $_POST['Email']);
     
+         /* Check Fill Required */
 
         if (empty($AccountNo)) {
             array_push($errors, "AccountNo is required");
@@ -88,7 +89,7 @@
 
 
 
-        /* Connect Account (Add Account) */
+        /* Connect Account (Add Account 1st time) */
                 
         if (count($errors) == 0) {
 
@@ -103,8 +104,9 @@
              $count = mysqli_num_rows($getresult3);
              echo $count;
 
+             /* Case 1 : Connect 1st Account Number */
 
-             if ($count == "0") {
+            if ($count == "0") {
 
                  $sql = "
                  INSERT INTO accountno (AccountNo, BranchName, SerialNo, AccountType, AccountID, MainAccount)
@@ -113,6 +115,7 @@
             mysqli_query($conn, $sql);
             $_SESSION['Email'] = $Email;
         
+             /* Case 2 : Connect next Account Number */
         
             } else if ($count != "0")  {
 

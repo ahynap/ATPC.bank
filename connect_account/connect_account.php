@@ -1,11 +1,17 @@
 <?php
+
+    /* Connect Database */
+
     session_start();
-    include('..\server\server.php'); 
+    include('..\server\server.php');
+
+    /* Use Email Session to Access Data from Database for Display 'Username' */ 
 
     $Email = $_SESSION['Email'];
     $result = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
     $result2 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
     $result3 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,8 +30,11 @@
 
 <body>
 
-
      <form action="..\connect_account\connect_account_insert.php" method="post">
+
+
+    <!-- ----- Error Alert ----- --> 
+
         <?php if (isset($_SESSION['error'])) : ?>
             <div class="error">
                 <h3>
@@ -39,13 +48,14 @@
 
 
     <!-- ----- logo ATPC bank ----- --> 
+
     <div class="logo">
 
         <img src="logo_blue.png" width="127"/>  
 
     </div>
 
-    <!-- ----- user's name show here! ----- -->
+    <!-- ----- User's name show here! ----- -->
 
         <?php
              while($row = mysqli_fetch_array($result)) {
@@ -83,7 +93,8 @@
         </select>
     </div>
 
-    <!-- ----- connect button ----- --> 
+    <!-- ----- Connect Account to ATPC Bank ----- --> 
+
     <div class="connect">
     <button type="submit" class="btn" name="connect_user"> CONNECT </button>
     </div>

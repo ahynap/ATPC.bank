@@ -9,7 +9,6 @@
         $Password = mysqli_real_escape_string($conn, $_POST['Password']);
         $Name = mysqli_real_escape_string($conn, $_POST['Name']);
         $SurName = mysqli_real_escape_string($conn, $_POST['SurName']);
-        $StaffPin = mysqli_real_escape_string($conn, $_POST['StaffPin']);
         $StaffID = mysqli_real_escape_string($conn, $_POST['StaffID']);
 
         if (empty($Email)) {
@@ -32,40 +31,45 @@
             $_SESSION['error'] = "SurName is required";
         }
 
-        if (empty($StaffPin)) {
-            array_push($errors, "StaffPin is required");
-            $_SESSION['error'] = "StaffPin is required";
-        }
         if (empty($StaffID)) {
             array_push($errors, "StaffID is required");
             $_SESSION['error'] = "StaffID is required";
         }
+
         $user_check_query = "SELECT * FROM staffaccount WHERE Email = '$Email' LIMIT 1";
         $query = mysqli_query($conn, $user_check_query);
         $result = mysqli_fetch_assoc($query);
 
-        if ($result) { 
             if ($result['Email'] == $Email) {
                 array_push($errors, "Email already exists");
                 $_SESSION['error'] = "Email already exists";
                 header("location: regis_staff.php");
             }
-        }
+   
+        $user_check_query2 = "SELECT * FROM staffinfo WHERE StaffID = '$StaffID' AND Name = '$Name' AND SurName = '$SurName'";
+        $query2 = mysqli_query($conn, $user_check_query2);
+        $result2 = mysqli_fetch_assoc($query2);
+
+            if ($result2['StaffID'] != $StaffID OR $result2['Name'] != $Name OR $result2['SurName'] != $SurName) {
+                array_push($errors, "Staff ID Number not exist! OR Name / Surname not correct!");
+                $_SESSION['error'] = "Staff ID Number not exist! OR Name / Surname not correct!";
+                header("location: regis_staff.php");
+            }
+      
         
         if (count($errors) == 0) {
             {
             $sql = "
-            INSERT INTO staffaccount (Name,Surname,StaffPin,Email,Password,StaffID)
-            VALUES ('$Name','$Surname','$StaffPin','$Email','$Password','$StaffID');
+            INSERT INTO staffaccount (Name,SurName,Email,Password,StaffID)
+            VALUES ('$Name','$SurName','$Email','$Password','$StaffID');
             ";
             mysqli_query($conn, $sql);
 
             }
 
             $_SESSION['Email'] = $Email;
-            $_SESSION['success'] = "You are now logged in";
             
-            header('location: regis_succes.php');
+            header('location: ../login_staff/login_staff.php');
         } else {
             header("location: regis_staff.php");
         }

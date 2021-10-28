@@ -1,7 +1,4 @@
 <?php
-
-     /* Connect Database */
-
     session_start();
     include('..\server\server.php'); 
 ?>
@@ -13,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ATPC login</title>
-    <link rel="stylesheet" href="login_client.css">
+    <link rel="stylesheet" href="login_client1.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
@@ -22,9 +19,6 @@
 <body>
 
     <form action="..\login_client\login_client_insert.php" method="post">
-
-        <!-- ----- Error Alert ----- --> 
-
         <?php if (isset($_SESSION['error'])) : ?>
             <div class="error">
                 <h3>
@@ -59,7 +53,7 @@
         <span class="Text-with-line"> Don’t have an account? </span>
     </form>
   
-        <!-- SIGN UP FOR ATPC ACCOUNT --> 
+        <!-- SIGN UP FOR ATPC ACCOUNT button \\--> 
         <div class="GoToSignIn">
             <button class="btn" onclick="window.location.href='../regis_role_choose/regis_role.php'"> SIGN UP FOR ATPC ACCOUNT </button>
 

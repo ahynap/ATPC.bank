@@ -1,21 +1,14 @@
 <?php
-
-    /* Connect Database */
-
     session_start();
     include('..\server\server.php');
-
-    /* Use AccountNo Session to Access Data from Database for Display 'Username', 'Account number detail', and 'History Transaction of that Account number' */
     
     $AccountNo = $_SESSION['AccountNo'];
-    $result = mysqli_query($conn,"SELECT * FROM account
-         JOIN accountno
-           ON accountno.AccountID = account.AccountID
-        WHERE accountno.AccountNo = '$AccountNo'");
-    $result2 = mysqli_query($conn,"SELECT * FROM account
-         JOIN accountno
-           ON accountno.AccountID = account.AccountID
-        WHERE accountno.AccountNo = '$AccountNo'");
+
+    $Email = $_SESSION['Email'];
+
+    $result = mysqli_query($conn,"SELECT * FROM staffaccount WHERE Email = '$Email'");
+
+    $result2 = mysqli_query($conn,"SELECT * FROM staffaccount WHERE Email = '$Email'");
 
     $result3 = mysqli_query($conn,"SELECT * FROM accountno
          JOIN account
@@ -41,7 +34,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Detail</title>
-    <link rel="stylesheet" href="AccountDetail.css">
+    <link rel="stylesheet" href="ReportDetail.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
@@ -50,21 +43,11 @@
 <body>
 
      <!-- ----- logo ATPC bank ----- --> 
-
      <div class="logo">
-       <?php
-             while($row2 = mysqli_fetch_array($result2)) {
-        ?>
-
-        <input type="image" src="logo_blue.png" width="127" onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row2["Email"]; ?> />  
-
-        <?php
-            }
-        ?>
+        <img src="logo_blue.png" width="127"/>  
      </div>
 
-    <!-- ----- User's name show here! ----- -->
-
+    <!-- ----- user's name show here! ----- --> 
     <?php
         while($row = mysqli_fetch_array($result)) {
     ?>
@@ -73,20 +56,18 @@
     <?php 
          }
     ?>
-
     <img src="picture/client_icon.png" width=58.36 class="icon"> 
 
     <!-- ----- logout button ----- --> 
-    <button type="submit" class="btn"onclick="window.location.href='../login_client/login_client.php'"> LOG OUT </button>
+    <button type="submit" class="btn"onclick="window.location.href='../login_staff/login_staff.php'"> LOG OUT </button>
 
     <!-- ----- logo ATPC bank ----- --> 
     <div class="back">
-        <button type="submit" class="btn"  onclick="window.location.href='../Account_List/AccountList.php'" name="Email" value=<?php echo $row2["Email"]; ?> > BACK </button>
+        <button type="submit" class="btn"  onclick="window.location.href='../report/report_access.php'" > BACK </button>
     </div>
 
-    <!--------  Account Detail  -------->
-    
-    <p class="detail" ">DETAIL</p>
+    <!--------  Account Detail Button  -------->
+    <p class="detail" ">REPORT</p>
 
     <?php
         while($row3 = mysqli_fetch_array($result3)) {
@@ -96,19 +77,19 @@
          <a href="#">
              <button type="button" class="button1" style="height: 180px;">
                  <div class="row">
-                     <div class="col-6"> 
-		     <br>
+                     <div class="col-6">
+                     <br>
                      <p class="test2" style="width: 300px;"><?php echo $row3["AccountType"]; ?></p>
                      <p class="test2"><?php echo $row3["AccountNo"]; ?></p>
 
                      </div>
- 
-    <?php 
+
+  <?php 
          }
     ?>
                          
 
-    <?php
+     <?php
         while($row4 = mysqli_fetch_array($result4)) {
     ?>
                      <div class="col-6" style="float: right; margin-right: 20px;">
@@ -119,13 +100,12 @@
          </a>
      </div>
 
-    <?php 
+     <?php 
          }
     ?>
               
       
-     <!--------  History Transactions -------->
-
+     <!--------  Lastest Transactions Button  -------->
      <p class="Lastest_Transactions">Lastest Transactions</p>
 
 
