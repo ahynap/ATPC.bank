@@ -72,7 +72,7 @@
                 <div class="col-3">
                     <div class="profile">
         
-                        <img src="picture/client_icon.png">
+                        <img src="client_icon.png">
 
                     </div>
                 </div>
@@ -139,8 +139,8 @@
             </div>
 
             <div class="col">
-                <a href="#" style="text-decoration:none">
-                    <input type="image" src="picture/editprofileIcon.png" style="width:83%" onClick="this.form.action='#'; submit()">
+                <a href="../user_detail/user_detail.php" style="text-decoration:none">
+                    <input type="image" src="picture/editprofileIcon.png" style="width:83%" onClick="this.form.action='../user_detail/user_detail.php'; submit()">
 
                     <div class="method">
                         <h4>&nbsp;EDIT PROFILE</button>
@@ -154,6 +154,7 @@
 </body>
 
 </html>
+
 <?php
     mysqli_close($conn); 
 ?>
