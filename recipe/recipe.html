@@ -1,90 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RECIPET</title>
-    <link rel="stylesheet" href="recipe.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RECIPET</title>
+        <link rel="stylesheet" href="recipet.css">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
 
-</head>
+    </head>
 
 <body>
     
-    <!-- ----- logo ATPC bank ----- --> 
-    <div class="logo">
-        <img src="logo_blue.png" width=127>   
-    </div>
+    <!-- ----- Niv Bar ----- --> 
+    <div class="niv_bar">
 
-    <!-- ----- user's name show here! ----- --> 
-    <span class="show_name"> username </span>
-    <img src="client_icon.png" width=58.36 class="icon"> 
-    
-    <!-- ----- logout button ----- --> 
-    <button type="submit" class="btn" > LOG OUT </button>
-    
-    <div class="receiptContainer">
-        <div class="top">
-            <img src="logo_black.png" width=127> 
-            <br>SUCCESS
+        <!-- ----- logo ATPC bank ----- --> 
+        <div class="logo">        
+            <input type="image" src="logo_blue.png" width=127 onclick="window.location.href='../MainAccount/mainAccount.php'" 
+                    name="Email">
         </div>
 
-        <div class="date">
-            TRANSACTION REF #123456789012
+        <!-- ----- logout button ----- --> 
+        <button type="submit" class="btn" onClick="this.form.action='../login_client/login_client.php'; submit()"> LOG OUT </button>
+
+        <div class="icon">
+            <img src="client_icon.png" width=58.36> 
+        </div>
+
+        <!-- ----- User's name show here! ----- -->
+        <div class="user_detail">
+                <span class="show_name" href="#" 
+                    style="width: 350px; left: 450px; text-align: center">
+        </div>
+
+    </div>
+
+    <!-- ----- RECIEPT ----- -->
+    <div class="over_recipt">
+        <div class="receiptContainer">
             
-            <br>
-            WEDNESDAY, OCTOBER 27, 2021 - 10:13
-
-        </div>
-
-        <div class="line_dot">
-            - - - - - - - - - - - - - - - - - - -
-        </div>
-
-        <div class="info">
-            FROM
-            <div class="righthand">
-                Chatchanok Vithoondej
-                <br>
-                99999999999999
+            <div class="top">
+                <img src="logo_black.png" width=127> 
+                <br>SUCCESS
             </div>
 
-            <br>
-            TO
-            <div class="righthand">
-                Chatchanok Vithoondej
+            <!-- ----- ref and date ----- -->
+            <div class="date">
+                #ref
+             <br>
+                #time
+            </div>
+
+            <div class="line_dot">
+                - - - - - - - - - - - - - - - - - - -
+            </div>
+
+            <div class="info">
+            <!-- ----- from ----- -->
+                FROM
+                <div class="righthand">
+                ACCOUT NAME
                 <br>
-                99999999999999
+                ACCOUNT NUMBER
+                </div> 
+
+            <!-- ----- to ----- -->
+                <br>
+                TO
+                <div class="righthand">
+                    ACCOUT NAME
+                    <br>
+                    ACCOUNT NUMBER
+                </div>
+            </div>
+
+            <div class="line_dot">
+                <br><br> - - - - - - - - - - - - - - - - - - -
+            </div>
+
+            <!-- ----- Amount ----- -->
+            <div class="amount">
+                AMOUNT
+            </div>
+
+            <div class="righthand">
+                xx THB
             </div>
         </div>
 
-        <div class="line_dot">
-            <br><br> - - - - - - - - - - - - - - - - - - -
-        </div>
-
-        <div class="amount">
-            AMOUNT
-        </div>
-
-        <div class="righthand">
-            134,900.50 THB
+        <!-- ----- DONE Button ----- -->
+        <div class="ok_btn">
+            <button type="submit" class="btn"> DONE </button>
         </div>
     </div>
-    
-    <div class="ok_btn">
-        <button type="submit" class="btn"> OK </button>
-    </div>
-
    
 </body>
 
-
 </html>
-
-
 
 
 
