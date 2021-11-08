@@ -3,31 +3,38 @@ body
     background: #F4F1EC;
     font-family: 'Kanit';
     
-    position: relative;
-    width: 1024px;
-    height: 768px;
+    max-width: 500px;
+    height: 800px;
+    margin: auto;
 }
 
-/* ----- logo ATPC bank ----- */
+/* ------------------------------ */
+/* ------- logo ATPC bank ------- */
+/* ------------------------------ */
 .logo {
     position: absolute;
     right: 40px;
     margin-top: 30px;
 }
 
+
+/* ------------------------------ */
 /* ----- background of form ----- */
+/* ------------------------------ */
 form {
     position: absolute;
     width: 456px;
     height: 642px;
-    left: 284px;
     top: 63px;
 
     background: #7585BD;
     border-radius: 35px;
 }
 
+
+/* ----------------------- */
 /* ----- BACK botton ----- */
+/* ----------------------- */
 .back .btn{
     position: absolute;
     width: 95px;
@@ -62,8 +69,9 @@ form {
     color: #7585BD;
 }
 
-
-/* -----  text for detail ----- */
+/* ----------------------------- */
+/* -----  text for detail ------ */
+/* ----------------------------- */
 .text_fill {
     position: absolute;
     width: 321px;
@@ -101,7 +109,9 @@ form {
 }
 
 
-/* ----- blank space for get input ----- */
+/* ------------------------------- */
+/* -- blank space for get input -- */
+/* ------------------------------- */
 /* ----- style ---- */
 ::placeholder {
     font-family: 'Kanit';
@@ -144,7 +154,10 @@ form {
     top: 420px;
 }
 
-/* ----- SIGNIN botton ----- */
+
+/* ------------------------- */
+/* ----- signin botton ----- */
+/* ------------------------- */
 .create_ATPC_account .btn{
     position: absolute;
     width: 197px;
