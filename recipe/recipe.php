@@ -1,5 +1,5 @@
 <?php
-    
+    /* Connect Database */
     session_start();
     include('..\server\server.php');
 
@@ -27,124 +27,116 @@
          JOIN accountnoinfo
            ON accountnoinfo.AccountNo = transferhistory.DestinationAccountNo
          WHERE accountnoinfo.AccountNo = '$DestinationAccountNo' ORDER BY transferhistory.DayTime DESC LIMIT 1");
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RECIPET</title>
-    <link rel="stylesheet" href="recipe.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RECIPET</title>
+        <link rel="stylesheet" href="recipet.css">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
 
-</head>
+    </head>
 
 <body>
     
-    <!-- ----- logo ATPC bank ----- -->
-    <div class="logo">
-        
-            <?php
-                    while($row3= mysqli_fetch_array($result3)) {
-           ?>
+    <!-- ----- Niv Bar ----- --> 
+    <div class="niv_bar">
 
-                        <input type="image" src="logo_blue.png" width=127 onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row3["Email"]; ?> />  
+        <!-- ----- logo ATPC bank ----- --> 
+        <div class="logo">        
+            <?php while($row3= mysqli_fetch_array($result3)) {?>
+            <input type="image" src="logo_blue.png" width=127 onclick="window.location.href='../MainAccount/mainAccount.php'" 
+                    name="Email" value=<?php echo $row3["Email"]; ?>/> <?php } ?>
+        </div>
 
-           <?php
-               }
-           ?>
+        <!-- ----- logout button ----- --> 
+        <button type="submit" class="btn" onClick="this.form.action='../login_client/login_client.php'; submit()"> LOG OUT </button>
+
+        <div class="icon">
+            <img src="client_icon.png" width=58.36> 
+        </div>
+
+        <!-- ----- User's name show here! ----- -->
+        <div class="user_detail">
+            <?php while($row4 = mysqli_fetch_array($result4)) {?>
+                <span class="show_name" href="#" 
+                    style="width: 350px; left: 450px; text-align: center">
+                    <?php echo $row4["Email"]; ?></span> <?php } ?>
+        </div>
+
     </div>
 
-    <!-- ----- user's name show here! ----- --> 
-      <?php
-             while($row4 = mysqli_fetch_array($result4)) {
-        ?>
-                   <span class="show_name" href="#" style="width: 350px; left: 450px; text-align: center"><?php echo $row4["Email"]; ?></span>
+    <!-- ----- RECIEPT ----- -->
+    <div class="over_recipt">
+        <div class="receiptContainer">
+            
+            <div class="top">
+                <img src="logo_black.png" width=127> 
+                <br>SUCCESS
+            </div>
+
+            <!-- ----- ref and date ----- -->
+            <div class="date">
+                <?php while($row = mysqli_fetch_array($result)) { ?> <?php echo "REF #" . $row["TransferID"]; ?>       
+                <br>
+                <?php echo $row["DayTime"]; ?>
+            </div>
+
+            <div class="line_dot">
+                - - - - - - - - - - - - - - - - - - -
+            </div>
+
+            <div class="info">
+            <!-- ----- from ----- -->
+                FROM
+                <div class="righthand">
+                    <?php echo $row["Name"]. " " . $row["SurName"]; ?>
+                    <br>
+                    <?php echo $row["AccountNo"]; ?>
+                </div> <?php } ?>
+                
+                <?php while($row2 = mysqli_fetch_array($result2)) { ?>
+
+            <!-- ----- to ----- -->
+                <br>
+                TO
+                <div class="righthand">
+                    <?php echo $row2["Name"]. " " . $row2["SurName"]; ?>
+                    <br>
+                    <?php echo $row2["AccountNo"]; ?>
+                </div>
+            </div>
+
+            <div class="line_dot">
+                <br><br> - - - - - - - - - - - - - - - - - - -
+            </div>
+
+            <!-- ----- Amount ----- -->
+            <div class="amount">
+                AMOUNT
+            </div>
+
+            <div class="righthand">
+                <?php echo $row2["Amount"]. " THB"; ?>
+            </div>
+        </div>
 
         <?php
             }
         ?>
-    <img src="client_icon.png" width=58.36 class="icon"> 
-    
-    <!-- ----- logout button ----- --> 
-    <button type="submit" class="btn" onclick="window.location.href='../login_client/login_client.php'"> LOG OUT </button>
-    
-    <div class="receiptContainer">
-        <div class="top">
-            <img src="logo_black.png" width=127> 
-            <br>SUCCESS
-        </div>
+                
 
-        <div class="date">
-            
-           <?php
-                    while($row = mysqli_fetch_array($result)) {
-           ?>
-                      <?php echo "REF #" . $row["TransferID"]; ?>
-                        
-            <br>
-             <?php echo $row["DayTime"]; ?>
-
-        </div>
-
-        <div class="line_dot">
-            - - - - - - - - - - - - - - - - - - -
-        </div>
-
-        <div class="info">
-            FROM
-            <div class="righthand">
-                  <?php echo $row["Name"]. " " . $row["SurName"]; ?>
-                <br>
-                <?php echo $row["AccountNo"]; ?>
-            </div>
-
-           <?php
-               }
-           ?>
-            
-            <?php
-                    while($row2 = mysqli_fetch_array($result2)) {
-            ?>
-
-            <br>
-            TO
-            <div class="righthand">
-                <?php echo $row2["Name"]. " " . $row2["SurName"]; ?>
-                <br>
-                 <?php echo $row2["AccountNo"]; ?>
-            </div>
-        </div>
-
-        <div class="line_dot">
-            <br><br> - - - - - - - - - - - - - - - - - - -
-        </div>
-
-        <div class="amount">
-            AMOUNT
-        </div>
-
-        <div class="righthand">
-            <?php echo $row2["Amount"]. " THB"; ?>
+        <!-- ----- DONE Button ----- -->
+        <div class="ok_btn">
+            <button type="submit" class="btn"> DONE </button>
         </div>
     </div>
-
-     <?php
-         }
-     ?>
-            
-
-    
-    <div class="ok_btn">
-        <button type="submit" class="btn"> OK </button>
-    </div>
-
    
 </body>
 

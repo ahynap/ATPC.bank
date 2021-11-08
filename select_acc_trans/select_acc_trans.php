@@ -98,7 +98,7 @@
 
             <!-- ----- account_type ----- --> 
             <div class="account_type">
-                  <label> <?php echo $row4[5]; ?></label>
+                  <label> <?php echo $row4[6]; ?></label>
             </div>
 
             <!-- ----- account_number ----- --> 
@@ -108,7 +108,7 @@
 
             <!-- ----- account_number ----- --> 
              <div class="balance">
-                        <label><?php echo $row4[2]; ?></label>
+                        <label><?php echo $row4[4]; ?></label>
                     </div>
             
 
