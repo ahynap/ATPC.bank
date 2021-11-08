@@ -3,18 +3,19 @@ body
     background: #F4F1EC;
     font-family: 'Kanit';
     
-    position: relative;
-    width: 1024px;
-    height: 768px;
+    max-width: 500px;
+    height: 800px;
+    margin: auto;
 }
 
 
+/* ------------------------------ */
 /* ----- background of form ----- */
+/* ------------------------------ */
 form {
     position: absolute;
     width: 456px;
     height: 642px;
-    left: 284px;
     top: 63px;
   
     background: #7585BD;
@@ -23,7 +24,9 @@ form {
 }
 
 
+/* ----------------------- */
 /* ----- BACK botton ----- */
+/* ----------------------- */
 .back .btn{
     position: absolute;
     width: 95px;
@@ -36,8 +39,6 @@ form {
     border-radius: 35px;
     border: 0px;
 
-    font-family: 'Kanit';
-    font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 27px;
@@ -45,16 +46,16 @@ form {
 }
 
 
+/* ------------------------- */
 /*  ----- WHO ARE YOU? ----- */
+/* ------------------------- */
 .Text_question {
     position: absolute;
     width: 299px;
     height: 60px;
-    left: 90px;
+    left: 100px;
     top: 208px;
 
-    font-family: 'Kanit';
-    font-style: normal;
     font-weight: bold;
     font-size: 36px;
     line-height: 27px;
@@ -65,7 +66,9 @@ form {
 }
 
 
+/* ------------------------- */
 /* ----- Client botton ----- */
+/* ------------------------- */
 .client_role .btn{
     position: absolute;
     width: 183px;
@@ -94,7 +97,10 @@ form {
     width: 164px;
 }
 
+
+/* ------------------------- */
 /* ----- Staff botton ----- */
+/* ------------------------- */
 .staff_role .btn{
     position: absolute;
     width: 183px;
@@ -124,7 +130,9 @@ form {
 }
 
 
+/* ----------------------------- */
 /* ----- botton when hover ----- */
+/* ----------------------------- */
 .btn::before,
 .btn::after{
     position: absolute;
