@@ -60,6 +60,10 @@
                 header("location:  login_client.php");
             }
         } else {
+
+            echo '<script language="javascript">';
+            echo 'alert("message successfully sent")';
+            echo '</script>';
             array_push($errors, "Email & Password is required");
             $_SESSION['error'] = "Email & Password is required";
             header("location: login_client.php");
