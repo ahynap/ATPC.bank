@@ -2,15 +2,20 @@ body
 {
     background: #7585BD;
     font-family: 'Kanit';
+   
+    max-width: 500px;
+    height: 800px;
+    margin: auto;
 }
 
 
+/* ------------------------------ */
 /* ----- background of form ----- */
+/* ------------------------------ */
 form{
     position: absolute;
     width: 456px;
     height: 642px;
-    left: 284px;
     top: 63px;
     
     background: #F4F1EC;
@@ -18,28 +23,31 @@ form{
 }
 
 
-/* ----- logo ATPC bank ----- */
+/* ------------------------------ */
+/* ------- logo ATPC bank ------- */
+/* ------------------------------ */
 .logo {
     text-align: center;
     margin-top: 35px;
 }
 
 
-/* -----  blank space for get input ----- */
+/* ------------------------------- */
+/* -- blank space for get input -- */
+/* ------------------------------- */
 .SubmitForLogin{
     text-align: center;
 }
 
 .SubmitForLogin input {
+    background: #C4C4C4;
     
     width: 322px;
     height: 40px;
-    left: 390px;
-    top: 390px;
+
     padding-left: 15px;
     margin-bottom: 12px;
 
-    background: #C4C4C4;
     border-radius: 35px;
     border: 0px
 }
@@ -55,13 +63,14 @@ form{
     padding-left: 5px;
 }
 
+
+/* ------------------------ */
 /* ----- Login botton ----- */
+/* ------------------------ */
 .SubmitForLogin .btn{
     margin-top: 16px;
     width: 197px;
     height: 54px;
-    left: 411px;
-    top: 478px;
 
     background: #7585BD;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -90,7 +99,10 @@ form{
     color: #F4F1EC;
 }
 
-/* ----- text link ----- */
+
+/* ----------------------------------------------- */
+/* ----- text for link to other login option ----- */
+/* ----------------------------------------------- */
 a {
     text-decoration: underline;
     font-family: 'Kanit';
@@ -126,11 +138,9 @@ a:hover {
 }
 
 
-
-
-
-
-/* ----- Don’t have an account? -----  */
+/* -------------------------------------------- */
+/* ----- Don’t have an account? statement ----- */
+/* -------------------------------------------- */
 .Text-with-line {
     margin-top: 26px;
     text-align: center;
@@ -155,18 +165,18 @@ a:hover {
     vertical-align: middle;
 }
 
-/* ----- SIGN UP FOR ATPC ACCOUNT button -----  */
-.GoToSignIn{
-    margin-left: 345px;
-}
 
+/* -------------------------- */
+/* ----- Sign UP botton ----- */
+/* -------------------------- */
 .GoToSignIn .btn{
-    margin-top: 600px;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 68px;
+    
     width: 321px;
     height: 54px;
-    left: 352px;
-    top: 596px;
-    
+
     border: 5px solid #7585BD;
     box-sizing: border-box;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -180,7 +190,7 @@ a:hover {
     color: #7585BD;
 }
 
-/* ----- SIGN UP FOR ATPC ACCOUNT button  when hover ----- */
+/* ----- Sign UP botton when hover ----- */
 .GoToSignIn .btn::before,
 .GoToSignIn .btn::after {
     position: absolute;

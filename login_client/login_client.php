@@ -1,73 +1,63 @@
 <?php
-
      /* Connect Database */
-
     session_start();
     include('..\server\server.php'); 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ATPC login</title>
+        <link rel="stylesheet" href="login.css">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATPC login</title>
-    <link rel="stylesheet" href="login_client.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
+    </head>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
-</head>
+    <body>
+        <!--- Login form ---> 
+        <form action="..\login_client\login_client_insert.php" method="post">
 
-<body>
+            <!------- Error Alert -------> 
+            <?php if (isset($_SESSION['error'])) : ?>
+                <div class="error">
+                    <h3>
+                        <?php 
+                            echo $_SESSION['error'];
+                            unset($_SESSION['error']);
+                        ?>
+                    </h3>
+                </div>
+            <?php endif ?>
 
-    <form action="..\login_client\login_client_insert.php" method="post">
-
-        <!-- ----- Error Alert ----- --> 
-
-        <?php if (isset($_SESSION['error'])) : ?>
-            <div class="error">
-                <h3>
-                    <?php 
-                        echo $_SESSION['error'];
-                        unset($_SESSION['error']);
-                    ?>
-                </h3>
+            <!--logo ATPC bank --> 
+            <div class="logo" style="text-align: center;">
+                <img src="logo_blue.png" width="242">
             </div>
-        <?php endif ?>
 
-    <!-- - Login form --> 
-
-        <!--logo ATPC bank --> 
-        <div class="logo" style="text-align: center;">
-            <img src="logo_blue.png" width="242">
-        </div>
-
-        <!-- get login input --> 
-        <div class="SubmitForLogin">
-            <input type="text" placeholder="Email" name="Email">
-            <input type="password" placeholder="Password" name="Password">
-            
-            <br>
-            <a href="default.asp" target="_blank" class="txt_link_left"> forget password? </a>
-            <a href="../login_staff/login_staff.php" target="_blank" class="txt_link_right"> as a staff? </a>
-            <br>
-            <button type="submit" class="btn" name="login_user"> LOG IN </button>
-        </div>
-   
+            <!-- get login input --> 
+            <div class="SubmitForLogin">
+                <input type="text" placeholder="Email" name="Email">
+                <input type="password" placeholder="Password" name="Password">
+                
+                <br>
+                <a href="default.asp" target="_blank" class="txt_link_left"> forget password? </a>
+                <a href="../login_staff/login_staff.php" target="_blank" class="txt_link_right"> as a staff? </a>
+                <br>
+                <button type="submit" class="btn" name="login_user"> LOG IN </button>
+            </div>
+    
             <!-- Don’t have an account? --> 
-        <span class="Text-with-line"> Don’t have an account? </span>
-    </form>
-  
-        <!-- SIGN UP FOR ATPC ACCOUNT --> 
-        <div class="GoToSignIn">
-            <button class="btn" onclick="window.location.href='../regis_role_choose/regis_role.php'"> SIGN UP FOR ATPC ACCOUNT </button>
+            <span class="Text-with-line"> Don’t have an account? </span>
 
-        </div>
-
-</body>
-
-
+            <!-- SIGN UP FOR ATPC ACCOUNT --> 
+            <div class="GoToSignIn">
+                <button class="btn" onclick="window.location.href='../regis_role_choose/regis_role.php'"> SIGN UP FOR ATPC ACCOUNT </button>
+            </div>
+        </form>
+    </body>
 </html>
 
 <?php
