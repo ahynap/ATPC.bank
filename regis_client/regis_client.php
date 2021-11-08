@@ -1,4 +1,5 @@
 <?php
+    /* Connect Database */
     session_start();
     include('..\server\server.php'); 
 ?>
@@ -10,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>client REGISTER</title>
-    <link rel="stylesheet" href="regis_client.css">
+    <link rel="stylesheet" href="clientRegis.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
@@ -18,6 +19,7 @@
 
 <body>
     
+    <!------- Error Alert -------> 
      <form action="regis_client_insert.php" method="post">
         <?php if (isset($_SESSION['error'])) : ?>
             <div class="error">
@@ -30,7 +32,7 @@
             </div>
         <?php endif ?>
 
-    <!-- ----- Login form ----- --> 
+    <!-- ----- client's register form ----- --> 
     <form>
         <div class="back">
             <button type="submit" class="btn" onClick="this.form.action='../regis_role_choose/regis_role.php'; submit()"> BACK </button>
