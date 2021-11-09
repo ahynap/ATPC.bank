@@ -41,6 +41,36 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
 
+    <style type="text/css">
+
+    @media print
+    {
+
+        #non-printable { 
+
+            display: none; 
+         }
+        #printable { 
+         display: block;
+        }
+    }
+    </style>
+
+ <script type="text/javascript""> 
+
+   function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+
+</script> 
+
     </head>
 
 <body>
@@ -56,7 +86,7 @@
         </div>
 
         <!-- ----- logout button ----- --> 
-        <button type="submit" class="btn" onClick="this.form.action='../login_client/login_client.php'; submit()"> LOG OUT </button>
+        <button type="submit" class="btn" onclick="window.location.href='../login_client/login_client.php'"> LOG OUT </button>
 
         <div class="icon">
             <img src="client_icon.png" width=58.36> 
@@ -72,8 +102,10 @@
 
     </div>
 
+
     <!-- ----- RECIEPT ----- -->
-    <div class="over_recipt">
+    <div class="over_recipt" id="printable">
+
         <div class="receiptContainer">
             
             <div class="top">
@@ -130,11 +162,10 @@
         <?php
             }
         ?>
-                
 
         <!-- ----- DONE Button ----- -->
-        <div class="ok_btn">
-            <button type="submit" class="btn"> DONE </button>
+        <div class="ok_btn" id="non-printable">
+             <button type="submit" class="btn" onclick="printDiv('printable')"> SAVE </button>
         </div>
     </div>
    
