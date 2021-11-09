@@ -81,7 +81,7 @@
 
     <!-- ----- logo ATPC bank ----- --> 
     <div class="back">
-        <button type="submit" class="btn"  onclick="window.location.href='../Account_List/AccountList.php'" name="Email" value=<?php echo $row2["Email"]; ?> > BACK </button>
+        <button type="submit" class="btn"  onclick="window.location.href='../Account_List/AccountList.php'"> BACK </button>
     </div>
 
     <!--------  Account Detail  -------->
