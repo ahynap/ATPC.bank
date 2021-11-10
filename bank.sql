@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2021 at 05:15 PM
+-- Generation Time: Nov 10, 2021 at 02:34 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -31,6 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `account` (
   `Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `SurName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Phone` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
@@ -41,9 +42,9 @@ CREATE TABLE `account` (
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`Email`, `Password`, `Name`, `SurName`, `Phone`, `AccountID`) VALUES
-('ohteh@hotmail.com', '123', 'oh', 'teh', '06000001', 2),
-('gade@gmail.com', '555', 'gade', 'gigi', '0850660443', 6);
+INSERT INTO `account` (`Email`, `Password`, `Token`, `Name`, `SurName`, `Phone`, `AccountID`) VALUES
+('sompongsu@gmail.com', 'su', NULL, 'Sompong', 'Yoosongka', '0881234590', 7),
+('jieun16160@gmail.com', 'gggggg', NULL, 'jieun', 'may', '060000005', 8);
 
 -- --------------------------------------------------------
 
@@ -66,9 +67,8 @@ CREATE TABLE `accountno` (
 --
 
 INSERT INTO `accountno` (`SerialNo`, `AccountType`, `AccountNo`, `BranchName`, `AccountID`, `DayTime`, `MainAccount`) VALUES
-('123456', 'Savings', '1', 'ICU', 6, '2021-10-27 18:15:06', 'Main Account'),
-('123456', 'Savings', '2', 'ICU', 2, '2021-10-27 18:46:53', 'Main Account'),
-('123456', 'Savings', '3', 'CPE', 2, '2021-10-27 20:21:58', NULL);
+('234588', 'Fixed Deposites', '6207050046', 'CU', 7, '2021-10-29 14:57:11', NULL),
+('001122', 'Savings', '6207051212', ' KMUTT', 7, '2021-10-29 14:24:34', 'Main Account');
 
 -- --------------------------------------------------------
 
@@ -89,10 +89,12 @@ CREATE TABLE `accountnoinfo` (
 --
 
 INSERT INTO `accountnoinfo` (`AccountNo`, `Name`, `SurName`, `BankName`, `Balance`) VALUES
-('1', 'gade', 'zuza', 'ATPCBank', 480),
-('2', 'oh', 'teh', 'ATPCBank', 43519),
+('1', 'gade', 'zuza', 'ATPCBank', 485),
+('2', 'oh', 'teh', 'ATPCBank', 43705),
 ('3', 'oh', 'teh', 'ATPCBank', 546),
-('4', 'fe', 'ng', 'ATPCBank', 45);
+('4', 'fe', 'ng', 'ATPCBank', 45),
+('6207050046', 'Sompong', 'Yoosongka', 'ATPCBank', 50095),
+('6207051212', 'Sompong', 'Yoosongka', 'ATPCBank', 9714);
 
 -- --------------------------------------------------------
 
@@ -111,7 +113,7 @@ CREATE TABLE `reporthistory` (
 --
 
 INSERT INTO `reporthistory` (`StaffID`, `AccountNo`, `DayTime`) VALUES
-(1, '1', '2021-10-28 14:16:17');
+(5, '6207051212', '2021-10-29 17:57:37');
 
 -- --------------------------------------------------------
 
@@ -124,15 +126,17 @@ CREATE TABLE `staffaccount` (
   `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `SurName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `Password` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `Password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Token` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `staffaccount`
 --
 
-INSERT INTO `staffaccount` (`StaffID`, `Name`, `SurName`, `Email`, `Password`) VALUES
-(1, 'Chatchanok', 'Vitoondej', 'yha@gmail.com', 'yhayha');
+INSERT INTO `staffaccount` (`StaffID`, `Name`, `SurName`, `Email`, `Password`, `Token`) VALUES
+(4, 'Chatchanok', 'Vitoondej', 'staff1010.atpc@gmail.com', '62070501010', '8955976aff'),
+(5, 'somsri', 'soodsauy', 'somsri@gmail.com', 'soodsauy89', NULL);
 
 -- --------------------------------------------------------
 
@@ -155,7 +159,8 @@ INSERT INTO `staffinfo` (`StaffID`, `BranchName`, `Name`, `SurName`) VALUES
 (1, 'Bangkok', 'Chatchanok', 'Vitoondej'),
 (2, 'Korat', 'Thanapromporn', 'Punturux'),
 (3, 'Rayong', 'Phunparporn', 'Amnauymucha'),
-(4, 'Supanburi', 'Anchira', 'Paengsai');
+(4, 'Supanburi', 'Anchira', 'Paengsai'),
+(5, 'KMITL', 'somsri', 'soodsauy');
 
 -- --------------------------------------------------------
 
@@ -177,16 +182,11 @@ CREATE TABLE `transferhistory` (
 --
 
 INSERT INTO `transferhistory` (`TransferID`, `AccountNo`, `BankName`, `DestinationAccountNo`, `DayTime`, `Amount`) VALUES
-(4, '1', 'ATPCBank', '2', '2021-10-27 18:43:44', 10),
-(5, '1', 'ATPCBank', '2', '2021-10-27 18:44:37', 10),
-(6, '1', 'ATPCBank', '2', '2021-10-27 18:44:49', 10),
-(7, '2', 'ATPCBank', '1', '2021-10-27 18:47:07', 6),
-(8, '2', 'ATPCBank', '1', '2021-10-27 18:54:13', 10),
-(9, '2', 'ATPCBank', '1', '2021-10-27 20:02:35', 10),
-(10, '2', 'ATPCBank', '1', '2021-10-27 20:03:10', 10),
-(11, '2', 'ATPCBank', '1', '2021-10-27 20:05:16', 10),
-(12, '2', 'ATPCBank', '1', '2021-10-27 20:05:39', 10),
-(13, '2', 'ATPCBank', '1', '2021-10-27 20:06:11', 1);
+(14, '6207051212', 'ATPCBank', '6207050046', '2021-10-29 15:31:23', 95),
+(15, '6207051212', 'ATPCBank', '1', '2021-11-09 13:52:58', 5),
+(16, '6207051212', 'ATPCBank', '2', '2021-11-09 14:12:22', 90),
+(17, '6207051212', 'ATPCBank', '2', '2021-11-09 14:15:50', 90),
+(18, '6207051212', 'ATPCBank', '2', '2021-11-09 16:01:31', 6);
 
 --
 -- Indexes for dumped tables
@@ -245,19 +245,19 @@ ALTER TABLE `transferhistory`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `staffinfo`
 --
 ALTER TABLE `staffinfo`
-  MODIFY `StaffID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `StaffID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `transferhistory`
 --
 ALTER TABLE `transferhistory`
-  MODIFY `TransferID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `TransferID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
