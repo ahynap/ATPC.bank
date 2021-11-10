@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2021 at 03:12 PM
+-- Generation Time: Nov 10, 2021 at 09:19 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -53,9 +53,8 @@ INSERT INTO `account` (`Email`, `Password`, `Token`, `Name`, `SurName`, `Phone`,
 --
 
 CREATE TABLE `accountno` (
-  `SerialNo` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `AccountType` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `AccountNo` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `BranchName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `AccountID` int(20) NOT NULL,
   `DayTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -66,9 +65,9 @@ CREATE TABLE `accountno` (
 -- Dumping data for table `accountno`
 --
 
-INSERT INTO `accountno` (`SerialNo`, `AccountType`, `AccountNo`, `BranchName`, `AccountID`, `DayTime`, `MainAccount`) VALUES
-('234588', 'Fixed Deposites', '6207050046', 'CU', 7, '2021-10-29 14:57:11', NULL),
-('001122', 'Savings', '6207051212', ' KMUTT', 7, '2021-10-29 14:24:34', 'Main Account');
+INSERT INTO `accountno` (`AccountType`, `AccountNo`, `BranchName`, `AccountID`, `DayTime`, `MainAccount`) VALUES
+('Fixed Deposites', '6207050046', 'CU', 7, '2021-10-29 14:57:11', NULL),
+('Savings', '6207051212', ' KMUTT', 7, '2021-10-29 14:24:34', 'Main Account');
 
 -- --------------------------------------------------------
 
@@ -79,7 +78,7 @@ INSERT INTO `accountno` (`SerialNo`, `AccountType`, `AccountNo`, `BranchName`, `
 CREATE TABLE `accountnoinfo` (
   `AccountNo` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `SurName` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `SurName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `BankName` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `Balance` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -103,17 +102,11 @@ INSERT INTO `accountnoinfo` (`AccountNo`, `Name`, `SurName`, `BankName`, `Balanc
 --
 
 CREATE TABLE `reporthistory` (
+  `ReportID` int(20) NOT NULL,
   `StaffID` int(20) NOT NULL,
   `AccountNo` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `DayTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `reporthistory`
---
-
-INSERT INTO `reporthistory` (`StaffID`, `AccountNo`, `DayTime`) VALUES
-(5, '6207051212', '2021-10-29 17:57:37');
 
 -- --------------------------------------------------------
 
@@ -135,7 +128,7 @@ CREATE TABLE `staffaccount` (
 --
 
 INSERT INTO `staffaccount` (`StaffID`, `Name`, `SurName`, `Email`, `Password`, `Token`) VALUES
-(4, 'Chatchanok', 'Vitoondej', 'staff1010.atpc@gmail.com', 'yha', NULL),
+(4, 'Chatchanok', 'Vitoondej', 'staff1010.atpc@gmail.com', 'yhayha', NULL),
 (5, 'somsri', 'soodsauy', 'somsri@gmail.com', 'soodsauy89', NULL);
 
 -- --------------------------------------------------------
@@ -170,9 +163,9 @@ INSERT INTO `staffinfo` (`StaffID`, `BranchName`, `Name`, `SurName`) VALUES
 
 CREATE TABLE `transferhistory` (
   `TransferID` int(20) NOT NULL,
-  `AccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `AccountNo` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `BankName` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `DestinationAccountNo` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `DestinationAccountNo` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `DayTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Amount` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -216,7 +209,8 @@ ALTER TABLE `accountnoinfo`
 -- Indexes for table `reporthistory`
 --
 ALTER TABLE `reporthistory`
-  ADD PRIMARY KEY (`StaffID`);
+  ADD PRIMARY KEY (`ReportID`),
+  ADD KEY `ss` (`StaffID`);
 
 --
 -- Indexes for table `staffaccount`
@@ -248,6 +242,12 @@ ALTER TABLE `account`
   MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `reporthistory`
+--
+ALTER TABLE `reporthistory`
+  MODIFY `ReportID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `staffinfo`
 --
 ALTER TABLE `staffinfo`
@@ -274,7 +274,7 @@ ALTER TABLE `accountno`
 -- Constraints for table `reporthistory`
 --
 ALTER TABLE `reporthistory`
-  ADD CONSTRAINT `fk_StaffID2` FOREIGN KEY (`StaffID`) REFERENCES `staffaccount` (`StaffID`);
+  ADD CONSTRAINT `ss` FOREIGN KEY (`StaffID`) REFERENCES `staffaccount` (`StaffID`);
 
 --
 -- Constraints for table `staffaccount`
