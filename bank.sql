@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2021 at 02:34 PM
+-- Generation Time: Nov 10, 2021 at 03:12 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -127,7 +127,7 @@ CREATE TABLE `staffaccount` (
   `SurName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `Token` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
+  `Token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -135,7 +135,7 @@ CREATE TABLE `staffaccount` (
 --
 
 INSERT INTO `staffaccount` (`StaffID`, `Name`, `SurName`, `Email`, `Password`, `Token`) VALUES
-(4, 'Chatchanok', 'Vitoondej', 'staff1010.atpc@gmail.com', '62070501010', '8955976aff'),
+(4, 'Chatchanok', 'Vitoondej', 'staff1010.atpc@gmail.com', 'yha', NULL),
 (5, 'somsri', 'soodsauy', 'somsri@gmail.com', 'soodsauy89', NULL);
 
 -- --------------------------------------------------------

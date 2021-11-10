@@ -43,7 +43,7 @@
                 <input type="password" placeholder="Password" name="Password">
                 
                 <br>
-                <a href="default.asp" target="_blank" class="txt_link_left" onclick="window.location.href='forget_password.php'"> forget password? </a>
+                <a href="forget_password.php" target="_blank" class="txt_link_left"> forget password? </a>
                 <a href="../login_staff/login_staff.php" target="_blank" class="txt_link_right"> as a staff? </a>
                 <br>
                 <button type="submit" class="btn" name="login_user"> LOG IN </button>
