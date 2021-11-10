@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Access</title>
-    <link rel="stylesheet" href="repost_access.css">
+    <link rel="stylesheet" href="repost_access1.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
@@ -37,6 +37,11 @@
        <!-- ----- logo ATPC bank ----- --> 
         <div class="logo">
             <img src="logo_blue.png" width=242>
+        </div>
+
+       <!-- ----- logo ATPC bank ----- --> 
+         <div class="back">
+        <button type="submit" class="btn"  onClick="this.form.action='../mode_staff/mode_staff.php'" > BACK </button>
         </div>
 
         <!-- ----- Confirm you PIN ----- --> 
