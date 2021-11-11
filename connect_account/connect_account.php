@@ -1,9 +1,12 @@
 <?php
+
     /* Connect Database */
+
     session_start();
     include('..\server\server.php');
 
     /* Use Email Session to Access Data from Database for Display 'Username' */ 
+
     $Email = $_SESSION['Email'];
     $result = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
     $result2 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
@@ -79,7 +82,6 @@
                 <input type="text" placeholder="Depositor Name" name="DepositorName"><br>
                 <input type="text" placeholder="Depositor Surname" name="DepositorSurName"><br>
                 <input type="text" placeholder="Branch Name" name="BranchName"><br>
-                <input type="text" placeholder="Serial Number" name="SerialNo"><br>
                 <input type="text" placeholder="Email number" name="Email" /> <br>
 
                 <select name="AccountType">

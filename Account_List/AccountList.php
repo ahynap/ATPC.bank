@@ -108,7 +108,7 @@
             <button type="submit" class="button1" name="AccountNo" value=<?php echo $row4[0]; ?>>
                 <div class="row">
                     <div class="col-6">
-                        <p class="test1"><?php echo $row4[6]; ?></p>
+                        <p class="test1"><?php echo $row4[5]; ?></p>
                         <p class="test2"><?php echo $row4[0]; ?></p>
                     </div>
                     

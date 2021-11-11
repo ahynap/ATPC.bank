@@ -1,6 +1,11 @@
 <?php
+
+   /* Connect Database */ 
+
     session_start();
     include('..\server\server.php');
+
+     /* Use AccountNo Session to Access Data from Database for Display 'Username'and 'Transaction Detail' */ 
     
     $AccountNo = $_SESSION['AccountNo'];
 

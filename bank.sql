@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2021 at 09:19 PM
+-- Generation Time: Nov 11, 2021 at 06:31 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -44,7 +44,7 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`Email`, `Password`, `Token`, `Name`, `SurName`, `Phone`, `AccountID`) VALUES
 ('sompongsu@gmail.com', 'su', NULL, 'Sompong', 'Yoosongka', '0881234590', 7),
-('jieun16160@gmail.com', 'gggggg', NULL, 'jieun', 'may', '060000005', 8);
+('jieun16160@gmail.com', 'jieunmay', NULL, 'Jieun', 'Maysa', '0897654321', 9);
 
 -- --------------------------------------------------------
 
@@ -66,8 +66,10 @@ CREATE TABLE `accountno` (
 --
 
 INSERT INTO `accountno` (`AccountType`, `AccountNo`, `BranchName`, `AccountID`, `DayTime`, `MainAccount`) VALUES
+('Fixed Deposites', '22', 'KMUTT', 9, '2021-11-11 16:03:12', NULL),
 ('Fixed Deposites', '6207050046', 'CU', 7, '2021-10-29 14:57:11', NULL),
-('Savings', '6207051212', ' KMUTT', 7, '2021-10-29 14:24:34', 'Main Account');
+('Savings', '6207051212', ' KMUTT', 7, '2021-10-29 14:24:34', 'Main Account'),
+('Savings', '9', 'KMUTT', 9, '2021-11-11 15:56:57', 'Main Account');
 
 -- --------------------------------------------------------
 
@@ -89,11 +91,21 @@ CREATE TABLE `accountnoinfo` (
 
 INSERT INTO `accountnoinfo` (`AccountNo`, `Name`, `SurName`, `BankName`, `Balance`) VALUES
 ('1', 'gade', 'zuza', 'ATPCBank', 485),
+('10', 'Sam', 'Son', 'ATPCBank', 333),
+('11', 'a', 'b', 'ATPCBank', 555),
+('12', 'ohh', 'tehh', 'ATPCBank', 111),
+('15', 'w', 'e', 'ATPCBank', 222),
+('16', 'r', 't', 'ATPCBank', 444),
+('17', 'y', 'u', 'ATPCBank', 666),
+('18', 'ohh', 'p', 'ATPCBank', 888),
 ('2', 'oh', 'teh', 'ATPCBank', 43705),
+('20', 'Jieun', 'May', 'KMUTT', 555555),
+('22', 'Jieun', 'May', 'KMUTT', 888987),
 ('3', 'oh', 'teh', 'ATPCBank', 546),
 ('4', 'fe', 'ng', 'ATPCBank', 45),
 ('6207050046', 'Sompong', 'Yoosongka', 'ATPCBank', 50095),
-('6207051212', 'Sompong', 'Yoosongka', 'ATPCBank', 9714);
+('6207051212', 'Sompong', 'Yoosongka', 'ATPCBank', 9714),
+('9', 'Jieun', 'May', 'ATPCBank', 999900);
 
 -- --------------------------------------------------------
 
@@ -107,6 +119,14 @@ CREATE TABLE `reporthistory` (
   `AccountNo` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `DayTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `reporthistory`
+--
+
+INSERT INTO `reporthistory` (`ReportID`, `StaffID`, `AccountNo`, `DayTime`) VALUES
+(1, 1, '22', '2021-11-11 16:16:15'),
+(2, 1, '9', '2021-11-11 16:25:35');
 
 -- --------------------------------------------------------
 
@@ -128,8 +148,7 @@ CREATE TABLE `staffaccount` (
 --
 
 INSERT INTO `staffaccount` (`StaffID`, `Name`, `SurName`, `Email`, `Password`, `Token`) VALUES
-(4, 'Chatchanok', 'Vitoondej', 'staff1010.atpc@gmail.com', 'yhayha', NULL),
-(5, 'somsri', 'soodsauy', 'somsri@gmail.com', 'soodsauy89', NULL);
+(1, 'Chatchanok', 'Vitoondej', 'staff1010.atpc@gmail.com', 'st', NULL);
 
 -- --------------------------------------------------------
 
@@ -179,7 +198,9 @@ INSERT INTO `transferhistory` (`TransferID`, `AccountNo`, `BankName`, `Destinati
 (15, '6207051212', 'ATPCBank', '1', '2021-11-09 13:52:58', 5),
 (16, '6207051212', 'ATPCBank', '2', '2021-11-09 14:12:22', 90),
 (17, '6207051212', 'ATPCBank', '2', '2021-11-09 14:15:50', 90),
-(18, '6207051212', 'ATPCBank', '2', '2021-11-09 16:01:31', 6);
+(18, '6207051212', 'ATPCBank', '2', '2021-11-09 16:01:31', 6),
+(19, '9', 'ATPCBank', '22', '2021-11-11 16:06:34', 9),
+(20, '9', 'ATPCBank', '22', '2021-11-11 16:10:39', 90);
 
 --
 -- Indexes for dumped tables
@@ -239,13 +260,13 @@ ALTER TABLE `transferhistory`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `AccountID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `reporthistory`
 --
 ALTER TABLE `reporthistory`
-  MODIFY `ReportID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ReportID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `staffinfo`
@@ -257,7 +278,7 @@ ALTER TABLE `staffinfo`
 -- AUTO_INCREMENT for table `transferhistory`
 --
 ALTER TABLE `transferhistory`
-  MODIFY `TransferID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `TransferID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables

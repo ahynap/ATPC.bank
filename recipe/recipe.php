@@ -1,7 +1,11 @@
 <?php
+
     /* Connect Database */
+
     session_start();
     include('..\server\server.php');
+
+    /* Use AccountNo and $DestinationAccountNo Session to Access Data from Database for Display 'Username' and Transaction Slip */
 
     $AccountNo = $_SESSION['AccountNo'];
     $DestinationAccountNo = $_SESSION['DestinationAccountNo']; 
@@ -11,7 +15,7 @@
            ON accountno.AccountID = account.AccountID
         WHERE accountno.AccountNo = '$AccountNo'");
 
-     $result4 = mysqli_query($conn,"SELECT * FROM account
+    $result4 = mysqli_query($conn,"SELECT * FROM account
          JOIN accountno
            ON accountno.AccountID = account.AccountID
         WHERE accountno.AccountNo = '$AccountNo'");
@@ -35,7 +39,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>RECIPET</title>
+        <title>RECIPE</title>
         <link rel="stylesheet" href="recipet.css">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">

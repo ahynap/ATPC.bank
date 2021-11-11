@@ -1,8 +1,14 @@
 <?php
+    
+   /* Connect Database */ 
+
     session_start();
     include('..\server\server.php');
 
+     /* Use Email Session to Access Data from Database for Display 'Username' , Specify Account Money Type and Verify Account Money Number*/ 
+
     $Email = $_SESSION['Email'];
+
     $result3 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
     $result5 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
 
@@ -98,7 +104,7 @@
 
             <!-- ----- account_type ----- --> 
             <div class="account_type">
-                  <label> <?php echo $row4[6]; ?></label>
+                  <label> <?php echo $row4[5]; ?></label>
             </div>
 
             <!-- ----- account_number ----- --> 

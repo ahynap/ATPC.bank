@@ -1,8 +1,14 @@
 <?php
+
     /* Connect Database */
+
     session_start();
     include('..\server\server.php'); 
+
+    $Email = $_SESSION['Email'];
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,8 +27,10 @@
     <!-- ----- Login form ----- --> 
     <form method="post">
 
-       
-
+        <div class="back">
+            <button type="submit" class="btn" onClick="this.form.action='../login_staff/login_staff.php'; submit()"> LOGOUT </button>
+        </div>
+      
         <!-- ----- STAFF OPTIONS ----- --> 
         <span class="Text_question"> STAFF OPTIONS </span>
 

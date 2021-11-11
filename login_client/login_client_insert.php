@@ -1,22 +1,29 @@
 <?php 
+
+     /* Connect Database */
+
     session_start();
     include('..\server\server.php');
 
     $errors = array();
 
-
     if (isset($_POST['login_user'])) {
+
+        /* Get Data */
+
         $Email = mysqli_real_escape_string($conn, $_POST['Email']);
         $Password = mysqli_real_escape_string($conn, $_POST['Password']);
 
-          /* Check Fill Required */
+        /* Check Fill Required */
 
         if (empty($Email)) {
-            array_push($errors, "Email is required");
+            array_push($errors, "Email is required !");
+            $_SESSION['error'] = "Email is required !";
         }
 
         if (empty($Password)) {
-            array_push($errors, "Password is required");
+            array_push($errors, "Password is required !");
+            $_SESSION['error'] = "Password is required !";
         }
 
         /* Check Authentication */
@@ -28,7 +35,7 @@
 
             if (mysqli_num_rows($result) == 1) {
 
-               /* Check : User already Have Main Account Number of not? */
+            /* Check : User already Have Main Account Number of not? */
 
              $result = "SELECT AccountNo FROM accountno
              JOIN account
@@ -39,7 +46,7 @@
              $count = mysqli_num_rows($getresult);
              echo $count;
             
-            $_SESSION['Email'] = $Email;
+             $_SESSION['Email'] = $Email;
 
              /* Case 1 : Don't Have */
 
@@ -49,19 +56,24 @@
 
              /* Case 2 : Already Have */
            
-             }else if($count != "0"){
+             } else if($count != "0"){
                 
                  header("location: ..\MainAccount\mainAccount.php");
              }
 
             } else {
-                array_push($errors, "Wrong Email or Password");
-                $_SESSION['error'] = "Wrong Email or Password! ";
+
+                array_push($errors, "Wrong Email or Password !");
+                $_SESSION['error'] = "Wrong Email or Password !";
+
                 header("location:  login_client.php");
             }
+
         } else {
-            array_push($errors, "Email & Password is required");
-            $_SESSION['error'] = "Email & Password is required";
+
+            array_push($errors, "Email & Password is required !");
+            $_SESSION['error'] = "Email & Password is required !";
+
             header("location: login_client.php");
         }
     }

@@ -1,8 +1,14 @@
 <?php
+
+     /* Connect Database */
+
     session_start();
     include('..\server\server.php');
 
+    /* Use AccountNo Session to Access Data from Database for Display 'Username' and Verify Account Money Number*/ 
+
     $AccountNo = $_SESSION['AccountNo'];
+
     $result = mysqli_query($conn,"SELECT * FROM account
          JOIN accountno
            ON accountno.AccountID = account.AccountID
@@ -11,7 +17,6 @@
          JOIN accountno
            ON accountno.AccountID = account.AccountID
         WHERE accountno.AccountNo = '$AccountNo'");
-
 
     $result3 = mysqli_query($conn,"SELECT * FROM accountno
          JOIN account
@@ -208,8 +213,8 @@
              while($row6 = mysqli_fetch_array($result6)) {
         ?>
 
-        <button type="submit" class="btn" name="AccountNo" value=<?php echo $row6["AccountNo"]; ?> > SLIDE TO TRANSFER >>
-                <confirm> TRANSFERED </confirm>
+        <button type="submit" class="btn" name="AccountNo" value=<?php echo $row6["AccountNo"]; ?> > CONFIRM TO TRANSFER 
+                
         </button>
 
           <?php

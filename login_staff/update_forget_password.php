@@ -1,38 +1,59 @@
 <?php
-     session_start();
-    include('..\server\server.php');
 
+    /* Connect Database */
+
+    session_start();
+    include('..\server\server.php');
 
     if(isset($_POST['Password']) && $_POST['Token'] && $_POST['Email'])
     {
 
-      $emailId = $_POST['Email'];
-      $token = $_POST['Token'];
-      $password = $_POST['Password'];
-      $cpassword = $_POST['cPassword'];
+      /* Get Data */
 
-      if($password == $cpassword)
+      $Email = $_POST['Email'];
+      $Token = $_POST['Token'];
+      $Password = $_POST['Password'];
+      $Cpassword = $_POST['cPassword'];
+
+      /* Password Match */
+
+      if($Password == $Cpassword)
       {
 
-        $query = mysqli_query($conn,"SELECT * FROM staffaccount WHERE Token = '$token' and Email ='$emailId'");
+        $query = mysqli_query($conn,"SELECT * FROM staffaccount WHERE Token = '$Token' and Email ='$Email'");
 
-        $row = mysqli_num_rows($query);
+        $getresult = mysqli_num_rows($query);
 
-        if($row){
-         mysqli_query($conn,"UPDATE staffaccount set Password ='$password', Token = NULL WHERE Email = '$emailId'");
+        /* Verify Identity Valid */
+
+        if($getresult){
+
+          /* Update NEW Password */
+
+          mysqli_query($conn,"UPDATE staffaccount set Password ='$Password', Token = NULL WHERE Email = '$Email'");
 
           header("location: login_staff.php");
 
-          }else{
+          } 
+
+          /* Verify Identity Invalid */
+
+          else {
          
-          echo "<p>Something goes wrong. Please try again</p>";
+          echo "<p>Something Wrong ! , Please Try Again</p>";
 
           header("location: reset_password.php");
        }
-     }else{
 
-        echo "<p>Password not match, Please click link to reset password in your email again</p>";
+     } 
+
+     /* Password NOT Match */
+
+     else {
+
+        echo "<p>Password NOT Match, Please Click Link to Reset Password in Your Email Again</p>";
 
      }
-   }
+   } 
+
   ?>

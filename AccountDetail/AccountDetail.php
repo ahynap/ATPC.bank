@@ -8,6 +8,7 @@
     /* Use AccountNo Session to Access Data from Database for Display 'Username', 'Account number detail', and 'History Transaction of that Account number' */
     
     $AccountNo = $_SESSION['AccountNo'];
+    
     $result = mysqli_query($conn,"SELECT * FROM account
          JOIN accountno
            ON accountno.AccountID = account.AccountID
@@ -81,7 +82,7 @@
 
     <!-- ----- logo ATPC bank ----- --> 
     <div class="back">
-        <button type="submit" class="btn"  onclick="window.location.href='../Account_List/AccountList.php'"> BACK </button>
+        <button type="submit" class="btn"  onclick="window.location.href='../Account_List/AccountList.php'" name="Email" value=<?php echo $row2["Email"]; ?> > BACK </button>
     </div>
 
     <!--------  Account Detail  -------->

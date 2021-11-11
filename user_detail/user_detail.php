@@ -1,7 +1,11 @@
 <?php
 
+    /* Connect Database */ 
+
     session_start();
     include('..\server\server.php');
+
+     /* Use Email Session to Access Data from Database for Display 'Username' and Profile Detail of Client */ 
 
     $Email = $_SESSION['Email'];
     $result2 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email' ");

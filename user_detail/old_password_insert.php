@@ -1,4 +1,7 @@
 <?php 
+
+    /* Connect Database */ 
+
     session_start();
     include('..\server\server.php');
 
@@ -7,17 +10,19 @@
     $Email = $_SESSION['Email'];
 
     if (isset($_POST['old_password'])) {
+
+         /* Get Data */
+
         $Password = mysqli_real_escape_string($conn, $_POST['Password']);
 
-          /* Check Fill Required */
+        /* Check Fill Required */
 
         if (empty($Password)) {
             array_push($errors, "Old password is required");
              $_SESSION['error'] = "Old password is required";
         }
 
-
-        /* Authentication Old Password */
+        /* Authentication Old Password --> If Valid, Client Can Change Password */
 
      if (count($errors) == 0) {
            
@@ -26,7 +31,7 @@
 
             if (mysqli_num_rows($result) == 1) {
         
-             header("location: new_password.php");
+            header("location: new_password.php");
   
         } else {
 

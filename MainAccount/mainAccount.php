@@ -1,10 +1,14 @@
 <?php
 
+    /* Connect Database */
+
     session_start();
     include('..\server\server.php');
+
+    /* Use Email Session to Access Data from Database for Display 'Username' and Specify 'Main Account' */ 
+
     $Email = $_SESSION['Email'];
-    $result3 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email' ");
-    $result4 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
+
     $result = mysqli_query($conn,
         "SELECT AccountNo FROM accountno 
          JOIN account
@@ -18,7 +22,11 @@
             ON accountno.AccountID = account.AccountID
           WHERE account.Email = '$Email' AND accountno.MainAccount = 'Main Account'");
     
+    $result3 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email' ");
+    $result4 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

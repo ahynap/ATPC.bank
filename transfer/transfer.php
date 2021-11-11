@@ -1,10 +1,14 @@
 <?php
+
+   /* Connect Database */ 
+
     session_start();
     include('..\server\server.php');
 
+     /* Use Email Session to Access Data from Database for Display 'Username' , Specify 'Main Account' and Verify Account Money Number*/ 
+
     $Email = $_SESSION['Email'];
-    $result3 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email' ");
-    $result4 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
+
     $result = mysqli_query($conn,
         "SELECT * FROM accountno 
          JOIN account
@@ -18,13 +22,16 @@
             ON accountno.AccountID = account.AccountID
           WHERE account.Email = '$Email' AND accountno.MainAccount = 'Main Account'");
 
-     $result5 = mysqli_query($conn,
+    $result3 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email' ");
+    $result4 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email'");
+
+    $result5 = mysqli_query($conn,
         "SELECT * FROM accountno 
          JOIN account
            ON accountno.AccountID = account.AccountID
          WHERE account.Email = '$Email'");
 
-     $result6 = mysqli_query($conn,
+   $result6 = mysqli_query($conn,
         "SELECT * FROM accountno 
          JOIN account
            ON accountno.AccountID = account.AccountID
@@ -203,8 +210,8 @@
              while($row6 = mysqli_fetch_array($result6)) {
         ?>
 
-        <button type="submit" class="btn" name="AccountNo" value=<?php echo $row6["AccountNo"]; ?> > CONFIRM TO TRANSFER
-                <confirm> TRANSFERED </confirm>
+        <button type="submit" class="btn" name="AccountNo" value=<?php echo $row6["AccountNo"]; ?>> CONFIRM TO TRANSFER 
+  
         </button>
 
           <?php

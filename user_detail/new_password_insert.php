@@ -1,4 +1,7 @@
 <?php 
+
+     /* Connect Database */ 
+
     session_start();
     include('..\server\server.php');
 
@@ -7,8 +10,10 @@
     $Email = $_SESSION['Email'];
 
     if (isset($_POST['new_password'])) {
-          $Password = mysqli_real_escape_string($conn, $_POST['Password']);
 
+          /* Get Data */
+
+          $Password = mysqli_real_escape_string($conn, $_POST['Password']);
 
           /* Check Fill Required */
 
@@ -17,7 +22,7 @@
              $_SESSION['error'] = "New password is required";
         }
 
-        /* Update Name Profile */
+        /* Update NEW Password */
 
     if (count($errors) == 0) {
 

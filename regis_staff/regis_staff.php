@@ -1,5 +1,7 @@
 <?php
+
     /* Connect Database */
+
     session_start();
     include('..\server\server.php'); 
 ?>
@@ -10,15 +12,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>staff REGISTER</title>
-    <link rel="stylesheet" href="staffRegis.css">
 
+    <title>STAFF REGISTER</title>
+
+    <link rel="stylesheet" href="staffRegis.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body>
-    <!------- Error Alert -------> 
+
+    <!---- Error Alert ----> 
+
     <form action="regis_staff_insert.php" method="post">
         <?php if (isset($_SESSION['error'])) : ?>
             <div class="error">
@@ -31,18 +37,22 @@
             </div>
         <?php endif ?>
 
-    <!-- ----- staff register form ----- --> 
+    <!---- Staff's Register Form ----> 
+
     <form>
+
         <div class="back">
             <button type="submit" class="btn" onClick="this.form.action='../regis_role_choose/regis_role.php'; submit()"> BACK </button>
         </div>
 
-        <!-- ----- logo ATPC bank ----- --> 
+        <!---- Logo ATPC Bank ----> 
+
         <div class="logo">
             <img src="logo_wh.png" width=80>
         </div>
 
-        <!-- ----- fill information ----- --> 
+        <!---- Fill Information ----> 
+
         <span class="text_fill"> please fill your information </span>
 
         <div class="fill_information">
@@ -51,7 +61,8 @@
             <input type="text" placeholder="Surname" name="SurName">
         </div>
 
-        <!-- ----- create ATPC acc ----- --> 
+        <!---- Create ATPC Account ----> 
+
         <span class="text_create"> create ATPC account! </span>
 
         <div class="create_ATPC_account">
@@ -65,6 +76,7 @@
 </body>
 
 </html>
+
 <?php
     mysqli_close($conn); 
 ?>

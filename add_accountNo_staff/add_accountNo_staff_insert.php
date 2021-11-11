@@ -1,16 +1,24 @@
 <?php 
+
+    /* Connect Database */
+
     session_start();
     include('..\server\server.php');
 
     $errors = array();
 
+    $Email = $_SESSION['Email'];
+
     if (isset($_POST['add_account'])) {
+	
+        /* Get Data */
+
         $AccountNo = mysqli_real_escape_string($conn, $_POST['AccountNo']);
         $Name = mysqli_real_escape_string($conn, $_POST['Name']);
         $SurName = mysqli_real_escape_string($conn, $_POST['SurName']);
         $BankName = mysqli_real_escape_string($conn, $_POST['BankName']);
         $Balance = mysqli_real_escape_string($conn, $_POST['Balance']);
-        $Email = mysqli_real_escape_string($conn, $_POST['Email']);
+
 
          /* Check Fill Required */
 
@@ -23,7 +31,6 @@
             array_push($errors, "Depositor Name is required");
             $_SESSION['error'] = "Depositor Name is required";
         }
-
 
         if (empty($SurName)) {
             array_push($errors, "Depositor Surname is required");
@@ -52,18 +59,22 @@
                 $_SESSION['error'] = "Account Number duplicate";
                 header("location: add_accountNo_staff.php");    
         }
+
+	     /* Insert Client Money Account */
     
-        
             if (count($errors) == 0)  {
                  $sql = "
                  INSERT INTO accountnoinfo (AccountNo,Name,SurName,BankName,Balance)
                  VALUES ('$AccountNo','$Name','$SurName','$BankName','$Balance');
             ";
                  mysqli_query($conn, $sql);
-                 $_SESSION['Email'] = $Email;
-            header("location: ..\mode_staff\mode_staff.php"); 
+
+                 $Email = $_SESSION['Email'];
+                 
+                 header("location: ..\mode_staff\mode_staff.php"); 
             
         } else {
+
             header("location: add_accountNo_staff.php");
         }
     }

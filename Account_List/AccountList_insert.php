@@ -1,6 +1,6 @@
 <?php 
 
-	/* Connect Database */
+    /* Connect Database */
 
     session_start();
     include('..\server\server.php');
