@@ -52,52 +52,49 @@
     </head>
 
     <body>
-        <form action="..\transfer\transfer_insert.php" method="post">
-            
-            <!-- ----- Error Alert ----- --> 
-            <?php if (isset($_SESSION['error'])) : ?>
-                <div class="error">
-                    <h3>
-                        <?php 
-                            echo $_SESSION['error'];
-                            unset($_SESSION['error']);
-                        ?>
-                    </h3>
-                </div>
-            <?php endif ?>
+        <!-- ----- Niv Bar ----- --> 
+        <div class="niv_bar">
 
-            <!-- ----- Niv Bar ----- --> 
-            <div class="niv_bar">
-
-                <!-- ----- logo ATPC bank ----- --> 
-                <div class="logo">
-                    <?php while($row4 = mysqli_fetch_array($result4)) { ?>
-                        <input type="image" src="logo_blue.png" width="100"  onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row4["Email"]; ?> />   <?php }
-                    ?>
-                </div>
-
-                <!-- ----- logout button ----- --> 
-                <button type="submit" class="btn" onclick="window.location.href='../login_client/login_client.php'"> LOG OUT </button>
-            
-                <div class="icon">
-                    <img src="client_icon.png" width=58.36> 
-                </div>
-
-                <!-- ----- User's name show here! ----- -->
-                <div class="user_detail">
-                    <?php while($row3 = mysqli_fetch_array($result3)) { ?>
-                        <span class="show_name" href="#" style="width: 350px; left: 450px; text-align: center"><?php echo $row3["Email"]; ?></span> <?php }
-                    ?>
-                </div>
-
+            <!-- ----- logo ATPC bank ----- --> 
+            <div class="logo">
+                <?php while($row4 = mysqli_fetch_array($result4)) { ?>
+                    <input type="image" src="logo_blue.png" width="100"  onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row4["Email"]; ?> />   <?php }
+                ?>
             </div>
-        
 
-            <!-- ----- header text ----- --> 
-            <span class="header_txt"> TRANSFER </span>
-
+            <!-- ----- logout button ----- --> 
+            <button type="submit" class="btn" onclick="window.location.href='../login_client/login_client.php'"> LOG OUT </button>
             
-            <!-- ----- containner ----- --> 
+            <div class="icon">
+                <img src="client_icon.png" width=58.36> 
+            </div>
+
+            <!-- ----- User's name show here! ----- -->
+            <div class="user_detail">
+                <?php while($row3 = mysqli_fetch_array($result3)) { ?>
+                    <span class="show_name" href="#" style="width: 350px; left: 450px; text-align: center"><?php echo $row3["Email"]; ?></span> <?php }
+                ?>
+            </div>
+        </div>
+
+        <!-- ----- Error Alert ----- --> 
+        <?php if (isset($_SESSION['error'])) : ?>
+            <div class="error">
+                <h3>
+                    <?php 
+                        echo $_SESSION['error'];
+                        unset($_SESSION['error']);
+                    ?>
+                </h3>
+            </div>
+        <?php endif ?>
+
+        <!-- ----- header text ----- --> 
+        <span class="header_txt"> TRANSFER </span>
+
+
+        <!-- ----- containner ----- --> 
+        <form action="..\transfer\transfer_insert.php" method="post">
             <div class="container">
                 
                 <!-- ----- FROM ----- --> 
@@ -108,7 +105,7 @@
 
                     <!-- ----- blue squre button ----- --> 
                     <button type="submit" class="select_accout" onclick="window.location.href='../select_acc_trans/select_acc_trans.php'">
-    
+
                         <!-- ----- detail in blue squre button ----- --> 
                                 
                             <!-- ----- account_type ----- --> 

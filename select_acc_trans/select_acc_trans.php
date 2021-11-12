@@ -51,7 +51,7 @@
       <!-- ----- logo ATPC bank ----- --> 
       <div class="logo">
           <?php while($row3 = mysqli_fetch_array($result3)) {?>
-            <input type="image" src="logo_blue.png" width=127 onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row3["Email"]; ?> />  
+            <input type="image" src="logo_blue.png" width=100 onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row3["Email"]; ?> />  
           <?php } ?>
       </div>
 

@@ -57,20 +57,6 @@
   </head>
 
   <body>
-    <form action="..\transfer\transfer_insert2.php" method="post">
-    
-      <!-- ----- Error Alert ----- --> 
-      <?php if (isset($_SESSION['error'])) : ?>
-        <div class="error">
-          <h3>
-            <?php 
-              echo $_SESSION['error'];
-              unset($_SESSION['error']);
-            ?>
-          </h3>
-        </div>
-      <?php endif ?>
-
       <!-- ----- Niv Bar ----- --> 
       <div class="niv_bar">
     
@@ -95,92 +81,105 @@
             ?>
         </div>
       </div>
+     
     
+      <!-- ----- Error Alert ----- --> 
+      <?php if (isset($_SESSION['error'])) : ?>
+        <div class="error">
+          <h3>
+            <?php 
+              echo $_SESSION['error'];
+              unset($_SESSION['error']);
+            ?>
+          </h3>
+        </div>
+      <?php endif ?>
+
 
       <!-- ----- header text ----- --> 
       <span class="header_txt"> TRANSFER </span>
 
-
       
       <!-- ----- containner ----- --> 
-      <div class="container">
+      <form  action="..\transfer\transfer_insert2.php" method="post">
+        <div class="container">
 
-        <!-- ----- FROM ----- --> 
-        <span class="Text-with-line"> FROM </span>
+          <!-- ----- FROM ----- --> 
+          <span class="Text-with-line"> FROM </span>
 
-        <!-- ----- auto select accout ----- --> 
-        <div class="over_blue_button">
-            
-          <!-- ----- blue squre button ----- --> 
-          <button type="submit" class="select_accout" onclick="window.location.href='../select_acc_trans/select_acc_trans.php'">
-       
-            <!-- ----- detail in blue squre button ----- --> 
-                
-              <!-- ----- account_type ----- --> 
-              <?php while($row3 = mysqli_fetch_array($result3)) { ?>
-              <div class="account_type">
-                <label><?php echo $row3["AccountType"]; ?> </label>
-              </div>
-
-              <!-- ----- account_number ----- --> 
-              <div class="account_number">
-                <label><?php echo $row3["AccountNo"]; ?> </label>
-              </div> <?php } ?>
+          <!-- ----- auto select accout ----- --> 
+          <div class="over_blue_button">
+              
+            <!-- ----- blue squre button ----- --> 
+            <button type="submit" class="select_accout" onclick="window.location.href='../select_acc_trans/select_acc_trans.php'">
+        
+              <!-- ----- detail in blue squre button ----- --> 
                   
-              <?php while($row5 = mysqli_fetch_array($result5)) { ?>
+                <!-- ----- account_type ----- --> 
+                <?php while($row3 = mysqli_fetch_array($result3)) { ?>
+                <div class="account_type">
+                  <label><?php echo $row3["AccountType"]; ?> </label>
+                </div>
 
-              <!-- ----- balance ----- --> 
-              <div class="balance">
-                <label> <?php echo $row5["Balance"]; ?> </label>
-              </div> <?php } ?>
+                <!-- ----- account_number ----- --> 
+                <div class="account_number">
+                  <label><?php echo $row3["AccountNo"]; ?> </label>
+                </div> <?php } ?>
+                    
+                <?php while($row5 = mysqli_fetch_array($result5)) { ?>
 
-              <!-- ----- if this account is MAIN ACCOUNT please show this section ----- --> 
-              <?php while($row7 = mysqli_fetch_array($result7)) {
-                if($row7['MainAccount'] == "Main Account") { ?>
-                  <div class="main_account">
-                    <label> MAIN ACCOUNT </label>
-                  </div>
-              <?php } } ?>
+                <!-- ----- balance ----- --> 
+                <div class="balance">
+                  <label> <?php echo $row5["Balance"]; ?> </label>
+                </div> <?php } ?>
+
+                <!-- ----- if this account is MAIN ACCOUNT please show this section ----- --> 
+                <?php while($row7 = mysqli_fetch_array($result7)) {
+                  if($row7['MainAccount'] == "Main Account") { ?>
+                    <div class="main_account">
+                      <label> MAIN ACCOUNT </label>
+                    </div>
+                <?php } } ?>
+              
+            </button>
             
-          </button>
-          
-          <div class="description"> * you can click to change account *</div>
-          
-        </div>
-
-        <!-- ----- RECIPIENT ----- --> 
-        <span class="Text-with-line"> RECIPIENT </span>
-
-          <!-- ----- fill information ----- --> 
-          <div class="fill_information">
-            <select name="BankName">
-              <option disabled selected>BANK </option>
-                <option >ATPCBank</option>
-                <option >Bbank</option>
-                <option >Cbank</option>
-            </select><br>
-
-            <input type="text" placeholder="Account Number" Name="DestinationAccountNo"> <br>
+            <div class="description"> * you can click to change account *</div>
             
-            <div class="amount">
-              <span> AMOUNT </span>
-              <input type="text" placeholder="0.00" name="Amount">
-              <span> THB </span>
-            </div>
-          
           </div>
 
-          <span class="Text-with-line">❅❅❅❅❅</span>
+          <!-- ----- RECIPIENT ----- --> 
+          <span class="Text-with-line"> RECIPIENT </span>
 
-        <!-- ----- transfer Button ----- --> 
-        <div class="trans_btn">
-          <?php while($row6 = mysqli_fetch_array($result6)) { ?>
-            <button type="submit" class="btn" name="AccountNo" value=<?php echo $row6["AccountNo"]; ?> > CONFIRM </button>
-          <?php } ?>
+            <!-- ----- fill information ----- --> 
+            <div class="fill_information">
+              <select name="BankName">
+                <option disabled selected>BANK </option>
+                  <option >ATPCBank</option>
+                  <option >Bbank</option>
+                  <option >Cbank</option>
+              </select><br>
+
+              <input type="text" placeholder="Account Number" Name="DestinationAccountNo"> <br>
+              
+              <div class="amount">
+                <span> AMOUNT </span>
+                <input type="text" placeholder="0.00" name="Amount">
+                <span> THB </span>
+              </div>
+            
+            </div>
+
+            <span class="Text-with-line">❅❅❅❅❅</span>
+
+          <!-- ----- transfer Button ----- --> 
+          <div class="trans_btn">
+            <?php while($row6 = mysqli_fetch_array($result6)) { ?>
+              <button type="submit" class="btn" name="AccountNo" value=<?php echo $row6["AccountNo"]; ?> > CONFIRM </button>
+            <?php } ?>
+          </div>
+        
         </div>
-      </div>
-    </form>
-
+      </form>
   </body>
 
 </html>
