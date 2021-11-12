@@ -1,0 +1,134 @@
+body 
+{
+    background:  #F4F1EC;
+    font-family: 'Kanit';
+
+    max-width: 100%;
+    height: 1200px;
+    margin: auto;
+}
+
+
+/* ------------------ */
+/* ----- nivbar ----- */
+/* ------------------ */
+.niv_bar {
+
+    width: 100%;
+    height: 150px;
+}
+
+/* ----- logo ATPC bank ----- */
+.niv_bar .logo {
+    display: block;    
+    float: left;
+    margin-top: 29px;    
+    margin-left: 29px;   
+}
+
+/* ----- LOGOUT botton ----- */
+.niv_bar .btn{
+    display: block;    
+    float: right;
+
+    margin-top: 51px;    
+    margin-right: 50px;  
+
+    width: 131px;
+    height: 41px;
+
+    background: #7585BD;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 35px;
+    border: 0px;
+
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    color: #F4F1EC;
+}
+/* ----- botton when hover ----- */
+.btn::before,
+.btn::after{
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all .5s;
+}
+
+.btn:hover {
+    background-color: #E36262;
+    color: #F4F1EC;
+}
+
+/* ----- user's email show here! ----- */
+.niv_bar .user_detail{
+    display: block;  
+    float: right;  
+
+    margin-top: 51px;    
+    margin-right: 10px;  
+
+    font-family: Kanit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 36px;
+
+    color: #414141;
+}
+
+/* ----- user's icon show here! ----- */
+.niv_bar .icon{
+    display: block;  
+    float: right;  
+
+    width: 58.36px;
+    height: 58.36px;
+
+    margin-top: 43px;    
+    margin-right: 20px;  
+}
+
+
+/* ----- BACK botton ----- */
+.niv_bar .back{
+    position: absolute;
+    width: 95px;
+    height: 41px;
+    left: 110px;
+    top: 90px;
+}
+/* ----- botton when hover ----- */
+.back :hover {
+    background-color: #E36262;
+    color: #F4F1EC;
+}
+
+/* ------------------------ */
+/*  ----- header text ----- */
+/* ------------------------ */
+.header_txt {
+    position: absolute;
+    width: 100%;
+    top: 250px; 
+    display: block;
+    text-align: center;
+
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 50px;
+    color: #7585BD;
+}
+
+/* ----- #### container for blue box ##### ----- */
+
+form {
+    position: absolute;
+    top: 400px;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
