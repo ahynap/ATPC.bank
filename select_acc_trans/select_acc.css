@@ -94,13 +94,17 @@ body
 
 
 /* ----- BACK botton ----- */
+.niv_bar .back .btn{
+    width: 90px;
+}
+
 .niv_bar .back{
     position: absolute;
-    width: 95px;
     height: 41px;
-    left: 110px;
-    top: 90px;
+    left: 30px;
+    top: 70px;
 }
+
 /* ----- botton when hover ----- */
 .back :hover {
     background-color: #E36262;
