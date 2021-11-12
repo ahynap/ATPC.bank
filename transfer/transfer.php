@@ -155,9 +155,16 @@
                         </select> <br>
 
                         <input type="text" placeholder="Account Number" Name="DestinationAccountNo"> <br>
-                        <input type="text" placeholder="0.00" name="Amount"> <br>
+                        
+                        <div class="amount">
+                            <span> AMOUNT </span>
+                            <input type="text" placeholder="0.00" name="Amount">
+                            <span> THB </span>
+                        </div>
                         
                     </div>
+
+                    <span class="Text-with-line">❅❅❅❅❅</span>
 
                 <!-- ----- transfer Button ----- --> 
                 <div class="trans_btn">

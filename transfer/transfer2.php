@@ -161,16 +161,21 @@
             </select><br>
 
             <input type="text" placeholder="Account Number" Name="DestinationAccountNo"> <br>
-            <input type="text" placeholder="0.00" name="Amount"> <br>
-              
+            
+            <div class="amount">
+              <span> AMOUNT </span>
+              <input type="text" placeholder="0.00" name="Amount">
+              <span> THB </span>
+            </div>
+          
           </div>
 
-
+          <span class="Text-with-line">❅❅❅❅❅</span>
 
         <!-- ----- transfer Button ----- --> 
         <div class="trans_btn">
           <?php while($row6 = mysqli_fetch_array($result6)) { ?>
-            <button type="submit" class="btn" name="AccountNo" value=<?php echo $row6["AccountNo"]; ?> > CONFIRM TO TRANSFER </button>
+            <button type="submit" class="btn" name="AccountNo" value=<?php echo $row6["AccountNo"]; ?> > CONFIRM </button>
           <?php } ?>
         </div>
       </div>

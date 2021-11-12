@@ -207,6 +207,28 @@ select option  {
     border-radius: 35px;
     border: 0px
 }
+.amount {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.amount input{
+    width: 250px;
+    height: 40px;
+
+    padding-left: 15px;
+    margin-bottom: 12px;
+    margin-left: 13px;
+    margin-right: 13px;
+
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+
+    background: #C4C4C4;
+    border-radius: 35px;
+    border: 0px
+}
 ::placeholder {
     font-family: 'Kanit';
     font-style: normal;
@@ -226,7 +248,7 @@ select option  {
     position: relative;
     width: 200px;
     height: 41px;
-    margin-top: 30px;
+    margin-top: 80px;
 
     background: #7585BD;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
