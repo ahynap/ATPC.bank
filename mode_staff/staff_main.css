@@ -1,0 +1,178 @@
+body 
+{
+    background: #F4F1EC;
+    font-family: 'Kanit';
+    
+    max-width: 100%;
+    height: 700px;
+    margin: auto;
+}
+
+
+/* ------------------ */
+/* ----- nivbar ----- */
+/* ------------------ */
+.niv_bar {
+
+    width: 100%;
+    height: 150px;
+}
+
+/* ----- logo ATPC bank ----- */
+.niv_bar .logo {
+    display: block;    
+    float: left;
+    margin-top: 29px;    
+    margin-left: 29px;   
+}
+
+/* ----- LOGOUT botton ----- */
+.niv_bar .btn{
+    display: block;    
+    float: right;
+
+    margin-top: 51px;    
+    margin-right: 50px;  
+
+    width: 131px;
+    height: 41px;
+
+    background: #7585BD;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 35px;
+    border: 0px;
+
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    color: #F4F1EC;
+}
+/* ----- botton when hover ----- */
+.btn::before,
+.btn::after{
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all .5s;
+}
+
+.btn:hover {
+    background-color: #E36262;
+    color: #F4F1EC;
+}
+
+/* ----- staff's icon show here! ----- */
+.niv_bar .icon{
+    display: block;  
+    float: right;  
+
+    width: 58.36px;
+    height: 58.36px;
+
+    margin-top: 43px;    
+    margin-right: 20px;  
+}
+
+
+/* ------------------------ */
+/*  ----- header text ----- */
+/* ------------------------ */
+.header_txt {
+    position: absolute;
+    width: 100%;
+    top: 181px; 
+    display: block;
+    text-align: center;
+
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 50px;
+    color: #7585BD;
+}
+.sub_header {
+    position: absolute;
+    width: 100%;
+    top: 250px; 
+    display: block;
+    text-align: center;
+  
+    font-style: medium;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    color: #414141;
+}
+.sub_header:before,
+.sub_header:after {
+    content: "";
+    display: inline-block;
+    border-top: 1px solid #414141;
+    width: 5em;
+    vertical-align: middle;
+}
+
+
+
+
+/* ---------------------------- */
+/* ----- function button  ----- */
+/* ---------------------------- */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 200px;
+  
+}
+
+.function_btn {
+    position: relative;
+}
+
+.each_function {
+    text-align: center ;
+    width: 150px;
+    float: left;
+    margin-left: 20px;
+    margin-right: 60px;
+}
+
+.add_account .btn,
+.view_report .btn{
+    width: 183px;
+    height: 213.92px;
+
+    background: #fee684;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 90px;
+    border: 0px;
+
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    padding-top: 13px;
+    padding-bottom: 0px;
+
+    color: #7585bd;
+}
+
+.add_account .btn::before,
+.view_report .btn::before,
+.add_account .btn::after,
+.view_report .btn::after {
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all .5s;
+}
+
+.add_account .btn:hover ,
+.view_report .btn:hover {
+    opacity: 50%;
+}
