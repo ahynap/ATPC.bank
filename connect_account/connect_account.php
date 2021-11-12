@@ -20,7 +20,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Connect Account</title>
-        <link rel="stylesheet" href="Acc_connect.css">
+        <link rel="stylesheet" href="Account_connect.css">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
@@ -82,7 +82,7 @@
                 <input type="text" placeholder="Depositor Name" name="DepositorName"><br>
                 <input type="text" placeholder="Depositor Surname" name="DepositorSurName"><br>
                 <input type="text" placeholder="Branch Name" name="BranchName"><br>
-                <input type="text" placeholder="Email number" name="Email" /> <br>
+                <input type="text" placeholder="Email" name="Email" /> <br>
 
                 <select name="AccountType">
                     <option value="" disabled selected>Type of Account</option>
