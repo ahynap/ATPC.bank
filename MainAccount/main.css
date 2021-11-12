@@ -175,6 +175,18 @@ body
     float: left;
 }
 
+.each_function input::before,
+.each_function input::after {
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all .5s;
+}
+
+.each_function input:hover {
+    opacity: 50%;
+}
+
 .description {
     font-family: 'Kanit';
     color: #7585BD;
