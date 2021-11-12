@@ -1,0 +1,83 @@
+/* ----------------------------- */
+/* ----- blue squre button ----- */
+/* ----------------------------- */
+.select_accout  {
+    position: relative;
+    width: 439px;
+    height: 165px;
+
+    background: #7585BD;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 35px;
+    border: 0px;
+
+    font-family: "Kanit";
+    font-style: normal;
+    font-weight: normal;
+    color:#F4F1EC;
+    line-height: 36px;
+}
+
+
+
+/* --------------------------------------- */
+/* ----- detail in blue squre button ----- */
+/* --------------------------------------- */
+
+/* ----- profile_pic  ----- */
+.select_accout .profile_pic{
+    position: absolute;
+    left: 25px;
+    top: 25px;
+}
+
+/* ----- account_type  ----- */
+.select_accout .acc_descript span{
+    position: absolute;
+    left: 160px;
+    top: 25px;
+
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ----- account_type  ----- */
+.select_accout .account_type label{
+    position: absolute;
+    left: 28px;
+    top: 25px;
+
+    font-size: 24px;
+}
+
+/* ----- account_number  ----- */
+.select_accout .account_number label{
+    position: absolute;
+    left: 160px;
+    top: 55px;
+
+    font-size: 18px;
+}
+
+/* ----- balance  ----- */
+.select_accout .balance label{
+    position: absolute;
+    right: 28px;
+    bottom: 25px;
+
+    font-size: 48px;
+    font-weight: bold;
+}
+
+/* ----- main account  ----- */
+.select_accout .main_account label{
+    position: absolute;
+    right: 28px;
+    top: 29px;
+
+    font-size: 18px;
+    
+    width: 150px;
+    background: rgba(194, 204, 236, 0.5);
+    border-radius: 35px;
+}

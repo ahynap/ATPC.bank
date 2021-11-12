@@ -1,0 +1,191 @@
+body 
+{
+    background: #F4F1EC;
+    font-family: 'Kanit';
+    
+    max-width: 100%;
+    height: 700px;
+    margin: auto;
+}
+
+
+
+/* ------------------ */
+/* ----- nivbar ----- */
+/* ------------------ */
+.niv_bar {
+
+    width: 100%;
+    height: 150px;
+}
+
+/* ----- logo ATPC bank ----- */
+.niv_bar .logo {
+    display: block;    
+    float: left;
+    margin-top: 29px;    
+    margin-left: 29px;   
+}
+
+/* ----- LOGOUT botton ----- */
+.niv_bar .btn{
+    display: block;    
+    float: right;
+
+    margin-top: 51px;    
+    margin-right: 50px;  
+
+    width: 131px;
+    height: 41px;
+
+    background: #7585BD;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 35px;
+    border: 0px;
+
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    color: #F4F1EC;
+}
+/* ----- botton when hover ----- */
+.btn::before,
+.btn::after{
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all .5s;
+}
+
+.btn:hover {
+    background-color: #E36262;
+    color: #F4F1EC;
+}
+
+/* ----- user's email show here! ----- */
+.niv_bar .user_detail{
+    display: block;  
+    float: right;  
+
+    margin-top: 51px;    
+    margin-right: 10px;  
+
+    font-family: Kanit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 36px;
+
+    color: #414141;
+}
+
+/* ----- user's icon show here! ----- */
+.niv_bar .icon{
+    display: block;  
+    float: right;  
+
+    width: 58.36px;
+    height: 58.36px;
+
+    margin-top: 43px;    
+    margin-right: 20px;  
+}
+
+
+
+/* ----------------------------- */
+/* ----- show main account ----- */
+/* ----------------------------- */
+
+/* ----- main account container (pls edit detail in box at show_acc.css file) ----- */
+.over_blue_button {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: 25px auto;
+}
+
+
+
+/* ---------------------------------------- */
+/* ----- Connect Bank Account button  ----- */
+/* ---------------------------------------- */
+.Connect_Account .btn{
+    position: relative;
+    margin-top: 25px;
+    width: 321px;
+    height: 54px;
+
+    border: 5px solid #7585BD;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 35px;
+
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    color: #7585BD;
+}
+
+/* ----- Connect Bank Account button when hover ----- */
+.Connect_Account .btn::before,
+.Connect_Account .btn::after {
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all .5s;
+}
+
+.Connect_Account .btn:hover {
+    background-color: #7EAC85;
+    color: #F4F1EC;
+    border: 5px solid #7EAC85;
+}
+
+
+
+/* ---------------------------- */
+/* ----- function button  ----- */
+/* ---------------------------- */
+.containner {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 40px;
+
+}
+.function_btn {
+    position: relative;
+}
+
+.each_function {
+    text-align: center ;
+    width: 150px;
+    float: left;
+}
+
+.description {
+    font-family: 'Kanit';
+    color: #7585BD;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
