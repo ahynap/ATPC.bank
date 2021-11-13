@@ -19,7 +19,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Add Account</title>
-        <link rel="stylesheet" href="add_account1.css">
+        <link rel="stylesheet" href="staff_add_acc.css">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
@@ -45,11 +45,12 @@
         <!-- ----- Niv Bar ----- --> 
         <div class="niv_bar">
 
-        <!-- ----- logo ATPC bank ----- --> 
-         <div class="back">
-        <button type="submit" class="btn" onClick="this.form.action='../mode_staff/mode_staff.php'" > BACK </button>
-        </div>
-
+            <!-- ----- logo ATPC bank ----- --> 
+            <div class="logo">
+                <?php while($row3 = mysqli_fetch_array($result3)) {?>
+                    <input type="image" src="logo_blue.png" width=100 onClick="this.form.action='../mode_staff/mode_staff.php'" name="Email" value=<?php echo $row3["Email"]; ?> />  
+                <?php } ?>
+            </div>
                
             <!-- ----- logout button ----- --> 
             <button type="submit" class="btn" onClick="this.form.action='../login_staff/login_staff.php'; submit()"> LOG OUT </button>
@@ -72,12 +73,12 @@
         
             
         <!-- ----- header text ----- --> 
-        <span class="header_txt"> ADD ACCOUNT  <br> NUMBER </span>
+        <span class="header_txt"> REGISTER <br> ACCOUNT</span>
 
         <!-- ----- fill information ----- --> 
         <div class="container_fill_info">
             
-            <span class="text_fill"> please fill your information </span>
+            <span class="text_fill"> please fill bank's account information </span>
 
             <div class="fill_information">
                 <input type="text" placeholder="Account Number" name="AccountNo"> <br>
@@ -92,7 +93,7 @@
 
             <!-- ----- ADD Account to ATPC Bank  ----- --> 
             <div class="connect">
-            <button type="submit" class="btn" name="add_account"> ADD ACCOUNT </button>
+            <button type="submit" class="btn" name="add_account"> REGISTER </button>
             </div>
         </div>
 
