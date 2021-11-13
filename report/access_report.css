@@ -62,6 +62,23 @@ body
     color: #F4F1EC;
 }
 
+/* ----- staff's email show here! ----- */
+.niv_bar .user_detail{
+    display: block;  
+    float: right;  
+
+    margin-top: 51px;    
+    margin-right: 10px;  
+
+    font-family: Kanit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 36px;
+
+    color: #414141;
+}
+
 /* ----- staff's icon show here! ----- */
 .niv_bar .icon{
     display: block;  

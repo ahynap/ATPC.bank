@@ -15,8 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Report Access</title>
+    <link rel="stylesheet" href="access_report.css">
 
-    <link rel="stylesheet" href="report_select.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
 
@@ -36,6 +36,11 @@
 
         <div class="icon">
             <img src="staff_icon.png" width=58.36> 
+        </div>
+        
+        <!-- ----- User's name show here! ----- -->
+        <div class="user_detail">
+            email
         </div>
 
         <!-- ----- BACK ----- --> 

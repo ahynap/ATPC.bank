@@ -56,13 +56,14 @@
             <button type="submit" class="btn" onClick="this.form.action='../login_staff/login_staff.php'; submit()"> LOG OUT </button>
         
             <div class="icon">
-                <img src="client_icon.png" width=58.36> 
+                <img src="staff_icon.png" width=58.36> 
             </div>
 
             <!-- ----- User's name show here! ----- -->
             <div class="user_detail">
                 <?php while($row = mysqli_fetch_array($result)) { ?>
-                    <span class="show_name" href="#" style="width: 350px; left: 450px; text-align: center"><?php echo $row["Email"]; ?></span>
+                    <span class="show_name" >
+                        <?php echo $row["Email"]; ?></span>
                      <?php 
                  }
 

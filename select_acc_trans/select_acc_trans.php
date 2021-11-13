@@ -65,7 +65,7 @@
       <!-- ----- user's name show here! ----- --> 
       <div class="user_detail">
         <?php while($row5 = mysqli_fetch_array($result5)) { ?>
-          <span class="show_name" href="#" style="width: 350px; left: 450px; text-align: center"><?php echo $row5["Email"]; ?></span>
+          <span class="show_name"><?php echo $row5["Email"]; ?></span>
         <?php } ?>
       </div>
 

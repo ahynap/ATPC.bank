@@ -35,41 +35,51 @@
 
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Detail</title>
-    <link rel="stylesheet" href="ReportDetail.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Report Detail</title>
+        <link rel="stylesheet" href="Staff_report_view.css.css">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
-</head>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
+    </head>
 
-<body>
+    <body>
+        
+        <!-- ----- Niv Bar ----- --> 
+        <div class="niv_bar">
+            
+            <!-- ----- logo ATPC bank ----- --> 
+            <div class="logo">
+                <?php while($row3 = mysqli_fetch_array($result3)) {?>
+                    <input type="image" src="logo_blue.png" width=100  onClick="this.form.action='../mode_staff/mode_staff.php'" name="Email" value=<?php echo $row3["Email"]; ?> />  
+                <?php } ?>
+            </div>
 
-     <!-- ----- logo ATPC bank ----- --> 
-     <div class="logo">
-        <img src="logo_blue.png" width="127"/>  
-     </div>
+            <!-- ----- logout button ----- --> 
+            <button type="submit" class="btn" onclick="window.location.href='../login_staff/login_staff.php'"> LOG OUT </button>
 
-    <!-- ----- user's name show here! ----- --> 
-    <?php
-        while($row = mysqli_fetch_array($result)) {
-    ?>
-             <span class="show_name" href="#" style="width: 350px; left: 450px; text-align: center"><?php echo $row["Email"]; ?></span>
+            <div class="icon">
+                <img src="staff_icon.png" width=58.36> 
+            </div>
 
-    <?php 
-         }
-    ?>
-    <img src="picture/client_icon.png" width=58.36 class="icon"> 
+            <!-- ----- user's name show here! ----- --> 
+            <div class="user_detail">
+                <?php while($row5 = mysqli_fetch_array($result5)) { ?>
+                <span class="show_name" href="#" style="width: 350px; left: 450px; text-align: center"><?php echo $row["Email"]; ?></span>
+                <?php } ?>
+            </div>
 
-    <!-- ----- logout button ----- --> 
-    <button type="submit" class="btn"onclick="window.location.href='../login_staff/login_staff.php'"> LOG OUT </button>
+            <!-- ----- BACK ----- --> 
+            <div class="back">
+                <button type="submit" class="btn"  onclick="window.location.href='../report/report_access.php'" > BACK </button>
+            </div>
 
-    <!-- ----- logo ATPC bank ----- --> 
-    <div class="back">
-        <button type="submit" class="btn"  onclick="window.location.href='../report/report_access.php'" > BACK </button>
-    </div>
+        </div>
+         
+
+ 
 
     <!--------  Account Detail Button  -------->
     <p class="detail" ">REPORT</p>

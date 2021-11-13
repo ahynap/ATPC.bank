@@ -35,7 +35,7 @@
             <?php endif ?>
 
             <!--logo ATPC bank --> 
-            <div class="logo" style="text-align: center;">
+            <div class="logo">
                 <img src="logo_blue.png" width="242">
             </div>
 

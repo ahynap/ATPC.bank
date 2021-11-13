@@ -1,119 +1,99 @@
-body {
-  background: #f4f1ec;
-  font-family: "Kanit";
-  margin: -35px -35px 0 0;
+body 
+{
+    background: #F4F1EC;
+    font-family: 'Kanit';
+
+    max-width: 100%;
+    height: 900px;
+    margin: auto;
 }
 
-.show_name {
-  position: absolute;
-  height: 41px;
-  top: 51px;
 
-  font-family: Kanit;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 36px;
 
-  color: #414141;
+/* ------------------ */
+/* ----- nivbar ----- */
+/* ------------------ */
+.niv_bar {
+
+  width: 100%;
+  height: 150px;
 }
 
 /* ----- logo ATPC bank ----- */
-.logo {
-  position: absolute;
-  width: 127px;
-  height: 127px;
-  left: 44px;
-  top: 29px;
+.niv_bar .logo {
+  display: block;    
+  float: left;
+  margin-top: 29px;    
+  margin-left: 29px;   
 }
 
-/* ----- user's name show here! ----- */
-.icon {
-  position: absolute;
-  width: 58.36px;
-  height: 58.36px;
-  left: 758px;
-  top: 43px;
-}
+/* ----- LOGOUT botton ----- */
+.niv_bar .btn{
+  display: block;    
+  float: right;
 
-.show_name {
-  position: absolute;
+  margin-top: 51px;    
+  margin-right: 50px;  
+
+  width: 131px;
   height: 41px;
-  top: 51px;
+
+  background: #7585BD;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 35px;
+  border: 0px;
+
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
+  color: #F4F1EC;
+}
+/* ----- botton when hover ----- */
+.btn::before,
+.btn::after{
+  position: absolute;
+  display: block;
+  content: '';
+  transition: all .5s;
+}
+
+.btn:hover {
+  background-color: #E36262;
+  color: #F4F1EC;
+}
+
+
+/* ----- user's email show here! ----- */
+.niv_bar .user_detail{
+  display: block;  
+  float: right;  
+
+  margin-top: 51px;    
+  margin-right: 10px;  
 
   font-family: Kanit;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 36px;
 
   color: #414141;
 }
 
-/* ----- LOGOUT botton ----- */
-.btn {
-  position: absolute;
-  width: 131px;
-  height: 41px;
-  left: 838px;
-  top: 51px;
+/* ----- user's icon show here! ----- */
+.niv_bar .icon{
+  display: block;  
+  float: right;  
 
-  background: #7585bd;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 35px;
-  border: 0px;
+  width: 58.36px;
+  height: 58.36px;
 
-  font-family: "Kanit";
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 27px;
-  color: #f4f1ec;
-
-  outline: none;
+  margin-top: 43px;    
+  margin-right: 20px;  
 }
 
-/* ----- BACK botton ----- */
-.back .btn {
-  position: absolute;
-  width: 95px;
-  height: 41px;
-  left: 59px;
-  top: 144px;
-
-  background: #7585bd;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 35px;
-  border: 0px;
-
-  font-family: "Kanit";
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 27px;
-  color: #f4f1ec;
-
-  outline: none;
-}
-
-/* ----- botton when hover ----- */
-.btn::before,
-.btn::after {
-  position: absolute;
-  display: block;
-  content: "";
-  transition: all 0.5s;
-}
-
-.btn:hover {
-  background-color: #e36262;
-  color: #f4f1ec;
-}
-
-.back .btn:hover {
-  background-color: #fee684;
-  color: #7585bd;
-}
 
 /* ------ Account Detail button ------ */
 .button {
