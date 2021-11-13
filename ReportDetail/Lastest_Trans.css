@@ -1,0 +1,66 @@
+/* ----------------------------- */
+/* ----- blue squre button ----- */
+/* ----------------------------- */
+.Lastest_Trans  {
+    position: relative;
+    width: 439px;
+    height: 165px;
+
+    background: #2D3653;
+    border-radius: 35px;
+    border: 0px;
+
+    font-family: "Kanit";
+    font-style: normal;
+    font-weight: normal;
+    color:#F4F1EC;
+    line-height: 36px;
+}
+
+
+/* --------------------------------------- */
+/* ----- detail in blue squre button ----- */
+/* --------------------------------------- */
+
+/* ----- Destination Account ----- */
+.Lastest_Trans .trans_to label{
+    position: absolute;
+    left: 28px;
+    top: 25px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;   
+}
+
+/* ----- Time  ----- */
+.Lastest_Trans .date_time label{
+    position: absolute;
+    left: 28px;
+    top: 55px;
+
+    font-size: 18px;
+    
+    font-family: "receipt", "Courier New", Courier, monospace;
+    font-weight: bold;
+}
+
+/* ----- balance  ----- */
+.Lastest_Trans .balance_deduct label{
+    position: absolute;
+    right: 28px;
+    bottom: 25px;
+
+    font-size: 48px;
+    font-weight: bold;
+    color:#FF7979;
+}
+
+.Lastest_Trans .balance_add label{
+    position: absolute;
+    right: 28px;
+    bottom: 25px;
+
+    font-size: 48px;
+    font-weight: bold;
+    color:#95CF9E;
+}

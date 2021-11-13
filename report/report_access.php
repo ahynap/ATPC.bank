@@ -28,7 +28,7 @@
 
         <!-- ----- logo ATPC bank ----- --> 
         <div class="logo">
-            <input type="image" src="logo_blue.png" width="100"/>  
+            <input type="image" src="logo_blue.png" width="100">  
         </div>
 
         <!-- ----- logout button ----- --> 
@@ -41,11 +41,6 @@
         <!-- ----- User's name show here! ----- -->
         <div class="user_detail">
             email
-        </div>
-
-        <!-- ----- BACK ----- --> 
-        <div class="back" action="report_access_insert.php" method="post">
-           <button type="submit" class="btn" onClick="this.form.action='../mode_staff/mode_staff.php'" > BACK </button>
         </div>
     </div>
 
