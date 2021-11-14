@@ -19,118 +19,109 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Change your password Page</title>
-    <link rel="stylesheet" href="new_password1.css" />
+    <link rel="stylesheet" href="new_password.css" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin"
-      rel="stylesheet"
-      type="text/css"
-    />
-  </head>
+    <link href="https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin" rel="stylesheet"
+        type="text/css" />
+</head>
 
-  <body>
+<body>
 
     <?php if (isset($_SESSION['error'])) : ?>
-            <div class="error">
-                <h3>
-                    <?php 
+    <div class="error">
+        <h3>
+            <?php 
                         echo $_SESSION['error'];
                         unset($_SESSION['error']);
                     ?>
-                </h3>
-            </div>
-        <?php endif ?>
-        
-    <!-- ----- logo ATPC bank ----- -->
-    <div class="logo">
+        </h3>
+    </div>
+    <?php endif ?>
 
-       <?php
-           while($row2 = mysqli_fetch_array($result2)) {
-      ?>
+    <!-- ----- Niv Bar ----- -->
+    <div class="niv_bar">
 
-        <input type="image" src="logo_blue.png" width="127" onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row2["Email"]; ?> />  
+        <!-- ----- logo ATPC bank ----- -->
+        <div class="logo">
+            <input type="image" src="logo_blue.png" width="100" />
+        </div>
 
-        <?php
-            }
-        ?>
+        <!-- ----- logout button ----- -->
+        <button type="submit" class="btn" onclick="window.location.href='../login_client/login_client.php'"> LOG OUT
+        </button>
 
+        <div class="icon">
+            <img src="picture/client_icon.png" width=58.36>
+        </div>
+
+        <!-- ----- User's name show here! ----- -->
+        <div class="user_detail">
+            <?php while($row3 = mysqli_fetch_array($result3)) { ?>
+            <span class="show_name" href="#"
+                style="width: 350px; left: 450px; text-align: center"><?php echo $row3["Email"]; ?></span> <?php }
+?>
+        </div>
     </div>
 
-    <!-- ----- user's name show here! ----- -->
-    <span>
-
-    <?php
-          while($row3 = mysqli_fetch_array($result3)) {
-     ?>
-        
-         <span class="show_name" style="width: 350px; left: 450px; text-align: center"><?php echo $row3["Email"]; ?></span>
-
-   <?php
-       }
-    ?>
-
-   </span>
-
-    <img src="picture/client_icon.png" width="58.36" class="icon" />
-
-    <!-- ----- logout button ----- -->
-    <button type="submit" class="btn" onclick="window.location.href='../login_client/login_client.php'">LOG OUT</button>
-
-    <!-- ----- logo ATPC bank ----- -->
+    <!-- ----- back button ----- -->
     <div class="back">
-      <button type="submit" class="btn" onclick="window.location.href='old_password.php'">BACK</button>
+        <button type="submit" class="btn" onclick="window.location.href='../user_detail/user_detail.php'">BACK</button>
     </div>
-
 
     <!-------- Change Password FORM  -------->
-    <form action="new_password_insert.php" method="post">
-      <p class="Personal_Details">Change Password</p>
+    <div class="content">
+        <form action="new_password_insert.php" method="post">
+            <p class="Personal_Details">Change Password</p>
 
-      <!----  new_password  ---->
-      <p class="new_password">New Password</p>
-      <br />
+            <!----  new password ---->
+            <p class="new_password">New Password</p>
+            <br />
+            
+            <!-- message text  -->
+            <p class="message">
+                Please enter the new password you wish to change.
+            </p>
+            <br />
 
-      <p class="message">
-        Please enter the new password you wish to change.
-      </p>
-      <br />
+            <!---- input new password ---->
+            <div class="input_password">
+                <input type="password" name="Password" id="myInput"><br>
+            </div>
 
-      <!---- input new password ---->
-      <div class="input_password">
-        <input type="password" name="Password" id="myInput"><br>
-      </div>
+            <!---- Checkbox for show password ---->
+            <div class="checkboxPassword">
+                <input type="checkbox" onclick="myFunction()" />
+                <div class="ShowPassword" style="margin-left: -10px;">Show Password<br /></div>
+            </div>
 
-     <div class="checkboxPassword">
-        <input type="checkbox" onclick="myFunction()" />
-        <div class="ShowPassword" style="margin-left: -10px;">Show Password<br /></div>
-      </div>
-      
-      
+            <!-- JAVA Function -->
+            <script>
+            function myFunction() {
+                var x = document.getElementById("myInput");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+            </script>
 
-      <!-- JAVA Show password -->
-      <script>
-        function myFunction() {
-          var x = document.getElementById("myInput");
-          if (x.type === "password") {
-            x.type = "text";
-          } else {
-            x.type = "password";
-          }
-        }
-      </script>
+            <!-- Confirm button -->
+            <!-- link into success page -->
+            <button type="submit" class="confirm_btn" name="new_password">CONFIRM</button>
+        </form>
+    </div>
 
-        <button type="submit" class="confirm_btn" name="new_password">CONFIRM</button>
+</body>
 
-    </form>
-  </body>
 </html>
 
 <?php
     mysqli_close($conn); 
 ?>
-

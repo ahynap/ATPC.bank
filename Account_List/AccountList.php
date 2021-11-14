@@ -15,7 +15,6 @@
            ON accountno.AccountID = account.AccountID
           WHERE account.Email = '$Email'";
 
-
     $result2 = "SELECT * FROM accountnoinfo
           JOIN accountno
             ON accountnoinfo.AccountNo = accountno.AccountNo
@@ -49,47 +48,34 @@
 
 <body style="background-color: #F4F1EC;">
 
-    <!--   navbar   -->
+    <!-- ----- Niv Bar ----- -->
+    <div class="niv_bar">
 
-      <!-- ----- logo ATPC bank ----- --> 
+        <!-- ----- logo ATPC bank ----- -->
+        <div class="logo">
+            <input type="image" src="logo_blue.png" width="100">
+        </div>
 
-    <div class="logo">
+        <!-- ----- logout button ----- -->
+        <form>
+            <button type="submit" class="btn" onClick="this.form.action='../login_client/login_client.php'; submit()">
+                LOG
+                OUT </button>
+        </form>
 
-            <?php
-                    while($row = mysqli_fetch_array($result)) {
-            ?>
+        <div class="icon">
+            <img src="client_icon.png" width=58.36>
+        </div>
 
-                   <input type="image" src="logo_blue.png" width="127" onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row["Email"]; ?> />  
-
-            <?php
-                  }
-             ?>
+        <!-- ----- User's name show here! ----- -->
+        <div class="user_detail">
+            <?php while($row3 = mysqli_fetch_array($result3)) { ?>
+            <span class="show_name" href="#"><?php echo $row3["Email"]; ?></span> <?php }
+?>
+        </div>
 
     </div>
 
-    <!-- ----- User's name show here! ----- -->
-
-        <?php
-             while($row3 = mysqli_fetch_array($result3)) {
-        ?>
-                   <span class="show_name" href="#" style="width: 350px; left: 450px; text-align: center"><?php echo $row3["Email"]; ?></span>
-
-        <?php
-            }
-        ?>
-  
-    <img src="client_icon.png" width=58.36 class="icon"> 
-    
-    <!-- ----- logout button ----- --> 
-
-    <button type="submit" id = "btn3" onclick="window.location.href='../login_client/login_client.php'"> LOG OUT </button>
-
-    <br><br><br><br><br><br><br><br><br><br><br>
-
-
-    <!--  Account List  -->
-
-    <div class="List">
 
     <?php
     mysqli_multi_query($conn, $result2);
@@ -104,48 +90,55 @@
          
      ?>
 
-          <form action="..\Account_List\AccountList_insert.php" method="post">
-            <button type="submit" class="button1" name="AccountNo" value=<?php echo $row4[0]; ?>>
-                <div class="row">
-                    <div class="col-6">
-                        <p class="test1"><?php echo $row4[5]; ?></p>
-                        <p class="test2"><?php echo $row4[0]; ?></p>
-                    </div>
-                    
-                    <?php
-                      if($getResult4['MainAccount'] == $row4[11]) {
+       <!--------- Account List --------->
+       <form action="..\Account_List\AccountList_insert.php" method="post">
+        <button type="submit" class="Account_list" name="AccountNo" value=<?php echo $row4[0]; ?>>
+            <div class="row">
+                <div class="col-6">
+
+                    <!-- Account type -->
+                    <p class="AccountType"><?php echo $row4[5]; ?></p>
+
+                    <!-- Account number -->
+                    <p class="AccountNo"><?php echo $row4[0]; ?></p>
+                </div>
+
+                <?php
+                      if($getResult4['MainAccount'] == $row4[10]) {
                     ?>
 
-                    <div class="col-6" style="margin-top: -100px; margin-bottom: 38px;">
-                        <span class="test3">MAIN ACCOUNT</span>
-                    </div> 
+                <div class="col-6" style="margin-top: -100px; margin-bottom: 38px;">
 
-                     <?php
+                    <!-- Indicates that it is the main account -->
+                    <span class="MainAccount">MAIN ACCOUNT</span>
+                </div>
+
+                <?php
                     }
                       ?>
- 
-                    <div class="col-6" style="margin-bottom: 11px;">
-                        <p class="test4"><?php echo $row4[4]; ?></p>
-                    </div>
+
+                <div class="col-6" style="margin-bottom: 11px;">
+
+                    <!-- Balance in account -->
+                    <p class="Amounts"><?php echo $row4[4]; ?></p>
                 </div>
-            </button>
+            </div>
+        </button>
         </a> <br><br> <br><br>
- <?php
+        <?php
     }
         $i++;
         }
 
       if (mysqli_more_results($conn)) {
         printf("-----------------\n");
-  
     }
 
 } while (mysqli_next_result($conn));
 
   ?>
 
-        </form>
-    </div>
+       </form>
 
 </body>
 

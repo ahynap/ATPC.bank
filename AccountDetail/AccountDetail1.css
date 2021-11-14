@@ -1,0 +1,333 @@
+body {
+  background: #f4f1ec;
+  font-family: "Kanit";
+
+  max-width: 100%;
+  height: 700px;
+  margin: auto;
+}
+
+/* ------------------ */
+/* ----- nivbar ----- */
+/* ------------------ */
+.nav {
+  width: 100%;
+  height: 140px;
+}
+
+/* ----- logo ATPC bank ----- */
+.nav .logo {
+  display: block;    
+    float: left;
+    margin-top: 29px;    
+    margin-left: 29px;  
+}
+
+/* ----- LOGOUT button ----- */
+.nav .btn {
+    display: block;    
+    float: right;
+
+    margin-top: 51px;    
+    margin-right: 50px;  
+
+    width: 131px;
+    height: 41px;
+
+    background: #7585BD;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 35px;
+    border: 0px;
+
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 27px;
+    color: #F4F1EC;
+}
+
+/* ----- BACK button ----- */
+.back .btn {
+  width: 100%;
+  float: left;
+
+  max-width: 95px;
+  height: 41px;
+  margin-left: 29px;
+  margin-top: -10px;
+  top: 144px;
+
+  background: #7585bd;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 35px;
+  border: 0px;
+
+  font-family: "Kanit";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
+  color: #f4f1ec;
+
+  outline: none;
+}
+
+/* ----- button when hover ----- */
+.btn::before,
+.btn::after {
+  position: absolute;
+  display: block;
+  content: "";
+  transition: all 0.5s;
+}
+
+.btn:hover {
+  background-color: #e36262;
+  color: #f4f1ec;
+}
+
+.back .btn:hover {
+  background-color: #e36262;
+  color: #f4f1ec;
+}
+
+/* ----- user's email show here! ----- */
+.nav .user_detail {
+  display: block;  
+  float: right;  
+
+  margin-top: 51px;    
+  margin-right: 5px; 
+  max-width: 350px; 
+
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 36px;
+
+  color: #414141;
+}
+
+/* ----- user's icon show here! ----- */
+.nav .icon {
+    display: block;  
+    float: right;  
+
+    width: 58.36px;
+    height: 58.36px;
+
+    margin-top: 43px;     
+    margin-right: 20px;    
+}
+
+/* ---- haeder text ---- */
+p.header_txt {
+  display: block;
+  margin: auto;
+  width: 100%;
+  max-width: 477px;
+  height: 100px;
+  left: 286px;
+
+  font-size: 64px;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+
+  margin-top: 30px;
+  margin-bottom: 0px;
+
+  color: #7585bd;
+}
+
+
+/* ------------------------ */
+/* ---- Account Detail ---- */
+/* ------------------------ */
+.Account {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 180px;
+  max-width: 579px;
+
+  border: none;
+  border-radius: 35px;
+  background: #7585bd;
+  color: white;
+
+  margin-top: -25px;
+  left: auto;
+  right: auto;
+  text-align: center;
+  outline: none;
+}
+
+.col-6-balance {
+  float: right; 
+  margin-right: 20px;
+}
+
+p {
+  font-family: "Kanit";
+}
+
+/* ---- Account Detail  ---- */
+/* -- 'Account type' and 'Account number' -- */
+p.AccountDetail {
+  width: 300px;
+  height: 45px;
+
+  font-size: 30px;
+  font-weight: 500;
+
+  text-align: left;
+  margin-left: 28px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  line-height: 44.85px;
+
+  color: #f4f1ec;
+}
+
+/* -- Account balance -- */
+p.Balance {
+  font-family: Kanit;
+  font-style: normal;
+  font-size: 48px;
+  font-weight: 400;
+
+  text-align: left;
+  margin-left: 28px;
+  margin-top: 0px;
+  line-height: 44.85px;
+
+  color: #f4f1ec;
+}
+
+/* --------  History Transactions -------- */
+/* ------- Lastest Transactions txt ------ */
+p.Lastest_Transactions {
+  display: block;
+  margin: auto;
+  width: 100%;
+  max-width: 477px;
+
+  margin-top: 30px;
+  margin-bottom: 4px;
+
+  height: 50px;
+  text-align: center;
+
+  font-weight: bold;
+  font-style: normal;
+  font-size: 36px;
+  font-weight: bold;
+  font-style: normal;
+
+  color: #000000;
+}
+
+/* ---- Lastest Transactions List ---- */
+.TransactionsButton1 {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 160px;
+  /* height: 128px; */
+  max-width: 579px;
+
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+
+  border: none;
+  border-radius: 35px;
+  background: #c2ccec80;
+
+  margin-bottom: 13px;
+
+  left: auto;
+  right: auto;
+  text-align: center;
+
+  outline: none;
+}
+
+/* -- 'Destination Account Number' and 'Source account' -- */
+p.AccountNo {
+  width: 245px;
+  height: 45px;
+
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 45px;
+
+  text-align: left;
+  margin-top: 12px;
+  margin-left: 30px;
+  margin-bottom: 0px;
+
+  color: #414141;
+}
+
+/* -- Transaction day and time -- */
+p.DayTime {
+  width: 245px;
+  height: 45px;
+
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 45px;
+
+  text-align: left;
+  margin-top: 0px;
+  margin-left: 30px;
+  margin-bottom: 0px;
+
+  color: #414141;
+}
+
+/* -- Amount in Lastest Transactions -- */
+p.Amounts {
+  width: 147px;
+  height: 45px;
+
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  
+  float: right;
+  line-height: 44.85px;
+
+  color: #2f863d;
+}
+
+/* -- Inward and outward transfer mark -- */
+p.signal {
+  width: 15;
+  height: 45px;
+
+  font-family: Kanit;
+  font-style: normal;
+  font-size: 30px;
+
+  float: right;
+  line-height: 44.85px;
+
+  color: #2f863d;
+}
+
+p.signal,
+p.Amounts{
+  display: inline-flex;
+  margin-top: -10px;
+}
+

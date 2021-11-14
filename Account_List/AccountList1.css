@@ -1,181 +1,166 @@
-body 
-{
-    background: #F4F1EC;
-    font-family: 'Kanit';
+body {
+  background: #f4f1ec;
+  font-family: "Kanit";
 
-    position: relative;
-    width: auto;
-    height: 768px;
+  max-width: 100%;
+  height: 1000px;
+  margin: auto;
 }
 
-/* ------ button ------ */
-.button1 {
-    height: 217px;
-    width: 579px;
-    
-    border: none;
-    border-radius: 35px; 
-    background: #7585BD;
-
-    margin-left:365px;
-    outline: none ;
+/* ------------------ */
+/* ----- nivbar ----- */
+/* ------------------ */
+.niv_bar {
+  width: 100%;
+  height: 150px;
 }
 
-.button2 {
-    height: 217px;
-    width: 579px;
-    
-    border: none;
-    border-radius: 35px; 
-    background: #7585BD;
-
-    margin-left:365px;
-    margin-top: 45px;
-    outline: none ;
+/* ----- logo ATPC bank ----- */
+.niv_bar .logo {
+  display: block;
+  float: left;
+  margin-top: 29px;
+  margin-left: 29px;
 }
 
-.button3 {
-    height: 217px;
-    width: 579px;
-    
-    border: none;
-    border-radius: 35px; 
-    background: #7585BD;
+/* ----- LOGOUT botton ----- */
+.niv_bar .btn {
+  display: block;
+  float: right;
 
-    margin-left:365px;
-    margin-top: 45px;
-    outline: none ;
+  margin-top: 51px;
+  margin-right: 50px;
+
+  width: 131px;
+  height: 41px;
+
+  background: #7585bd;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 35px;
+  border: 0px;
+
+  font-family: "Kanit";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
+  color: #f4f1ec;
+}
+/* ----- botton when hover ----- */
+.btn::before,
+.btn::after {
+  position: absolute;
+  display: block;
+  content: "";
+  transition: all 0.5s;
 }
 
-.show_name {
-     position: absolute;   
-     height: 41px;   
-     top: 51px;   
-     font-family: Kanit;   
-     font-style: normal;   
-     font-weight: normal;  
-     font-size: 24px;   
-     line-height: 36px;   
-     color: #414141; } 
+.btn:hover {
+  background-color: #e36262;
+  color: #f4f1ec;
+}
 
-/* ----- logo ATPC bank ----- */ 
-.logo {   
-      position: absolute;  
-      width: 127px;   
-      height: 127px;   
-      left: 44px;   top: 29px; 
-} 
+/* ----- user's email show here! ----- */
+.niv_bar .user_detail {
+  display: block;
+  float: right;
 
-/* ----- user's name show here! ----- */ 
-.icon {  
-      position: absolute;   
-      width: 58.36px;  
-      height: 58.36px;   
-      left: 758px;   
-      top: 43px; 
-} 
+  max-width: 350px;
+  margin-top: 51px;
+  margin-right: 5px;
 
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 36px;
 
-.show_name {   
-      position: absolute;  
-      height: 41px;   
-      top: 51px;   
-      font-family: Kanit; 
-      font-style: normal; 
-      font-weight: normal;  
-      font-size: 24px;  
-      line-height: 36px;   
-      color: #414141; 
-} 
+  color: #414141;
+}
 
-/* ----- LOGOUT botton ----- */ 
-#btn3 {   
-    position: absolute;  
-    width: 131px;   
-    height: 41px;  
-    left: 838px;  
-    top: 51px;  
-    background: #7585bd;   
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
-    border-radius: 35px;  
-    border: 0px;   
-    font-family: "Kanit";   
-    font-style: normal; 
-    font-weight: bold; 
-    font-size: 18px;   
-    line-height: 27px;  
-    color: #f4f1ec;   
-    outline: none; } 
+/* ----- user's icon show here! ----- */
+.niv_bar .icon {
+  display: block;
+  float: right;
 
-/* ----- botton when hover ----- */ 
-#btn3::before, #btn3::after {  
-    position: absolute;   
-    display: block;   
-    content: "";  
-    transition: all 0.5s; 
-} 
+  width: 58.36px;
+  height: 58.36px;
 
-#btn3:hover {   
-    background-color: #e36262;   
-    color: #f4f1ec;
- } 
+  margin-top: 43px;
+  margin-right: 20px;
+}
 
-.back #btn3:hover {   
-    background-color: #fee684;  
-    color: #7585bd; }
+/* ------------------------ */
+/* ----- Account List ----- */
+/* ------------------------ */
+.Account_list {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  height: 217px;
+  max-width: 579px;
 
+  border: none;
+  border-radius: 35px;
+  background: #7585bd;
 
-
+  left: 292px;
+  outline: none;
+}
 
 p {
-    font-family: 'Kanit';
-    color:#F4F1EC;
+  font-family: "Kanit";
+  color: #f4f1ec;
 }
 
-p.test1 {
-    font-size:36px; 
-    font-weight: 400;
+/* -- Account type -- */
+p.AccountType {
+  padding-top: 15px;
+  font-size: 36px;
+  font-weight: 400;
 
-    text-align: left; 
-    margin-left: 35px;
+  text-align: left;
+  margin-left: 35px;
 }
 
-p.test2 {
-    font-size:24px; 
-    font-weight: 400;
+/* -- Account number -- */
+p.AccountNo {
+  font-size: 24px;
+  font-weight: 400;
 
-    text-align: left; 
-    margin-left: 35px;
-
+  text-align: left;
+  margin-left: 35px;
 }
 
-p.test4 {
-    font-family: Kanit;
-    font-style: normal;
-    font-size:64px;
-    font-weight: 700;
+/* -- Balance in account -- */
+p.Amounts {
+  font-family: Kanit;
+  font-style: normal;
+  font-size: 64px;
+  font-weight: 700;
 
-    float: right; 
-    margin-right: 33px;
+  float: right;
+  margin-right: 33px;
 }
 
-span.test3 {
-    font-family: Kanit;
-    font-style: normal; 
-    font-size: 24px; 
-    font-weight: 400;
+/* -- Indicates that it is the main account -- */
+span.MainAccount {
+  font-family: Kanit;
+  font-style: normal;
+  font-size: 24px;
+  font-weight: 400;
 
-    width: 186px; 
-    height: 48px; 
-    
-    border-radius: 35px;
+  width: 186px;
+  height: 48px;
 
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-  
-    margin-left: 350px;
+  border-radius: 35px;
 
-    background: rgba(194, 204, 236, 0.5); 
-    color: #414141;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  margin-left: 350px;
+
+  background: rgba(194, 204, 236, 0.5);
+  color: #414141;
 }

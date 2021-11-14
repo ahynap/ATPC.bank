@@ -42,93 +42,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Detail</title>
-    <link rel="stylesheet" href="AccountDetail.css">
+    <link rel="stylesheet" href="AccountDetail1.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet'
+        type='text/css'>
 </head>
 
 <body>
 
-     <!-- ----- logo ATPC bank ----- --> 
+    <!-- niv -->
+    
+    <!-- ----- logo ATPC bank ----- -->
+    <div class="nav">
 
-     <div class="logo">
-       <?php
+        <div class="logo">
+            <?php
              while($row2 = mysqli_fetch_array($result2)) {
         ?>
 
-        <input type="image" src="logo_blue.png" width="127" onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row2["Email"]; ?> />  
+            <input type="image" src="logo_blue.png" width="100"
+                onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email"
+                value=<?php echo $row2["Email"]; ?> />
 
-        <?php
+            <?php
             }
         ?>
-     </div>
+        </div>
 
-    <!-- ----- User's name show here! ----- -->
+        <!-- ----- logout button ----- -->
+        <button type="submit" class="btn" onclick="window.location.href='../login_client/login_client.php'"> LOG OUT
+        </button>
 
-    <?php
+        <!-- --- user's icon show here! --- -->
+        <img src="picture/client_icon.png" width=58.36 class="icon">
+
+        <!-- --- user's email show here! --- -->
+        <?php
         while($row = mysqli_fetch_array($result)) {
     ?>
-             <span class="show_name" href="#" style="width: 350px; left: 450px; text-align: center"><?php echo $row["Email"]; ?></span>
+        <span class="user_detail" href="#"><?php echo $row["Email"]; ?></span>
 
-    <?php 
+        <?php 
          }
     ?>
 
-    <img src="picture/client_icon.png" width=58.36 class="icon"> 
-
-    <!-- ----- logout button ----- --> 
-    <button type="submit" class="btn"onclick="window.location.href='../login_client/login_client.php'"> LOG OUT </button>
-
-    <!-- ----- logo ATPC bank ----- --> 
-    <div class="back">
-        <button type="submit" class="btn"  onclick="window.location.href='../Account_List/AccountList.php'" name="Email" value=<?php echo $row2["Email"]; ?> > BACK </button>
     </div>
 
-    <!--------  Account Detail  -------->
-    
-    <p class="detail" ">DETAIL</p>
+    <!-- ----- back button ----- -->
+    <div class="back">
+        <button type="submit" class="btn" onclick="window.location.href='../Account_List/AccountList.php'" name="Email"
+            value=<?php echo $row2["Email"]; ?>> BACK </button>
+    </div>
+
+    <!-- header text -->
+    <p class="header_txt">DETAIL</p>
 
     <?php
         while($row3 = mysqli_fetch_array($result3)) {
     ?>
 
-     <div class="List">
-         <a href="#">
-             <button type="button" class="button1" style="height: 180px;">
-                 <div class="row">
-                     <div class="col-6"> 
-		     <br>
-                     <p class="test2" style="width: 300px;"><?php echo $row3["AccountType"]; ?></p>
-                     <p class="test2"><?php echo $row3["AccountNo"]; ?></p>
+    <!-------- Account Detail  -------->
+    <button type="button" class="Account">
+        <div class="row">
+            <div class="col-6">
+                <br>
+                <!-- Account type  -->
+                <p class="AccountDetail"><?php echo $row3["AccountType"]; ?></p>
 
-                     </div>
- 
-    <?php 
+                <!-- Account number -->
+                <p class="AccountDetail"><?php echo $row3["AccountNo"]; ?></p>
+
+            </div>
+            <?php 
          }
     ?>
-                         
 
-    <?php
+            <?php
         while($row4 = mysqli_fetch_array($result4)) {
     ?>
-                     <div class="col-6" style="float: right; margin-right: 20px;">
-                         <p class="test4" style="font-size: 48px;"><?php echo $row4["Balance"]; ?></p>
-                     </div>
-                 </div>
-             </button>
-         </a>
-     </div>
+            <!-- Account balance -->
+            <div class="col-6-balance">
+                <p class="Balance"><?php echo $row4["Balance"]; ?></p>
+            </div>
+        </div>
+    </button>
+
 
     <?php 
          }
     ?>
-              
-      
-     <!--------  History Transactions -------->
 
-     <p class="Lastest_Transactions">Lastest Transactions</p>
-
+    <!--------  History Transactions -------->
+    <p class="Lastest_Transactions">Lastest Transactions</p>
 
     <?php
 
@@ -138,59 +144,61 @@
 
      ?>
 
-        <div class="List2">
-         <a href="#">
-             <button type="button" class="TransactionsButton1" style="height: 160px;">
-                 <div class="row">
-                     <div class="col-6">
-                         <p class="test5">TO : <?php echo $row5["DestinationAccountNo"]; ?></p>
-                         <p class="test5" style="font-size: 20px;"><?php echo $row5["DayTime"]; ?></p>
-                     </div>
-                     
-                     <div class="col-6">
-                         <p class="test8" style="color: red;"><?php echo $row5["Amount"]; ?>&nbsp; &nbsp; THB</p>
-                         <p class="signal" style="color: red;">-</p>
-                     </div>
-                 </div>
-             </button>
-         </a>
-     </div>
+    <!-------- Lastest Transactions List -------->
+    <button type="button" class="TransactionsButton1">
+        <div class="row">
+            <div class="col-6">
 
-     <?php
+                <!-- Destination Account Number -->
+                <p class="AccountNo">TO : <?php echo $row5["DestinationAccountNo"]; ?></p>
+
+                <!-- Transaction day and time -->
+                <p class="DayTime"><?php echo $row5["DayTime"]; ?></p>
+            </div>
+
+            <div class="col-6">
+
+                <!-------- Amount in Lastest Transactions -------->
+                <p class="Amounts" style="color: red;"><?php echo $row5["Amount"]; ?>&nbsp; &nbsp; THB</p>
+
+                <!-- Inward and outward transfer mark -->
+                <p class="signal" style="color: red;">-</p>
+            </div>
+        </div>
+    </button>
+
+    <?php
 
          } else if($row5['DestinationAccountNo'] == $AccountNo){
       ?>
 
-             <div class="List2">
-         <a href="#">
-             <button type="button" class="TransactionsButton1" style="height: 160px;">
-                 <div class="row">
-                     <div class="col-6">
-                         <p class="test5"> FROM : <?php echo $row5["AccountNo"]; ?></p>
-                         <p class="test5" style="font-size: 20px;"><?php echo $row5["DayTime"]; ?></p>
-                     </div>
-                     
-                     <div class="col-6">
-                         <p class="test8" style="color: green;"><?php echo $row5["Amount"]; ?>&nbsp; &nbsp; THB</p>
-                         <p class="signal" style="color: green;">+</p>
-                     </div>
-                 </div>
-             </button>
-         </a>
-     </div>
+    <button type="button" class="TransactionsButton1" style="height: 160px;">
+        <div class="row">
+            <div class="col-6">
 
+                <!-- Source account -->
+                <p class="AccountNo"> FROM : <?php echo $row5["AccountNo"]; ?></p>
 
-     <?php
+                <!-- Transaction day and time -->
+                <p class="DayTime"><?php echo $row5["DayTime"]; ?></p>
+            </div>
+
+            <div class="col-6">
+                <p class="Amounts" style="color: green;"><?php echo $row5["Amount"]; ?>&nbsp; &nbsp; THB</p> 
+                <p class="signal" style="color: green;">+</p>
+            </div>
+        </div>
+    </button>
+
+    <?php
          }
          $i++;
      }
        
      ?>
-   
 
 </body>
 
 <?php
     mysqli_close($conn); 
 ?>
-
