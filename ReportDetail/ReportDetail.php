@@ -15,17 +15,7 @@
 
     $result2 = mysqli_query($conn,"SELECT * FROM staffaccount WHERE Email = '$Email'");
 
-    $result3 = mysqli_query($conn,"SELECT * FROM accountno
-         JOIN account
-           ON accountno.AccountID = account.AccountID
-         WHERE accountno.AccountNo = '$AccountNo'");
-
-    $result4 = mysqli_query($conn,"SELECT * FROM accountnoinfo
-         JOIN accountno
-           ON accountnoinfo.AccountNo = accountno.AccountNo
-         JOIN account
-           ON accountno.AccountID = account.AccountID
-        WHERE accountno.AccountNo = '$AccountNo'");
+    $result4 = mysqli_query($conn,"SELECT * FROM accountnoinfo WHERE AccountNo = '$AccountNo'");
 
     $result5 = mysqli_query($conn,"SELECT * FROM transferhistory WHERE AccountNo = '$AccountNo' OR DestinationAccountNo = '$AccountNo' ORDER BY DayTime DESC"); 
 
@@ -102,12 +92,11 @@
                         <div class="account_type">
                             <label><?php echo $row4["AccountType"]; ?> </label>
                         </div>
-
-                        <?php while($row3 = mysqli_fetch_array($result3)) { ?>
+                      
                         <!-- ----- account_number ----- --> 
                         <div class="account_number">
-                            <label><?php echo $row3["AccountNo"]; ?> </label>
-                        </div> <?php } ?>
+                            <label><?php echo $row4["AccountNo"]; ?> </label>
+                        </div> 
 
                         <!-- ----- balance ----- -->
                         <div class="balance">
