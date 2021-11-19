@@ -52,8 +52,10 @@
     <div class="niv_bar">
 
         <!-- ----- logo ATPC bank ----- -->
-        <div class="logo">
-            <input type="image" src="logo_blue.png" width="100">
+        <div class="logo"> 
+
+            <input type="image" src="logo_blue.png" width="100" onclick="window.location.href='../MainAccount/mainAccount.php'" ?>
+            
         </div>
 
         <!-- ----- logout button ----- -->
@@ -97,7 +99,7 @@
                 <div class="col-6">
 
                     <!-- Account type -->
-                    <p class="AccountType"><?php echo $row4[5]; ?></p>
+                    <p class="AccountType"><?php echo $row4[1]; ?></p>
 
                     <!-- Account number -->
                     <p class="AccountNo"><?php echo $row4[0]; ?></p>
@@ -120,7 +122,7 @@
                 <div class="col-6" style="margin-bottom: 11px;">
 
                     <!-- Balance in account -->
-                    <p class="Amounts"><?php echo $row4[4]; ?></p>
+                    <p class="Amounts"><?php echo $row4[5]; ?></p>
                 </div>
             </div>
         </button>

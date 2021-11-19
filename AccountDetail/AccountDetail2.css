@@ -296,7 +296,6 @@ p.DayTime {
 
 /* -- Amount in Lastest Transactions -- */
 p.Amounts {
-  width: 147px;
   height: 45px;
 
   font-family: Kanit;
@@ -329,5 +328,6 @@ p.signal,
 p.Amounts{
   display: inline-flex;
   margin-top: -10px;
+  margin-right: 20px;
 }
 

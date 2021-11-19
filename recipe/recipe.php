@@ -9,6 +9,8 @@
 
     $AccountNo = $_SESSION['AccountNo'];
     $DestinationAccountNo = $_SESSION['DestinationAccountNo']; 
+    $BankName = $_SESSION['BankName'];
+    $Amount = $_SESSION['Amount'];
 
     $result3 = mysqli_query($conn,"SELECT * FROM account
          JOIN accountno
@@ -31,6 +33,8 @@
          JOIN accountnoinfo
            ON accountnoinfo.AccountNo = transferhistory.DestinationAccountNo
          WHERE accountnoinfo.AccountNo = '$DestinationAccountNo' ORDER BY transferhistory.DayTime DESC LIMIT 1");
+
+
 ?>
 
 <!DOCTYPE html>
@@ -115,6 +119,10 @@
                 <img src="logo_black.png" width=127> 
                 <br>SUCCESS
             </div>
+    
+     <?php
+        if($BankName == "ATPCBank"){
+     ?>
 
             <!-- ----- ref and date ----- -->
             <div class="date">
@@ -165,6 +173,59 @@
         <?php
             }
         ?>
+
+    <?php
+        } else {
+    ?>
+
+             <!-- ----- ref and date ----- -->
+            <div class="date">
+                <?php while($row = mysqli_fetch_array($result)) { ?> <?php echo "REF #" . $row["TransferID"]; ?>       
+                <br>
+                <?php echo $row["DayTime"]; ?>
+            </div>
+
+            <div class="line_dot">
+                - - - - - - - - - - - - - - - - - - -
+            </div>
+
+            <div class="info">
+            <!-- ----- from ----- -->
+                FROM
+                <div class="righthand">
+                    <?php echo $row["Name"]. " " . $row["SurName"]; ?>
+                    <br>
+                    <?php echo $row["AccountNo"]; ?>
+                </div> <?php } ?>
+
+            <!-- ----- to ----- -->
+                <br>
+                TO
+                <div class="righthand">
+                    <?php echo "Other Bank Account"; ?>
+                    <br>
+                    <?php echo $DestinationAccountNo; ?>
+                </div>
+            </div>
+
+            <div class="line_dot">
+                <br><br> - - - - - - - - - - - - - - - - - - -
+            </div>
+
+            <!-- ----- Amount ----- -->
+            <div class="amount">
+                AMOUNT
+            </div>
+
+            <div class="righthand">
+                <?php echo $Amount . " THB"; ?>
+            </div>
+        </div>
+
+        <?php
+            }
+        ?>
+
 
         <!-- ----- DONE Button ----- -->
         <div class="ok_btn" id="non-printable">

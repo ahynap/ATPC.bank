@@ -16,7 +16,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Change Password successfully</title>
-    <link rel="stylesheet" href="success.css" />
+    <link rel="stylesheet" href="success1.css" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin" rel="stylesheet"
@@ -29,7 +29,7 @@
 
         <!-- ----- logo ATPC bank ----- -->
         <div class="logo">
-            <input type="image" src="logo_blue.png" width="100" />
+            <input type="image" src="logo_blue.png" width="100" onclick="window.location.href='../MainAccount/mainAccount.php'" ?>
         </div>
 
         <!-- ----- logout button ----- -->
@@ -54,7 +54,7 @@
         <form>
             
             <!---- Message notification ---->
-            <p class="message">Your password changed successfully.</p>
+            <p class="message">Your name or password changed successfully.</p>
             <br />
         </form>
     </div>

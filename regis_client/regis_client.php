@@ -26,7 +26,7 @@
     
     <!---- Error Alert ----> 
 
-     <form action="regis_client_insert.php" method="post">
+    <form action="regis_client_insert.php" method="post">
         <?php if (isset($_SESSION['error'])) : ?>
             <div class="error">
                 <h3>

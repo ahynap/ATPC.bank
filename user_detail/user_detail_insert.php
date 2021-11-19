@@ -38,7 +38,7 @@
           $updateResult2 = "UPDATE account SET SurName = '$SurName' WHERE Email = '$Email'";
           mysqli_query($conn, $updateResult2);
 
-          header("location: ../MainAccount/mainAccount.php");
+          header("location: success.php");
   
         } else {
   

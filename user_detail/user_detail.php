@@ -49,7 +49,7 @@
 
         <!-- ----- logo ATPC bank ----- -->
         <div class="logo">
-            <input type="image" src="logo_blue.png" width="100" />
+            <input type="image" src="logo_blue.png" width="100" onclick="window.location.href='../MainAccount/mainAccount.php'" ?>
         </div>
 
         <!-- ----- logout button ----- -->

@@ -15,7 +15,6 @@
         $DepositorName = mysqli_real_escape_string($conn, $_POST['DepositorName']);
         $DepositorSurName = mysqli_real_escape_string($conn, $_POST['DepositorSurName']); 
         $BranchName = mysqli_real_escape_string($conn, $_POST['BranchName']);
-        $AccountType = mysqli_real_escape_string($conn, $_POST['AccountType']);
         $Email = mysqli_real_escape_string($conn, $_POST['Email']);
     
          /* Check Fill Required */
@@ -37,11 +36,6 @@
         if (empty($BranchName)) {
             array_push($errors, "Branch Name is required !");
             $_SESSION['error'] = "Branch Name is required !";
-        }
-
-        if (empty($AccountType)) {
-            array_push($errors, "Account Type is required !");
-            $_SESSION['error'] = "Account Type is required !";
         }
 
         if (empty($Email)) {
@@ -87,6 +81,16 @@
                 header("location: connect_account.php");
             }
 
+        $check_query4 = "SELECT * FROM accountnoinfo WHERE AccountNo = '$AccountNo'";
+        $query4 = mysqli_query($conn, $check_query4);
+        $result4 = mysqli_fetch_assoc($query4);
+
+            if ($result4['AccountType'] != "Savings") {
+                array_push($errors, "Your first account should be 'Savings'");
+                $_SESSION['error'] = "Your first account should be 'Savings'";
+                header("location: connect_account.php");
+            }
+
         /* Connect Account (Add Account 1st time) */
                 
         if (count($errors) == 0) {
@@ -107,8 +111,8 @@
             if ($count == "0") {
 
                  $insert_moneyaccount = "
-                 INSERT INTO accountno (AccountNo, BranchName, AccountType, AccountID, MainAccount)
-                 VALUES ('$AccountNo','$BranchName','$AccountType', (SELECT AccountID FROM account WHERE Email = '$Email'), 'Main Account');
+                 INSERT INTO accountno (AccountNo, BranchName, AccountID, MainAccount)
+                 VALUES ('$AccountNo','$BranchName', (SELECT AccountID FROM account WHERE Email = '$Email'), 'Main Account');
             ";
             mysqli_query($conn, $insert_moneyaccount);
             $_SESSION['Email'] = $Email;
@@ -118,8 +122,8 @@
             } else if ($count != "0")  {
 
                  $sql = "
-                 INSERT INTO accountno (AccountNo, BranchName, AccountType, AccountID, MainAccount)
-                 VALUES ('$AccountNo','$BranchName','$AccountType', (SELECT AccountID FROM account WHERE Email = '$Email'), NULL);
+                 INSERT INTO accountno (AccountNo, BranchName, AccountID, MainAccount)
+                 VALUES ('$AccountNo','$BranchName', (SELECT AccountID FROM account WHERE Email = '$Email'), NULL);
             ";
                  mysqli_query($conn, $sql);
 

@@ -15,7 +15,6 @@
         $DepositorName = mysqli_real_escape_string($conn, $_POST['DepositorName']);
         $DepositorSurName = mysqli_real_escape_string($conn, $_POST['DepositorSurName']);
         $BranchName = mysqli_real_escape_string($conn, $_POST['BranchName']);
-        $AccountType = mysqli_real_escape_string($conn, $_POST['AccountType']);
         $Email = mysqli_real_escape_string($conn, $_POST['Email']);
 
          /* Check Fill Required */
@@ -37,11 +36,6 @@
         if (empty($BranchName)) {
             array_push($errors, "Branch Name is required !");
             $_SESSION['error'] = "Branch Name is required !";
-        }
-
-        if (empty($AccountType)) {
-            array_push($errors, "Account Type is required !");
-            $_SESSION['error'] = "Account Type is required !";
         }
 
         if (empty($Email)) {
@@ -103,8 +97,8 @@
              if ($count == "0") {
 
                  $sql = "
-                 INSERT INTO accountno (AccountNo, BranchName, AccountType, AccountID, MainAccount)
-                 VALUES ('$AccountNo','$BranchName','$AccountType', (SELECT AccountID FROM account WHERE Email = '$Email'), 'Main Account');
+                 INSERT INTO accountno (AccountNo, BranchName, AccountID, MainAccount)
+                 VALUES ('$AccountNo','$BranchName', (SELECT AccountID FROM account WHERE Email = '$Email'), 'Main Account');
             ";
             mysqli_query($conn, $sql);
 
@@ -114,8 +108,8 @@
             } else if ($count != "0")  {
 
                  $sql = "
-                 INSERT INTO accountno (AccountNo, BranchName, AccountType, AccountID, MainAccount)
-                 VALUES ('$AccountNo','$BranchName','$AccountType', (SELECT AccountID FROM account WHERE Email = '$Email'), NULL);
+                 INSERT INTO accountno (AccountNo, BranchName, AccountID, MainAccount)
+                 VALUES ('$AccountNo','$BranchName', (SELECT AccountID FROM account WHERE Email = '$Email'), NULL);
             ";
                  mysqli_query($conn, $sql);
 

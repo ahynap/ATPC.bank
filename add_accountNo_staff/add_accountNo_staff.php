@@ -19,7 +19,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Add Account</title>
-        <link rel="stylesheet" href="staff_add_acc.css">
+        <link rel="stylesheet" href="staff_add_acc1.css">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet' type='text/css'>
@@ -53,7 +53,7 @@
             </div>
                
             <!-- ----- logout button ----- --> 
-            <button type="submit" class="btn" onClick="this.form.action='../login_staff/login_staff.php'; submit()"> LOG OUT </button>
+            <button type="submit" class="btn" onClick="this.form.action='../login_staff/login_staff.php'; submit()"> LOGOUT </button>
         
             <div class="icon">
                 <img src="staff_icon.png" width=58.36> 
@@ -89,6 +89,11 @@
                  <select name="BankName">
                     <option value="" disabled selected>Bank Name</option>
                     <option value="ATPCBank">ATPCBank</option>
+                </select><br>
+                 <select name="AccountType">
+                    <option value="" disabled selected>Account Type</option>
+                    <option value="Savings">Savings</option>
+                    <option value="Fix Deposite">Fix Deposite</option>
                 </select>
             </div>
 

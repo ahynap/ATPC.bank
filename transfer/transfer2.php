@@ -62,9 +62,7 @@
     
         <!-- ----- logo ATPC bank ----- --> 
         <div class="logo">
-          <?php while($row = mysqli_fetch_array($result)) { ?>
-            <input type="image" src="logo_blue.png" width=127 onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row["Email"]; ?> />  <?php }
-          ?>
+            <input type="image" src="logo_blue.png" width=127 onclick="window.location.href='../MainAccount/mainAccount.php'" ?> 
         </div>
         
         <!-- ----- logout button ----- --> 
@@ -111,23 +109,23 @@
           <div class="over_blue_button">
               
             <!-- ----- blue squre button ----- --> 
-            <button type="submit" class="select_accout" onclick="window.location.href='../select_acc_trans/select_acc_trans.php'">
+            <button type="submit" class="select_accout" onClick="this.form.action='../select_acc_trans/select_acc_trans.php'; submit()">
         
               <!-- ----- detail in blue squre button ----- --> 
                   
+
+                <?php while($row5 = mysqli_fetch_array($result5)) { ?>
                 <!-- ----- account_type ----- --> 
-                <?php while($row3 = mysqli_fetch_array($result3)) { ?>
                 <div class="account_type">
-                  <label><?php echo $row3["AccountType"]; ?> </label>
+                  <label><?php echo $row5["AccountType"]; ?> </label>
                 </div>
 
+                <?php while($row3 = mysqli_fetch_array($result3)) { ?>
                 <!-- ----- account_number ----- --> 
                 <div class="account_number">
                   <label><?php echo $row3["AccountNo"]; ?> </label>
                 </div> <?php } ?>
                     
-                <?php while($row5 = mysqli_fetch_array($result5)) { ?>
-
                 <!-- ----- balance ----- --> 
                 <div class="balance">
                   <label> <?php echo $row5["Balance"]; ?> </label>

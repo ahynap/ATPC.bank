@@ -58,7 +58,8 @@
 
         <!-- ----- logo ATPC bank ----- --> 
         <div class="logo">
-            <input type="image" src="logo_blue.png" width="100">  
+             <input type="image" src="logo_blue.png" width=100 onclick="window.location.href='../mode_staff/mode_staff.php'"/>       
+        
         </div>
 
         <!-- ----- logout button ----- --> 
@@ -70,7 +71,9 @@
 
         <!-- ----- User's name show here! ----- -->
         <div class="user_detail">
-            email
+             <?php while($row = mysqli_fetch_array($result)) { ?>
+                    <span class="show_name" href="#" style="width: 350px; left: 450px; text-align: center"><?php echo $row["Email"]; ?></span> <?php }
+           ?>
         </div>
 
         <!-- ----- BACK ----- --> 
@@ -95,18 +98,18 @@
                     <!-- ----- detail in blue squre button ----- --> 
                             
                         <!-- ----- account_type ----- --> 
-                        <?php while($row3 = mysqli_fetch_array($result3)) { ?>
+                         <?php while($row4 = mysqli_fetch_array($result4)) {?>
                         <div class="account_type">
-                            <label><?php echo $row3["AccountType"]; ?> </label>
+                            <label><?php echo $row4["AccountType"]; ?> </label>
                         </div>
 
+                        <?php while($row3 = mysqli_fetch_array($result3)) { ?>
                         <!-- ----- account_number ----- --> 
                         <div class="account_number">
                             <label><?php echo $row3["AccountNo"]; ?> </label>
                         </div> <?php } ?>
 
-                        <!-- ----- balance ----- --> 
-                        <?php while($row4 = mysqli_fetch_array($result4)) {?>
+                        <!-- ----- balance ----- -->
                         <div class="balance">
                             <label> <?php echo $row4["Balance"]; ?> </label>
                         </div> <?php } ?>

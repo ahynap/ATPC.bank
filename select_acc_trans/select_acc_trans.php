@@ -13,7 +13,7 @@
       $result2 =  "SELECT * FROM accountno 
          JOIN account
            ON accountno.AccountID = account.AccountID
-          WHERE account.Email = '$Email' AND accountno.AccountType = 'Savings'";
+          WHERE account.Email = '$Email'";
 
 
     $result2 = "SELECT * FROM accountnoinfo
@@ -21,7 +21,7 @@
             ON accountnoinfo.AccountNo = accountno.AccountNo
           JOIN account
             ON accountno.AccountID = account.AccountID
-          WHERE account.Email = '$Email' AND accountno.AccountType = 'Savings'";
+          WHERE account.Email = '$Email' AND accountnoinfo.AccountType = 'Savings'";
 
     $result4 =  mysqli_query($conn,"SELECT * FROM accountno WHERE MainAccount = 'Main Account'");
     $getResult4 = mysqli_fetch_assoc($result4);
@@ -96,7 +96,7 @@
         <!-- ----- in blue squre box detail ----- --> 
           <!-- ----- account_type ----- --> 
             <div class="account_type">
-              <label> <?php echo $row4[5]; ?></label>
+              <label> <?php echo $row4[1]; ?></label>
             </div>
 
           <!-- ----- account_number ----- --> 
@@ -106,7 +106,7 @@
 
           <!-- ----- balance ----- --> 
             <div class="balance">
-              <label><?php echo $row4[4]; ?></label>
+              <label><?php echo $row4[5]; ?></label>
             </div>
                 
             <!-- ----- if this account is MAIN ACCOUNT please show this section ----- --> 

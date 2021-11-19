@@ -85,10 +85,6 @@
                 <input type="text" placeholder="Branch Name" name="BranchName"><br>
                 <input type="text" placeholder="Email" name="Email" /> <br>
 
-                <select name="AccountType">
-                    <option value="" disabled selected>Type of Account</option>
-                    <option value="Savings">Savings</option>
-                </select>
             </div>
 
             <!-- ----- Connect Account to ATPC Bank  ----- --> 

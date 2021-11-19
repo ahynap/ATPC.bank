@@ -58,7 +58,7 @@
             <!-- ----- logo ATPC bank ----- --> 
             <div class="logo">
                 <?php while($row4 = mysqli_fetch_array($result4)) { ?>
-                    <input type="image" src="logo_blue.png" width="100"  onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row4["Email"]; ?> />   <?php }
+                    <input type="image" src="logo_blue.png" width="100" onclick="window.location.href='../MainAccount/mainAccount.php'" name="Email" value=<?php echo $row4["Email"]; ?> />   <?php }
                 ?>
             </div>
 
@@ -105,22 +105,21 @@
                 <div class="over_blue_button">
 
                     <!-- ----- blue squre button ----- --> 
-                    <button type="submit" class="select_accout" onclick="window.location.href='../select_acc_trans/select_acc_trans.php'">
+                    <button type="submit" class="select_accout" onClick="this.form.action='../select_acc_trans/select_acc_trans.php'; submit()">
 
                         <!-- ----- detail in blue squre button ----- --> 
                                 
+                            <?php while($row2 = mysqli_fetch_array($result2)) {?>
                             <!-- ----- account_type ----- --> 
-                            <?php while($row = mysqli_fetch_array($result)) { ?>
                             <div class="account_type">
-                                <label><?php echo $row["AccountType"]; ?> </label>
+                                <label><?php echo $row2["AccountType"]; ?> </label>
                             </div>
 
+                            <?php while($row = mysqli_fetch_array($result)) { ?>
                             <!-- ----- account_number ----- --> 
                             <div class="account_number">
                                 <label><?php echo $row["AccountNo"]; ?> </label>
                             </div> <?php } ?>
-
-                            <?php while($row2 = mysqli_fetch_array($result2)) {?>
 
                             <!-- ----- balance ----- --> 
                             <div class="balance">

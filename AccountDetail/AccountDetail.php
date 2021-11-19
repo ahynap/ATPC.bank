@@ -30,6 +30,14 @@
            ON accountno.AccountID = account.AccountID
         WHERE accountno.AccountNo = '$AccountNo'");
 
+     $result6 = mysqli_query($conn,"SELECT * FROM accountnoinfo
+         JOIN accountno
+           ON accountnoinfo.AccountNo = accountno.AccountNo
+         JOIN account
+           ON accountno.AccountID = account.AccountID
+        WHERE accountno.AccountNo = '$AccountNo'");
+
+
     $result5 = mysqli_query($conn,"SELECT * FROM transferhistory WHERE AccountNo = '$AccountNo' OR DestinationAccountNo = '$AccountNo' ORDER BY DayTime DESC"); 
 
 
@@ -42,7 +50,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Detail</title>
-    <link rel="stylesheet" href="AccountDetail1.css">
+    <link rel="stylesheet" href="AccountDetail2.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Kanit:400,300&subset=thai,latin' rel='stylesheet'
@@ -99,7 +107,7 @@
     <p class="header_txt">DETAIL</p>
 
     <?php
-        while($row3 = mysqli_fetch_array($result3)) {
+        while($row6 = mysqli_fetch_array($result6)) {
     ?>
 
     <!-------- Account Detail  -------->
@@ -108,17 +116,24 @@
             <div class="col-6">
                 <br>
                 <!-- Account type  -->
-                <p class="AccountDetail"><?php echo $row3["AccountType"]; ?></p>
+                <p class="AccountDetail"><?php echo $row6["AccountType"]; ?></p>
+    <?php 
+         }
+    ?>
 
+
+     <?php
+        while($row3 = mysqli_fetch_array($result3)) {
+     ?>
                 <!-- Account number -->
                 <p class="AccountDetail"><?php echo $row3["AccountNo"]; ?></p>
 
             </div>
-            <?php 
-         }
-    ?>
+      <?php 
+      }
+      ?>
 
-            <?php
+    <?php
         while($row4 = mysqli_fetch_array($result4)) {
     ?>
             <!-- Account balance -->

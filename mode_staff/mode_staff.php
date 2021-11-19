@@ -4,6 +4,7 @@
     include('..\server\server.php'); 
 
     $Email = $_SESSION['Email'];
+    $result = mysqli_query($conn,"SELECT * FROM staffaccount WHERE Email = '$Email'");
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +30,7 @@
         </div>
 
         <!-- ----- logout button ----- --> 
-        <button type="submit" class="btn" onClick="this.form.action='../login_staff/login_staff.php'; submit()"> LOGOUT </button>
+        <button type="submit" class="btn" onclick="window.location.href='../login_staff/login_staff.php'"> LOGOUT </button>
 
         <div class="icon">
             <img src="staff_icon.png" width=58.36> 
@@ -37,7 +38,9 @@
 
         <!-- ----- User's name show here! ----- -->
         <div class="user_detail">
-            email
+                <?php while($row = mysqli_fetch_array($result)) { ?>
+                    <span class="show_name" href="#" style="width: 350px; left: 450px; text-align: center"><?php echo $row["Email"]; ?></span> <?php }
+                ?>
         </div>
     </div>
 

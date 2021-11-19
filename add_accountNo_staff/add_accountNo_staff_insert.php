@@ -18,6 +18,7 @@
         $SurName = mysqli_real_escape_string($conn, $_POST['SurName']);
         $BankName = mysqli_real_escape_string($conn, $_POST['BankName']);
         $Balance = mysqli_real_escape_string($conn, $_POST['Balance']);
+        $AccountType = mysqli_real_escape_string($conn, $_POST['AccountType']);
 
 
          /* Check Fill Required */
@@ -47,6 +48,11 @@
             $_SESSION['error'] = "Balance is required";
         }
 
+        if (empty($AccountType)) {
+            array_push($errors, "Account type is required");
+            $_SESSION['error'] = "Account type is required";
+        }
+
 
         /* Check Account Number */
 
@@ -64,8 +70,8 @@
     
             if (count($errors) == 0)  {
                  $sql = "
-                 INSERT INTO accountnoinfo (AccountNo,Name,SurName,BankName,Balance)
-                 VALUES ('$AccountNo','$Name','$SurName','$BankName','$Balance');
+                 INSERT INTO accountnoinfo (AccountNo,Name,SurName,BankName,Balance,AccountType)
+                 VALUES ('$AccountNo','$Name','$SurName','$BankName','$Balance','$AccountType');
             ";
                  mysqli_query($conn, $sql);
 

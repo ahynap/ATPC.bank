@@ -64,6 +64,8 @@
 
                      $_SESSION['AccountNo'] = $AccountNo;
                      $_SESSION['DestinationAccountNo'] = $DestinationAccountNo;
+                     $_SESSION['BankName'] = $BankName;
+                     $_SESSION['Amount'] = $Amount;
 
                     header("location: ../recipe/recipe.php");
   
@@ -89,6 +91,13 @@
                 $updateResult5 = "INSERT INTO transferhistory (AccountNo, BankName, DestinationAccountNo, Amount)
                  VALUES ('$AccountNo', '$BankName', '$DestinationAccountNo' ,'$Amount')";
                 mysqli_query($conn, $updateResult5);
+
+                $_SESSION['AccountNo'] = $AccountNo;
+                $_SESSION['DestinationAccountNo'] = $DestinationAccountNo;
+                $_SESSION['BankName'] = $BankName;
+                $_SESSION['Amount'] = $Amount;
+
+                header("location: ../recipe/recipe.php");
           }
      
         } else {
