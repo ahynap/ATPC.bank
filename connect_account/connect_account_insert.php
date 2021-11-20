@@ -81,6 +81,8 @@
                 header("location: connect_account.php");
             }
 
+        /* Check Add 1st Money Account Should be Type Savings Only ! */
+
         $check_query4 = "SELECT * FROM accountnoinfo WHERE AccountNo = '$AccountNo'";
         $query4 = mysqli_query($conn, $check_query4);
         $result4 = mysqli_fetch_assoc($query4);
@@ -91,7 +93,7 @@
                 header("location: connect_account.php");
             }
 
-        /* Connect Account (Add Account 1st time) */
+        /* Connect Account (Add Money Account 1st time) */
                 
         if (count($errors) == 0) {
 
@@ -106,7 +108,7 @@
              $count = mysqli_num_rows($getresult3);
              echo $count;
 
-             /* Case 1 : Connect 1st Account Number */
+             /* Case 1 : Connect 1st Money Account Number */
 
             if ($count == "0") {
 
@@ -117,7 +119,7 @@
             mysqli_query($conn, $insert_moneyaccount);
             $_SESSION['Email'] = $Email;
         
-             /* Case 2 : Connect next Account Number */
+             /* Case 2 : Connect next Money Account Number */
         
             } else if ($count != "0")  {
 

@@ -9,7 +9,7 @@
 
     if (isset($_POST['reg_user'])) {
 
-         /* Get Data */
+        /* Get Data */
 
         $StaffID = mysqli_real_escape_string($conn, $_POST['StaffID']);
         $Email = mysqli_real_escape_string($conn, $_POST['Email']);
@@ -108,7 +108,7 @@
 
                              $mail->setFrom('atpc.companyinternational@gmail.com', 'AT PC'); 
 
-                            /* Recipient GMAIL Username */
+                             /* Recipient GMAIL Username */
                              $mail->addAddress($Email);
 
                              $mail->Subject = 'Thank you for join us !';

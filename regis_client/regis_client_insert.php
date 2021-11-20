@@ -47,10 +47,8 @@
         
         /* Insert Client Account */
 
- 
         if (count($errors) == 0) {
 
-     
           	/* Check Email Format */
      
             if(filter_var($Email, FILTER_VALIDATE_EMAIL)) {
@@ -77,15 +75,15 @@
  
        		 $mail = new PHPMailer;
  	
-             $mail->IsSMTP();
+           $mail->IsSMTP();
 
-             /* Sets GMAIL as The SMTP Server */
+           /* Sets GMAIL as The SMTP Server */
         	 $mail->Host = 'smtp.gmail.com';
 
        		 /* Enable SMTP Authentication */
        		 $mail->SMTPAuth = true;            
 
-       	     /* Sender GMAIL Username */
+       	   /* Sender GMAIL Username */
        		 $mail->Username = "atpc.companyinternational@gmail.com";
 
        		 /* Sender GMAIL Password */
@@ -96,16 +94,16 @@
         	 /* Set The SMTP Port For The  GMAIL Server */
        		 $mail->Port = 587;
 
-      	     $mail->setFrom('atpc.companyinternational@gmail.com', 'AT PC'); 
+      	   $mail->setFrom('atpc.companyinternational@gmail.com', 'AT PC'); 
 
        		 /* Recipient GMAIL Username */
        		 $mail->addAddress($Email);
 
-      	     $mail->Subject = 'Thank you for join us !';
+      	   $mail->Subject = 'Thank you for join us !';
 
        		 $mail->IsHTML(true);
 
-      	     $mail->Body = 'THANK YOU FOR JOINING ATPC BANK !';
+      	   $mail->Body = 'THANK YOU FOR JOINING ATPC BANK !';
 
    		 /* Send Success */
  

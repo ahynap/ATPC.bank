@@ -1,11 +1,14 @@
 <?php
 
+    /* Connect Database */ 
+
     session_start();
     include('..\server\server.php');
 
+    /* Use Email Session to Access Data from Database for Display 'Username' */ 
+
     $Email = $_SESSION['Email'];
-    $result2 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email' ");
-    $result3 = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email' ");
+    $result = mysqli_query($conn,"SELECT * FROM account WHERE Email = '$Email' ");
 ?>
 
 <!DOCTYPE html>
@@ -42,9 +45,9 @@
 
         <!-- ----- User's name show here! ----- -->
         <div class="user_detail">
-            <?php while($row3 = mysqli_fetch_array($result3)) { ?>
+            <?php while($row = mysqli_fetch_array($result)) { ?>
             <span class="show_name" href="#"
-                style="width: 350px; left: 450px; text-align: center"><?php echo $row3["Email"]; ?></span> <?php }
+                style="width: 350px; left: 450px; text-align: center"><?php echo $row["Email"]; ?></span> <?php }
 ?>
         </div>
     </div>

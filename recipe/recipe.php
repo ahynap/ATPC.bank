@@ -119,6 +119,8 @@
                 <img src="logo_black.png" width=127> 
                 <br>SUCCESS
             </div>
+
+     <!-- -----CASE 1 : Destination Account is ATPCBank ----- -->
     
      <?php
         if($BankName == "ATPCBank"){
@@ -173,6 +175,9 @@
         <?php
             }
         ?>
+
+
+    <!-- -----CASE 2 : Destination Account is NOT ATPCBank ----- -->
 
     <?php
         } else {

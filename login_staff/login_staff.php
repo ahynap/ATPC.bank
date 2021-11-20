@@ -1,5 +1,7 @@
 <?php
+
     /* Connect Database */
+    
     session_start();
     include('..\server\server.php'); 
 ?>

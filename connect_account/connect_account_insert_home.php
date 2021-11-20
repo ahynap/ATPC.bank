@@ -78,11 +78,11 @@
                 header("location: connect_account.php");
             }
 
-        /* Connect Account (Add Account next time) */
+        /* Connect Account (Add Money Account next time) */
                 
         if (count($errors) == 0) {
 
-        /* Connect next Account Number form Home Page */
+        /* Connect next Money Account Number form Home Page */
 
              $result3 = "SELECT AccountNo FROM accountno
              JOIN account
