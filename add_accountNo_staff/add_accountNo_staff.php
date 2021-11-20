@@ -94,7 +94,7 @@
                  <select name="AccountType">
                     <option value="" disabled selected>Account Type</option>
                     <option value="Savings">Savings</option>
-                    <option value="Fix Deposite">Fix Deposite</option>
+                    <option value="Fix Deposit">Fix Deposit</option>
                 </select>
             </div>
 
